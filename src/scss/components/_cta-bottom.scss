@@ -1,0 +1,59 @@
+.cta-bottom {
+  padding: 9.3rem 0;
+  &__container {
+    display: flex;
+    gap: 2rem;
+  }
+
+  &__title {
+    margin-bottom: 5rem;
+  }
+
+  &__decor {
+    position: relative;
+    flex-basis: 83rem;
+    flex-shrink: 0;
+    border-radius: 1rem;
+    overflow: hidden;
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    padding: 6.5rem 8rem 8rem;
+    background-color: var(--ac-white);
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  &__decor {
+    img {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      max-width: 100%; // Адаптируем под новое изображение
+      height: auto;
+    }
+  }
+
+  .form {
+    gap: 2rem;
+  }
+  .form__row {
+    & > *:nth-child(1) {
+      flex-basis: 41.6rem;
+    }
+  }
+  .form__field-wrapper--area {
+    height: 16rem;
+  }
+  .cta-extra {
+    margin-top: -0.7rem;
+  }
+}

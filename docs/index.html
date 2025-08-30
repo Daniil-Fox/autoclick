@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#111111">
+  <title>Autoclick</title>
+  <link rel="preload" href="fonts/Ubuntu-Light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Ubuntu-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Ubuntu-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Ubuntu-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/vendor.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script defer src="js/main.js"></script>
+</head>
+
+
+<body class="page__body">
+  <div class="site-container">
+    <header class="header">
+  <div class="container">
+    <div class="header__container">
+      <a href="#" class="logo header__logo">
+        <img src="./img/svg/logo.svg" width="50" height="26" alt="logo">
+        <span>автоклик</span>
+      </a>
+
+      <nav class="nav header__nav">
+        <ul>
+          <li>
+            <a href="#">В2В</a>
+          </li>
+          <li>
+            <a href="#">Контакты</a>
+          </li>
+          <li>
+            <a href="#">Юридическая информация</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a href="#" class="header__lk">
+          <span>Личный кабинет</span>
+          <img src="./img/svg/lk.svg" width="30" height="30" alt="lk">
+        </a>
+
+        <button class="burger" data-burger aria-label="Открыть меню" aria-expanded="false">
+          <span class="burger__line"></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" data-menu>
+  <div class="mobile-menu__overlay" data-menu-overlay></div>
+  <div class="mobile-menu__content">
+
+    <nav class="mobile-menu__nav">
+      <ul>
+        <li><a href="#" data-menu-item>В2В</a></li>
+        <li><a href="#" data-menu-item>Контакты</a></li>
+        <li><a href="#" data-menu-item>Юридическая информация</a></li>
+      </ul>
+    </nav>
+
+    <button class="mobile-menu__cta btn btn-reset" data-menu-item>
+      Оставить заявку
+    </button>
+  </div>
+</div>
+
+  </div>
+
+</header>
+
+    <main class="main">
+      <section class="hero">
+  <div class="hero__cover">
+    <picture>
+      <source srcset="./img/hero-mob.webp" media="(max-width: 600px)" type="image/webp">
+      <img loading="lazy" src="./img/hero.webp" class="image" width="1920" height="1000" aria-hidden="true" alt="">
+    </picture>
+  </div>
+  <div class="hero__video">
+    <video src="./cover.mp4"></video>
+  </div>
+  <button class="btn-reset hero__play">
+    <svg class="">
+      <use xlink:href="img/sprite.svg#play"></use>
+    </svg>
+  </button>
+  <div class="container">
+    <div class="hero__container">
+      <h1 class="title1 hero__title">
+        Авто с&nbsp;Китая<br>
+        до&nbsp;вашего дома в&nbsp;один клик
+      </h1>
+      <button class="btn-reset hero__btn btn">
+        Оставить заявку
+      </button>
+
+    </div>
+  </div>
+</section>
+
+      <section class="benefits">
+  <div class="container">
+    <h2 class="title2 benefits__title centered">Преимущества</h2>
+
+  </div>
+  <div class="benefits__slider swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="benefits__item ben">
+          <div class="ben__content ben__content_pc">
+            <p class="ben__capture capture1">1 клик — и авто оформлено онлайн</p>
+            <div class="ben__desc desc1">
+              Уникальная система покупки в&nbsp;один клик: загрузка всех документов онлайн, не&nbsp;нужно никуда ходить
+              и&nbsp;отправлять.
+              Договоры заключаем через&nbsp;сервис
+              с&nbsp;использованием ЭЦП
+            </div>
+          </div>
+
+          <div class="ben__content ben__content_mob">
+            <p class="ben__capture capture1">Покупка авто в один клик</p>
+            <div class="ben__desc desc1">
+              Уникальная система покупки:<br>
+              загрузка всех документов<br>
+              онлайн и&nbsp;договор<br>
+              через&nbsp;ЭЦП
+            </div>
+          </div>
+
+          <div class="ben__img">
+            <picture>
+              <source srcset="./img/benefits/01-mob.webp" media="(max-width: 600px)" type="image/webp">
+              <img loading="lazy" src="./img/benefits/01.webp" class="image" width="420" height="705" alt="">
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="benefits__item ben">
+          <div class="ben__content ben__content_pc">
+            <p class="ben__capture capture1">Свой офис в Китае</p>
+            <div class="ben__desc desc1">
+              Наша команда работает на&nbsp;всех этапах в&nbsp;Китае от&nbsp;заказа, проверки авто до&nbsp;погрузки
+              на&nbsp;наше судно. Никаких посредников, быстрая и&nbsp;безопасная покупка
+              с&nbsp;фото и&nbsp;видео отчётами
+            </div>
+          </div>
+
+          <div class="ben__content ben__content_mob">
+            <p class="ben__capture capture1">Свой офис в&nbsp;Китае</p>
+            <div class="ben__desc desc1">
+              Собственная команда<br>
+              в&nbsp;Китае, быстрая покупка<br>
+              с&nbsp;фото и&nbsp;видео отчётами
+            </div>
+          </div>
+
+          <div class="ben__img">
+            <picture>
+              <source srcset="./img/benefits/02-mob.webp" media="(max-width: 600px)" type="image/webp">
+              <img loading="lazy" src="./img/benefits/02.webp" class="image" width="420" height="705" alt="">
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="benefits__item ben">
+          <div class="ben__content ben__content_pc">
+            <p class="ben__capture capture1">Экономьте<br>
+              до&nbsp;300 000&nbsp;₽ на&nbsp;доставке и&nbsp;платежах</p>
+            <div class="ben__desc desc1">
+              Покупка без&nbsp;посредников напрямую по&nbsp;своей цепочке в&nbsp;Китае, поэтому гарантируем экономию
+              на&nbsp;всех этапах: оплата, таможня и&nbsp;склад, доставка собственным судном морем
+            </div>
+          </div>
+
+          <div class="ben__content ben__content_mob">
+            <p class="ben__capture capture1">Экономьте до&nbsp;300 000&nbsp;₽ на&nbsp;доставке и&nbsp;платежах</p>
+            <div class="ben__desc desc1">
+              Оплата и&nbsp;логистика напрямую<br>
+              по&nbsp;нашей цепочке,<br>
+              гарантируем экономию<br>
+              на&nbsp;всех этапах
+            </div>
+          </div>
+
+          <div class="ben__img">
+            <picture>
+              <source srcset="./img/benefits/03-mob.webp" media="(max-width: 600px)" type="image/webp">
+              <img loading="lazy" src="./img/benefits/03.webp" class="image" width="420" height="705" alt="">
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="benefits__item ben">
+          <div class="ben__content ben__content_pc">
+            <p class="ben__capture capture1">1 минута — и авто оплачено</p>
+            <div class="ben__desc desc1">
+              Уникальный собственный сервис оплаты в&nbsp;Китай без&nbsp;комиссий и&nbsp;по&nbsp;минимальному курсу.
+              Никаких походов в&nbsp;банк, достаточно оплатить нам,
+              и&nbsp;мы&nbsp;сделаем все&nbsp;сами
+            </div>
+          </div>
+
+          <div class="ben__content ben__content_mob">
+            <p class="ben__capture capture1">1&nbsp;минута&nbsp;— и&nbsp;авто оплачено</p>
+            <div class="ben__desc desc1">
+              Перевод в&nbsp;Китай<br>
+              без&nbsp;походов в&nbsp;банк
+            </div>
+          </div>
+
+          <div class="ben__img">
+            <picture>
+              <source srcset="./img/benefits/04-mob.webp" media="(max-width: 600px)" type="image/webp">
+              <img loading="lazy" src="./img/benefits/04.webp" class="image" width="420" height="705" alt="">
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="benefits__item ben">
+          <div class="ben__content ben__content_pc">
+            <p class="ben__capture capture1">Отслеживайте путь авто в&nbsp;Telegram и&nbsp;WhatsApp</p>
+            <div class="ben__desc desc1">
+              Система информирования через&nbsp;WhatsApp и&nbsp;Telegram о&nbsp;перемещении авто
+              на&nbsp;каждом этапе. Вы&nbsp;всегда будете
+              знать, где&nbsp;находится ваш&nbsp;автомобиль
+            </div>
+          </div>
+
+          <div class="ben__content ben__content_mob">
+            <p class="ben__capture capture1">Отслеживайте путь авто в&nbsp;Telegram и&nbsp;WhatsApp</p>
+            <div class="ben__desc desc1">
+              Уведомления о&nbsp;каждом этапе<br>
+              прямо в&nbsp;мессенджере
+            </div>
+          </div>
+
+          <div class="ben__img">
+            <picture>
+              <source srcset="./img/benefits/05-mob.webp" media="(max-width: 600px)" type="image/webp">
+              <img loading="lazy" src="./img/benefits/05.webp" class="image" width="420" height="705" alt="">
+            </picture>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="benefits__item ben">
+          <div class="ben__content ben__content_pc">
+            <p class="ben__capture capture1">Доставка и выдача авто до 20 дней</p>
+            <div class="ben__desc desc1">
+              Единственные на&nbsp;ДВ&nbsp;отправляем из&nbsp;Китая авто на&nbsp;своём судне каждую неделю.
+              Выдача с&nbsp;таможенным
+              оформлением&nbsp;— до&nbsp;20&nbsp;дней
+            </div>
+          </div>
+
+          <div class="ben__content ben__content_mob">
+            <p class="ben__capture capture1">Доставка и&nbsp;выдача авто до&nbsp;20&nbsp;дней</p>
+            <div class="ben__desc desc1">
+              Единственные на&nbsp;ДВ<br>
+              отправляем из&nbsp;Китая<br>
+              авто на&nbsp;своём судне<br>
+              каждую неделю
+            </div>
+          </div>
+
+          <div class="ben__img">
+            <picture>
+              <source srcset="./img/benefits/06-mob.webp" media="(max-width: 600px)" type="image/webp">
+              <img loading="lazy" src="./img/benefits/06.webp" class="image" width="420" height="705" alt="">
+            </picture>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="delivery">
+  <div class="container">
+    <div class="delivery__container">
+      <div class="delivery__img">
+        <picture>
+          <source srcset="./img/delivery-mob.webp" media="(max-width: 600px)" type="image/webp">
+          <img loading="lazy" src="./img/delivery.webp" class="image" width="890" height="809" alt="">
+        </picture>
+      </div>
+
+      <div class="delivery__content">
+        <h2 class="title2 delivery__title">
+          Мы осуществляем доставку <span>морским транспортом</span>
+        </h2>
+
+        <ul class="list-reset list delivery__list">
+          <li>Безопасность перевозки: минимум перегрузок, никаких рисков повреждений, камень в кузов уже не прилетит
+          </li>
+          <li>До 7 дней — срок доставки из Китая в РФ</li>
+          <li>Авто 100% застраховано в процессе перевозки</li>
+          <li>Приёмка автомобилей в домашнем порту</li>
+          <li>Цена ниже по сравнению с сухопутными перевозками</li>
+        </ul>
+
+        <button class="btn-reset btn delivery__btn">Оставить заявку</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="about">
+  <div class="container">
+    <div class="about__container">
+      <div class="about__content">
+        <h2 class="title2 about__title">О компании</h2>
+        <div class="desc1 about__desc">
+          <p>Покупка автомобиля из&nbsp;Китая для&nbsp;многих кажется рискованным шагом: доставка может затянуться
+            на&nbsp;месяцы,
+            условия часто непрозрачны, а&nbsp;вместо ожидаемого авто легко получить “кота в&nbsp;мешке”.
+            Непредсказуемость
+            и&nbsp;подводные камни превращают мечту о&nbsp;новой машине в&nbsp;стресс и&nbsp;постоянные сомнения.
+          </p>
+          <p>
+            Компания АвтоКлик изменила правила игры. Мы&nbsp;сделали процесс покупки прозрачным, удобным
+            и&nbsp;безопасным: оплата
+            в&nbsp;один клик, официальное оформление без&nbsp;скрытых условий, онлайн отслеживание перевозки авто
+            и&nbsp;чёткие сроки
+            доставки за&nbsp;счёт собственного сервиса покупки в&nbsp;Китае и&nbsp;морской логистики. С&nbsp;нами
+            покупка
+            авто из&nbsp;Китая&nbsp;—
+            это&nbsp;не&nbsp;риск и&nbsp;неизвестность, а&nbsp;удобный и&nbsp;понятный процесс с&nbsp;гарантированным
+            результатом.
+          </p>
+
+          <p><b>Вы&nbsp;выбираете авто, мы&nbsp;гарантируем результат.</b></p>
+        </div>
+      </div>
+      <div class="about__video">
+        <video src="./" poster="./img/about.webp"></video>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="cta">
+  <div class="container">
+    <div class="cta__container">
+      <div class="cta__content">
+        <h2 class="title2 cta__title">Оставить заявку</h2>
+
+        <form action="#" class="cta__form form corner-smooth-40">
+          <div class="form__field form__field--long">
+            <div class="form__field-wrapper">
+              <input id="model1" type="text" class="form__input input-name" name="Марка, модель" />
+              <label for="model1" class="form__label">Марка, модель*</label>
+            </div>
+          </div>
+
+          <div class="form__field form__field--long">
+            <div class="form__field-wrapper form__field-wrapper--area">
+              <textarea id="extra1" class="form__input form__input--area input-mess" name="Дополнительно"></textarea>
+              <label for="extra1" class="form__label">Дополнительно (год, комплектация, мощность, т.д.)</label>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input id="name1" type="text" class="form__input input-name" name="Имя" />
+                <label for="name1" class="form__label">Ваше имя*</label>
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input id="city1" type="text" class="form__input input-name" name="Город" />
+                <label for="city1" class="form__label">Ваш город*</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form__field form__field--long">
+            <select name="Способ связи" class="visually-hidden select-contact">
+              <option value="">Удобный формат связи</option>
+              <option value="Телефон">Телефон</option>
+              <option value="Telegram">Telegram</option>
+              <option value="Whatsapp">Whatsapp</option>
+              <option value="Email">Email</option>
+            </select>
+
+            <div class="dropdown form__dropdown">
+              <div class="dropdown__header">
+                <div class="dropdown__label">Удобный формат связи</div>
+                <div class="dropdown__capture">Удобный формат связи</div>
+                <div class="dropdown__btn">
+                  <svg class="">
+                    <use xlink:href="img/sprite.svg#arr-down"></use>
+                  </svg>
+                </div>
+              </div>
+              <div class="dropdown__body">
+                <div class="dropdown__content">
+                  <div class="dropdown__item"></div>
+                  <div class="dropdown__item">Телефон</div>
+                  <div class="dropdown__item">Telegram</div>
+                  <div class="dropdown__item">Whatsapp</div>
+                  <div class="dropdown__item">Email</div>
+                </div>
+              </div>
+            </div>
+            <span class="cta-extra">*Обязательные поля</span>
+          </div>
+          <div class="form__field form__field--long">
+            <div class="form__field-wrapper">
+              <input type="text" class="form__input input-tel" name="Телефон" style="display: block" />
+              <input type="email" class="form__input input-email" name="Почта" style="display: none" />
+              <label class="form__label">телефон/почта</label>
+            </div>
+          </div>
+          <button class="btn btn-reset btn--accent form__btn" disabled>
+            Получить расчет
+          </button>
+        </form>
+      </div>
+
+      <div class="cta__decor">
+        <img src="./img/car.webp" aria-hidden="true" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="testi">
+  <div class="container">
+    <h2 class="title2 testi__title">Отзывы</h2>
+  </div>
+  <div class="testi__slider swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="testi__slide">
+          <div class="testi__img"></div>
+          <div class="testi__content">
+            <p class="testi__capture">Имя клиента</p>
+            <div class="testi__row">
+              <div class="testi__rating" data-rate="4"></div>
+              <time datetime="08.12.2025" class="testi__date">12.08.2025</time>
+            </div>
+            <p class="testi__desc">
+              Текст отзыва
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="testi__slide">
+          <div class="testi__img"></div>
+          <div class="testi__content">
+            <p class="testi__capture">Имя клиента</p>
+            <div class="testi__row">
+              <div class="testi__rating" data-rate="4"></div>
+              <time datetime="08.12.2025" class="testi__date">12.08.2025</time>
+            </div>
+            <p class="testi__desc">
+              Текст отзыва
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="testi__slide">
+          <div class="testi__img"></div>
+          <div class="testi__content">
+            <p class="testi__capture">Имя клиента</p>
+            <div class="testi__row">
+              <div class="testi__rating" data-rate="4"></div>
+              <time datetime="08.12.2025" class="testi__date">12.08.2025</time>
+            </div>
+            <p class="testi__desc">
+              Текст отзыва
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="testi__slide">
+          <div class="testi__img"></div>
+          <div class="testi__content">
+            <p class="testi__capture">Имя клиента</p>
+            <div class="testi__row">
+              <div class="testi__rating" data-rate="4"></div>
+              <time datetime="08.12.2025" class="testi__date">12.08.2025</time>
+            </div>
+            <p class="testi__desc">
+              Текст отзыва
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="testi__slide">
+          <div class="testi__img"></div>
+          <div class="testi__content">
+            <p class="testi__capture">Имя клиента</p>
+            <div class="testi__row">
+              <div class="testi__rating" data-rate="4"></div>
+              <time datetime="08.12.2025" class="testi__date">12.08.2025</time>
+            </div>
+            <p class="testi__desc">
+              Текст отзыва
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="testi__slide">
+          <div class="testi__img"></div>
+          <div class="testi__content">
+            <p class="testi__capture">Имя клиента</p>
+            <div class="testi__row">
+              <div class="testi__rating" data-rate="4"></div>
+              <time datetime="08.12.2025" class="testi__date">12.08.2025</time>
+            </div>
+            <p class="testi__desc">
+              Текст отзыва
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="faq">
+  <div class="container">
+    <h2 class="title2 faq__title centered">Часто задаваемые вопросы</h2>
+
+    <div class="faq__items">
+      <div class="faq__col">
+        <div class="faq__item faq-item">
+          <div class="faq-item__header">
+            <p class="faq-item__capture desc1">Вопрос?</p>
+            <button class="faq-item__btn btn-reset">
+              <svg width="28" height="17" viewBox="0 0 28 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M26 2.5L14 14.5L2 2.5" stroke-width="3" />
+              </svg>
+            </button>
+          </div>
+          <div class="faq-item__content">
+            <div class="faq-item__text">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+                animi praesentium magnam rem perspiciatis vero consequatur
+                asperiores. Iste, voluptatum perferendis.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="faq__item faq-item">
+          <div class="faq-item__header">
+            <p class="faq-item__capture desc1">Вопрос?</p>
+            <button class="faq-item__btn btn-reset">
+              <svg width="28" height="17" viewBox="0 0 28 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M26 2.5L14 14.5L2 2.5" stroke-width="3" />
+              </svg>
+            </button>
+          </div>
+          <div class="faq-item__content">
+            <div class="faq-item__text">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+                animi praesentium magnam rem perspiciatis vero consequatur
+                asperiores. Iste, voluptatum perferendis.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="faq__item faq-item">
+          <div class="faq-item__header">
+            <p class="faq-item__capture desc1">Вопрос?</p>
+            <button class="faq-item__btn btn-reset">
+              <svg width="28" height="17" viewBox="0 0 28 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M26 2.5L14 14.5L2 2.5" stroke-width="3" />
+              </svg>
+            </button>
+          </div>
+          <div class="faq-item__content">
+            <div class="faq-item__text">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+                animi praesentium magnam rem perspiciatis vero consequatur
+                asperiores. Iste, voluptatum perferendis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="faq__col">
+        <div class="faq__item faq-item">
+          <div class="faq-item__header">
+            <p class="faq-item__capture desc1">Вопрос?</p>
+            <button class="faq-item__btn btn-reset">
+              <svg width="28" height="17" viewBox="0 0 28 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M26 2.5L14 14.5L2 2.5" stroke-width="3" />
+              </svg>
+            </button>
+          </div>
+          <div class="faq-item__content">
+            <div class="faq-item__text">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+                animi praesentium magnam rem perspiciatis vero consequatur
+                asperiores. Iste, voluptatum perferendis.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="faq__item faq-item">
+          <div class="faq-item__header">
+            <p class="faq-item__capture desc1">Вопрос?</p>
+            <button class="faq-item__btn btn-reset">
+              <svg width="28" height="17" viewBox="0 0 28 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M26 2.5L14 14.5L2 2.5" stroke-width="3" />
+              </svg>
+            </button>
+          </div>
+          <div class="faq-item__content">
+            <div class="faq-item__text">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+                animi praesentium magnam rem perspiciatis vero consequatur
+                asperiores. Iste, voluptatum perferendis.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="faq__item faq-item">
+          <div class="faq-item__header">
+            <p class="faq-item__capture desc1">Вопрос?</p>
+            <button class="faq-item__btn btn-reset">
+              <svg width="28" height="17" viewBox="0 0 28 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M26 2.5L14 14.5L2 2.5" stroke-width="3" />
+              </svg>
+            </button>
+          </div>
+          <div class="faq-item__content">
+            <div class="faq-item__text">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+                animi praesentium magnam rem perspiciatis vero consequatur
+                asperiores. Iste, voluptatum perferendis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="cta-bottom">
+  <div class="container">
+    <div class="cta-bottom__container">
+      <div class="cta-bottom__decor">
+        <img src="./img/cta.webp" aria-hidden="true" alt="">
+      </div>
+
+      <div class="cta-bottom__content">
+        <h2 class="title2 cta-bottom__title">Остались вопросы?</h2>
+
+        <form action="#" class="cta-bottom__form form corner-smooth-40">
+          <div class="form__field form__field--long">
+            <div class="form__field-wrapper form__field-wrapper--area">
+              <textarea id="question" class="form__input form__input--area input-mess" name="Вопрос"></textarea>
+              <label for="question" class="form__label">Ваш вопрос*</label>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input id="name2" type="text" class="form__input input-name" name="Имя" />
+                <label for="name2" class="form__label">Ваше имя*</label>
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input id="city2" type="text" class="form__input input-name" name="Город" />
+                <label for="city2" class="form__label">Ваш город*</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input id="phone2" type="tel" class="form__input input-tel" name="Телефон" />
+                <label for="phone2" class="form__label">Номер телефона*</label>
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <select name="Способ связи" class="visually-hidden select-contact">
+                <option value="">Куда прислать ответ</option>
+                <option value="Телефон">Телефон</option>
+                <option value="Telegram">Telegram</option>
+                <option value="Whatsapp">Whatsapp</option>
+                <option value="Email">Email</option>
+              </select>
+
+              <div class="dropdown form__dropdown">
+                <div class="dropdown__header">
+                  <div class="dropdown__label">Куда прислать ответ</div>
+                  <div class="dropdown__capture">Куда прислать ответ</div>
+                  <div class="dropdown__btn">
+                    <svg class="">
+                      <use xlink:href="img/sprite.svg#arr-down"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="dropdown__body">
+                  <div class="dropdown__content">
+                    <div class="dropdown__item"></div>
+                    <div class="dropdown__item">Телефон</div>
+                    <div class="dropdown__item">Telegram</div>
+                    <div class="dropdown__item">Whatsapp</div>
+                    <div class="dropdown__item">Email</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="cta-extra">*Обязательные поля</span>
+
+
+          <button class="btn btn-reset btn--accent form__btn" disabled>
+            Задать вопрос
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+    </main>
+    <footer class="footer">
+  <div class="container">
+    <div class="footer__container">
+      <address class="footer__address">
+        <p class="desc1 footer__link"><a href="#" class="link-btn">+7&nbsp;908-444-84-64</a></p>
+        <p class="desc1 footer__link"><a href="#" class="link-btn">carbuy@avtoklik.ru</a></p>
+        <p class="desc1 footer__link">Владивосток,&nbsp;ул.&nbsp;Станюковича&nbsp;
+          д.&nbsp;46, офис 304</p>
+      </address>
+
+      <div class="footer__right">
+        <ul class="list-reset soc footer__soc">
+          <li>
+            <a href="#" target="_blank">
+              <img src="./img/wa.svg" alt="">
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank">
+              <img src="./img/tg.svg" alt="">
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank">
+              <img src="./img/vk.svg" alt="">
+            </a>
+          </li>
+        </ul>
+
+        <a href="#" class=" desc1 footer__policy link-btn">Политика конфиденциальности</a>
+        <small class="desc1" class="footer__copy">©2025 Автоклик</small>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </div>
+</body>
+
+</html>

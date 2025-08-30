@@ -1,0 +1,68 @@
+.testi {
+  padding: 8.5rem 0;
+
+  &__slider {
+    padding: 0 calc((100% - var(--content-width)) / 2);
+    .swiper-slide {
+      width: auto;
+    }
+  }
+
+  &__title {
+    margin-bottom: 3.8rem;
+  }
+
+  &__slide {
+    width: 44.2rem;
+    padding: 4rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: var(--ac-white);
+    min-height: 72.2rem;
+  }
+
+  &__img {
+    margin-bottom: 2.3rem;
+    display: block;
+    border-radius: 1rem;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    background-image: url("./../img/placeholder.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__capture {
+    margin: 0;
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+    font-size: 2.8rem;
+    color: var(--ac-black);
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2.3rem;
+  }
+  &__date {
+    font-weight: 400;
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.25);
+  }
+  &__rating {
+    width: 12rem;
+    height: 2.4rem;
+    flex-shrink: 0;
+    background-color: var(--ac-black);
+    mask-image: url("./../img/stars.svg");
+  }
+  &__desc {
+    margin: 0;
+    font-weight: 400;
+    font-size: 2.4rem;
+    color: var(--ac-black);
+  }
+}

@@ -1,0 +1,88 @@
+.form__field-wrapper--area {
+  overflow: hidden;
+}
+
+textarea {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE и Edge */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari и Opera */
+  }
+}
+
+.textarea-scrollbar {
+  position: absolute;
+  z-index: 10;
+  top: 1rem;
+  bottom: 1rem;
+  right: 0.5rem;
+  width: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 0;
+  transition: opacity 0.3s ease-in;
+  &.disabled {
+    opacity: 0;
+    .textarea-scroll-track {
+      background-color: #888c8b;
+    }
+    .textarea-scroll-btn {
+      color: #888c8b;
+    }
+  }
+}
+
+.textarea-scroll-btn {
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  transition: background-color 0.3s ease-in;
+  svg {
+    fill: currentColor;
+  }
+  &:disabled,
+  &.disabled {
+    color: #888c8b;
+    cursor: default;
+  }
+
+  svg {
+    width: 0.8rem;
+    height: 0.8rem;
+    fill: currentColor;
+  }
+}
+
+.textarea-scroll-track {
+  position: relative;
+  flex-grow: 1;
+  width: 2px;
+
+  background: #000;
+  border-radius: 100px;
+  margin: 0.4rem 0;
+  border-radius: 0.1rem;
+  overflow: hidden;
+  transition: background-color 0.3s ease-in;
+}
+
+.textarea-scroll-thumb {
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  min-height: 2rem;
+  background: transparent;
+  opacity: 0.3;
+  border-radius: 0.2rem;
+  transform: translateX(-50%);
+  cursor: pointer;
+  transition: opacity 0.3s;
+}

@@ -1,0 +1,163 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 700;
+  font-size: 3.1rem;
+  line-height: 86%;
+  text-transform: uppercase;
+  color: var(--ac-darkblue);
+  img {
+    display: block;
+    width: 5rem;
+    height: 2.6rem;
+    flex-shrink: 0;
+  }
+
+  @include mobile {
+    span {
+      display: none;
+    }
+  }
+}
+
+.title1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 9rem;
+  color: var(--ac-white);
+  span {
+    color: var(--ac-pink);
+  }
+
+  @include mobile {
+    font-size: 6rem;
+  }
+}
+.title2 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 5.4rem;
+  color: var(--ac-black);
+  span {
+    color: var(--ac-pink);
+  }
+
+  @include mobile {
+    font-size: 4.6rem;
+  }
+}
+.title3 {
+  margin: 0;
+
+  font-weight: 700;
+  font-size: 5rem;
+  color: var(--ac-black);
+  span {
+    color: var(--ac-pink);
+  }
+}
+
+.capture1 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 130%;
+  color: var(--ac-black);
+}
+
+.desc1 {
+  margin: 0;
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 150%;
+  color: var(--ac-black);
+
+  b {
+    font-weight: 500;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  padding: 2.2rem;
+
+  font-weight: 500;
+  font-size: 2.8rem;
+  color: var(--ac-white);
+
+  border-radius: 1rem;
+  text-align: center;
+  background-color: var(--ac-pink);
+
+  &:disabled {
+    background-color: #e3e6e6;
+    color: #adafb2;
+    cursor: not-allowed;
+  }
+
+  &--accent {
+    background-color: var(--ac-pink);
+    color: var(--ac-white);
+
+    @include hover {
+      background-color: darken(#d80b42, 10%);
+    }
+  }
+}
+
+.list {
+  font-weight: 400;
+  font-size: 2.2rem;
+  line-height: 150%;
+  color: #000;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+
+    &:not(:last-child) {
+      margin-bottom: 3.2rem;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      margin-top: 1.2rem;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 100%;
+      flex-shrink: 0;
+      background-color: var(--ac-pink);
+    }
+  }
+}
+
+.soc {
+  display: flex;
+  gap: 1rem;
+
+  li {
+    display: block;
+    width: 4.4rem;
+    height: 4.4rem;
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}

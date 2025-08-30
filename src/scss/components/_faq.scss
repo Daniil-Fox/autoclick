@@ -1,0 +1,100 @@
+.faq {
+  padding: 10.2rem 0;
+  &__title {
+    margin-bottom: 4.8rem;
+  }
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.faq-item {
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3.5rem 4rem;
+  background-color: var(--ac-white);
+  transition: min-height 0.3s ease;
+  will-change: min-height;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+
+    @include hover {
+      .faq-item__btn svg {
+        stroke: var(--ac-pink);
+      }
+    }
+  }
+
+  &__capture {
+    font-weight: 500;
+    font-size: 2.6rem;
+    line-height: 120%;
+    color: #303030;
+  }
+
+  &__btn {
+    margin-right: 0.4rem;
+    width: 4rem;
+    height: 4rem;
+    transition: transform 0.3s ease;
+    position: relative;
+
+    svg {
+      width: 3rem;
+      height: 2rem;
+      stroke: #040404;
+      stroke-linecap: round;
+      transition: stroke 0.3s ease-in;
+    }
+  }
+
+  &__content {
+    box-sizing: content-box;
+    transition: max-height 0.3s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  &__text {
+    padding-top: 4rem;
+    color: var(--ac-black);
+    font-size: 2rem;
+
+    p {
+      margin: 0;
+
+      &:not(:last-child) {
+        margin-bottom: 1em;
+      }
+    }
+  }
+
+  // Мобильная версия
+  @media (max-width: 576px) {
+    padding: 3rem 2rem;
+
+    &__text {
+      padding-top: 2rem;
+      font-size: 1.8rem;
+    }
+  }
+
+  &.open {
+    .faq-item__btn svg {
+      stroke: var(--ac-pink);
+    }
+  }
+}

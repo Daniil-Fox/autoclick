@@ -1,0 +1,164 @@
+.mobile-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 6;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  &.menu--active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--ac-white);
+    padding: 3rem;
+    padding-top: 14rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+
+    .menu--active & {
+      transform: translateY(0);
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    @include mobile {
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--ac-black);
+    font-weight: 500;
+    font-size: 2rem;
+
+    img {
+      width: 4rem;
+      height: 2.1rem;
+      flex-shrink: 0;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__lk {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: var(--ac-pink);
+    transition: background-color 0.3s ease;
+
+    img {
+      width: 2rem;
+      height: 2rem;
+      filter: brightness(0) invert(1);
+    }
+
+    @include hover {
+      background-color: darken(#d80b42, 10%);
+    }
+  }
+
+  &__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border: none;
+    background: none;
+    color: var(--ac-pink);
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    @include hover {
+      color: darken(#d80b42, 10%);
+    }
+  }
+
+  &__nav {
+    flex: 1;
+    margin-bottom: 3rem;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    li {
+      a {
+        display: block;
+        padding: 1.5rem 0;
+        font-weight: 400;
+        font-size: 2.2rem;
+        color: var(--ac-black);
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        @include hover {
+          color: var(--ac-pink);
+        }
+
+        @include mobile {
+          padding: 1rem 0;
+          font-size: 2rem;
+        }
+      }
+    }
+
+    @include mobile {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__cta {
+    width: 100%;
+    font-size: 2.6rem;
+    padding: 1.3rem 2rem 1.6rem;
+  }
+}
