@@ -16025,8 +16025,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_dropdown_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/dropdown.js */ "./src/js/components/dropdown.js");
 /* harmony import */ var _functions_burger_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./functions/burger.js */ "./src/js/functions/burger.js");
 /* harmony import */ var _components_textarea_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/textarea.js */ "./src/js/components/textarea.js");
-/* harmony import */ var _functions_validate_forms_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./functions/validate-forms.js */ "./src/js/functions/validate-forms.js");
-/* harmony import */ var _components_faq_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/faq.js */ "./src/js/components/faq.js");
+/* harmony import */ var _functions_truncate_text_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./functions/truncate-text.js */ "./src/js/functions/truncate-text.js");
+/* harmony import */ var _functions_modal_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./functions/modal.js */ "./src/js/functions/modal.js");
+/* harmony import */ var _functions_video_player_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./functions/video-player.js */ "./src/js/functions/video-player.js");
+/* harmony import */ var _functions_validate_forms_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./functions/validate-forms.js */ "./src/js/functions/validate-forms.js");
+/* harmony import */ var _components_faq_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/faq.js */ "./src/js/components/faq.js");
+
+
+
 
 
 
@@ -16042,7 +16048,10 @@ document.addEventListener("DOMContentLoaded", () => {
   textareas.forEach(textarea => {
     new _components_textarea_js__WEBPACK_IMPORTED_MODULE_4__["default"](textarea);
   });
-  new _components_faq_js__WEBPACK_IMPORTED_MODULE_6__["default"]();
+  new _components_faq_js__WEBPACK_IMPORTED_MODULE_9__["default"]();
+
+  // Инициализация обрезки текста
+  (0,_functions_truncate_text_js__WEBPACK_IMPORTED_MODULE_5__.initTextTruncation)();
 });
 
 // Логика для скрытия/показа header при скролле
@@ -16065,26 +16074,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   function onScroll() {
     const currentScroll = window.scrollY;
-    if (currentScroll < 30) {
-      // Почти в самом верху — возвращаем header в исходное состояние
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+    // Проверяем, находимся ли мы в самом верху страницы
+    if (currentScroll <= 0) {
+      // В самом верху — возвращаем header в исходное состояние
       header.classList.remove("header--fixed", "header--hidden");
-      setBodyPadding(false);
+      // setBodyPadding(false);
       isFixed = false;
       if (hideTimeout) {
         clearTimeout(hideTimeout);
         hideTimeout = null;
       }
     } else if (currentScroll > lastScroll && currentScroll > 50) {
-      // Скролл вниз — скрываем
+      // Скролл вниз — скрываем header
       header.classList.add("header--hidden");
       if (hideTimeout) clearTimeout(hideTimeout);
       hideTimeout = setTimeout(() => {
         header.classList.remove("header--fixed");
-        setBodyPadding(false);
+        // setBodyPadding(false);
         isFixed = false;
       }, 300); // 300ms = transition
-    } else if (currentScroll < lastScroll) {
-      // Скролл вверх — показываем
+    } else if (currentScroll < lastScroll && currentScroll > 0) {
+      // Скролл вверх (но не в самом верху) — показываем header
       if (hideTimeout) {
         clearTimeout(hideTimeout);
         hideTimeout = null;
@@ -16092,7 +16104,7 @@ document.addEventListener("DOMContentLoaded", () => {
       header.classList.remove("header--hidden");
       if (!isFixed) {
         header.classList.add("header--fixed");
-        setBodyPadding(true);
+        // setBodyPadding(true);
         isFixed = true;
       }
     }
@@ -16333,10 +16345,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper_modules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/modules */ "./node_modules/swiper/modules/index.mjs");
 
 
-swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper.use([swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation]);
+swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper.use([swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Mousewheel]);
 new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(".testi__slider", {
   slidesPerView: "auto",
   spaceBetween: 20
+});
+new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(".popular__slider > .swiper", {
+  slidesPerView: "auto",
+  spaceBetween: 40,
+  mousewheel: true
 });
 window.addEventListener("DOMContentLoaded", () => {
   const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
@@ -16368,7 +16385,8 @@ window.addEventListener("DOMContentLoaded", () => {
   };
   resizableSwiper("(min-width: 601px)", ".benefits__slider", {
     slidesPerView: "auto",
-    spaceBetween: 20
+    spaceBetween: 20,
+    mousewheel: true
   });
 });
 
@@ -16534,37 +16552,37 @@ __webpack_require__.r(__webpack_exports__);
 
 
 (function () {
-  const burger = document?.querySelector('[data-burger]');
-  const menu = document?.querySelector('[data-menu]');
-  const menuItems = document?.querySelectorAll('[data-menu-item]');
-  const overlay = document?.querySelector('[data-menu-overlay]');
-  burger?.addEventListener('click', e => {
-    burger?.classList.toggle('burger--active');
-    menu?.classList.toggle('menu--active');
-    if (menu?.classList.contains('menu--active')) {
-      burger?.setAttribute('aria-expanded', 'true');
-      burger?.setAttribute('aria-label', 'Закрыть меню');
-      (0,_functions_disable_scroll_js__WEBPACK_IMPORTED_MODULE_0__.disableScroll)();
+  const burger = document?.querySelector("[data-burger]");
+  const menu = document?.querySelector("[data-menu]");
+  const menuItems = document?.querySelectorAll("[data-menu-item]");
+  const overlay = document?.querySelector("[data-menu-overlay]");
+  burger?.addEventListener("click", e => {
+    burger?.classList.toggle("burger--active");
+    menu?.classList.toggle("menu--active");
+    if (menu?.classList.contains("menu--active")) {
+      burger?.setAttribute("aria-expanded", "true");
+      burger?.setAttribute("aria-label", "Закрыть меню");
+      document.body.style.overflow = "hidden";
     } else {
-      burger?.setAttribute('aria-expanded', 'false');
-      burger?.setAttribute('aria-label', 'Открыть меню');
-      (0,_functions_enable_scroll_js__WEBPACK_IMPORTED_MODULE_1__.enableScroll)();
+      burger?.setAttribute("aria-expanded", "false");
+      burger?.setAttribute("aria-label", "Открыть меню");
+      document.body.style.overflow = null;
     }
   });
-  overlay?.addEventListener('click', () => {
-    burger?.setAttribute('aria-expanded', 'false');
-    burger?.setAttribute('aria-label', 'Открыть меню');
-    burger.classList.remove('burger--active');
-    menu.classList.remove('menu--active');
-    (0,_functions_enable_scroll_js__WEBPACK_IMPORTED_MODULE_1__.enableScroll)();
+  overlay?.addEventListener("click", () => {
+    burger?.setAttribute("aria-expanded", "false");
+    burger?.setAttribute("aria-label", "Открыть меню");
+    burger.classList.remove("burger--active");
+    menu.classList.remove("menu--active");
+    document.body.style.overflow = null;
   });
   menuItems?.forEach(el => {
-    el.addEventListener('click', () => {
-      burger?.setAttribute('aria-expanded', 'false');
-      burger?.setAttribute('aria-label', 'Открыть меню');
-      burger.classList.remove('burger--active');
-      menu.classList.remove('menu--active');
-      (0,_functions_enable_scroll_js__WEBPACK_IMPORTED_MODULE_1__.enableScroll)();
+    el.addEventListener("click", () => {
+      burger?.setAttribute("aria-expanded", "false");
+      burger?.setAttribute("aria-label", "Открыть меню");
+      burger.classList.remove("burger--active");
+      menu.classList.remove("menu--active");
+      document.body.style.overflow = null;
     });
   });
 })();
@@ -16633,6 +16651,275 @@ const enableScroll = () => {
 
 /***/ }),
 
+/***/ "./src/js/functions/modal.js":
+/*!***********************************!*\
+  !*** ./src/js/functions/modal.js ***!
+  \***********************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Modal: () => (/* binding */ Modal),
+/* harmony export */   modalManager: () => (/* binding */ modalManager)
+/* harmony export */ });
+/**
+ * Класс для управления модальными окнами
+ */
+class Modal {
+  constructor() {
+    this.modals = new Map();
+    this.activeModal = null;
+    this.init();
+  }
+
+  /**
+   * Инициализация модальных окон
+   */
+  init() {
+    // Находим все модальные окна
+    const modalElements = document.querySelectorAll(".modal");
+    modalElements.forEach(modal => {
+      const modalId = modal.id;
+      this.modals.set(modalId, modal);
+
+      // Добавляем обработчики для кнопки закрытия
+      const closeBtn = modal.querySelector(".modal__close");
+      if (closeBtn) {
+        closeBtn.addEventListener("click", () => this.close(modalId));
+      }
+
+      // Закрытие по клику на overlay
+      const overlay = modal.querySelector(".modal__overlay");
+      if (overlay) {
+        overlay.addEventListener("click", () => this.close(modalId));
+      }
+    });
+
+    // Обработчики для кнопок, открывающих модальные окна
+    document.addEventListener("click", e => {
+      const target = e.target.closest("[data-target]");
+      if (target) {
+        const modalId = target.dataset.target;
+        this.open(modalId);
+      }
+    });
+
+    // Закрытие по Escape
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape" && this.activeModal) {
+        this.close(this.activeModal);
+      }
+    });
+  }
+
+  /**
+   * Открытие модального окна
+   * @param {string} modalId - ID модального окна
+   */
+  open(modalId) {
+    const modal = this.modals.get(modalId);
+    if (!modal) {
+      console.warn(`Модальное окно с ID "${modalId}" не найдено`);
+      return;
+    }
+
+    // Закрываем предыдущее модальное окно, если есть
+    if (this.activeModal) {
+      this.close(this.activeModal);
+    }
+
+    // Открываем новое модальное окно
+    modal.classList.add("modal--active");
+    document.body.classList.add("modal-open");
+    this.activeModal = modalId;
+
+    // Фокус на первое поле ввода
+    const firstInput = modal.querySelector("input, textarea, select");
+    if (firstInput) {
+      setTimeout(() => firstInput.focus(), 100);
+    }
+
+    // Блокируем скролл body
+    this.disableBodyScroll();
+    console.log(`Модальное окно "${modalId}" открыто`);
+  }
+
+  /**
+   * Закрытие модального окна
+   * @param {string} modalId - ID модального окна
+   */
+  close(modalId) {
+    const modal = this.modals.get(modalId);
+    if (!modal) return;
+    modal.classList.remove("modal--active");
+    if (this.activeModal === modalId) {
+      this.activeModal = null;
+      document.body.classList.remove("modal-open");
+      this.enableBodyScroll();
+    }
+    console.log(`Модальное окно "${modalId}" закрыто`);
+  }
+
+  /**
+   * Закрытие всех модальных окон
+   */
+  closeAll() {
+    this.modals.forEach((modal, modalId) => {
+      this.close(modalId);
+    });
+  }
+
+  /**
+   * Блокировка скролла body
+   */
+  disableBodyScroll() {
+    const scrollY = window.scrollY;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
+  }
+
+  /**
+   * Разблокировка скролла body
+   */
+  enableBodyScroll() {
+    const scrollY = document.body.style.top;
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.width = "";
+    window.scrollTo(0, parseInt(scrollY || "0") * -1);
+  }
+
+  /**
+   * Проверка, открыто ли модальное окно
+   * @param {string} modalId - ID модального окна
+   * @returns {boolean}
+   */
+  isOpen(modalId) {
+    const modal = this.modals.get(modalId);
+    return modal ? modal.classList.contains("modal--active") : false;
+  }
+
+  /**
+   * Получение активного модального окна
+   * @returns {string|null}
+   */
+  getActiveModal() {
+    return this.activeModal;
+  }
+}
+
+// Создаем экземпляр класса
+const modalManager = new Modal();
+
+// Экспортируем для использования в других модулях
+
+
+/***/ }),
+
+/***/ "./src/js/functions/truncate-text.js":
+/*!*******************************************!*\
+  !*** ./src/js/functions/truncate-text.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   initTextTruncation: () => (/* binding */ initTextTruncation),
+/* harmony export */   toggleTextExpansion: () => (/* binding */ toggleTextExpansion),
+/* harmony export */   truncateTextToLines: () => (/* binding */ truncateTextToLines)
+/* harmony export */ });
+/**
+ * Точная обрезка текста до указанного количества строк с троеточием
+ * @param {HTMLElement} element - Элемент с текстом
+ * @param {number} lines - Количество строк для отображения
+ */
+function truncateTextToLines(element, lines = 12) {
+  if (!element) return;
+
+  // Проверяем, нужно ли применять обрезку только на мобильных
+  const isMobile = window.innerWidth <= 600;
+  if (!isMobile) {
+    // На десктопе убираем ограничения
+    element.classList.remove("about__text--truncated");
+    element.style.maxHeight = "";
+    element.style.overflow = "";
+    return;
+  }
+
+  // На мобильных применяем CSS ограничения
+  element.classList.add("about__text--truncated");
+  element.style.maxHeight = `calc(1.58em * ${lines})`;
+  element.style.overflow = "hidden";
+}
+
+/**
+ * Переключает состояние текста между свернутым и развернутым
+ * @param {HTMLElement} textElement - Элемент с текстом
+ * @param {HTMLElement} button - Кнопка переключения
+ */
+function toggleTextExpansion(textElement, button) {
+  if (!textElement || !button) return;
+  const isExpanded = textElement.classList.contains("about__text--expanded");
+  if (isExpanded) {
+    // Сворачиваем текст
+    textElement.classList.remove("about__text--expanded");
+    button.classList.remove("about__read-more--expanded");
+    truncateTextToLines(textElement, 12);
+  } else {
+    // Разворачиваем текст - устанавливаем max-height равным реальной высоте
+    textElement.classList.add("about__text--expanded");
+    button.classList.add("about__read-more--expanded");
+
+    // Устанавливаем max-height равным scrollHeight для плавного разворачивания
+    textElement.style.maxHeight = textElement.scrollHeight + "px";
+  }
+}
+
+/**
+ * Инициализация обрезки текста для всех элементов с классом about__text
+ */
+function initTextTruncation() {
+  const textElements = document.querySelectorAll(".about__text");
+  const readMoreButtons = document.querySelectorAll(".about__read-more");
+  console.log("Инициализация обрезки текста:", textElements.length, "элементов найдено");
+  console.log("Кнопки найдено:", readMoreButtons.length);
+  textElements.forEach((element, index) => {
+    console.log("Обрабатываю элемент:", element);
+    truncateTextToLines(element, 12);
+
+    // Добавляем обработчик для кнопки "Читать далее"
+    const button = readMoreButtons[index];
+    if (button) {
+      console.log("Добавляю обработчик для кнопки:", button);
+      button.addEventListener("click", () => {
+        console.log("Клик по кнопке, переключаю состояние");
+        toggleTextExpansion(element, button);
+      });
+    } else {
+      console.log("Кнопка не найдена для элемента", index);
+    }
+  });
+
+  // Обработчик изменения размера окна
+  window.addEventListener("resize", () => {
+    textElements.forEach(element => {
+      // При изменении размера окна сбрасываем развернутое состояние
+      element.classList.remove("about__text--expanded");
+      truncateTextToLines(element, 12);
+    });
+
+    // Сбрасываем состояние кнопок
+    readMoreButtons.forEach(button => {
+      button.classList.remove("about__read-more--expanded");
+    });
+  });
+}
+
+/***/ }),
+
 /***/ "./src/js/functions/validate-forms.js":
 /*!********************************************!*\
   !*** ./src/js/functions/validate-forms.js ***!
@@ -16680,7 +16967,7 @@ const validateForms = (selector, rules, checkboxes = [], afterSend) => {
         }
       }
     };
-    const path = location.origin + "/wp-content/themes/peremena/assets/mail.php";
+    const path = location.origin + "/wp-content/themes/autoclick/assets/mail.php";
     xhr.open("POST", path, true);
     xhr.send(formData);
     form.querySelectorAll(".filled").forEach(el => el.classList.remove("filled"));
@@ -16689,7 +16976,7 @@ const validateForms = (selector, rules, checkboxes = [], afterSend) => {
 };
 document.addEventListener("DOMContentLoaded", () => {
   // Массив селекторов форм
-  const formSelectors = [".cta__form", ".modal__form"];
+  const formSelectors = [".cta__form", ".cta-bottom__form", ".modal__form"];
   formSelectors.forEach(formSelector => {
     const form = document.querySelector(formSelector);
     if (!form) return;
@@ -16708,11 +16995,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Изначально блокируем оба поля и устанавливаем правильный лейбл
     if (telInput) {
       console.log("dis");
-      telInput.disabled = true;
+      // telInput.disabled = true;
       telInput.style.display = "block";
     }
     if (emailInput) {
-      emailInput.disabled = true;
+      // emailInput.disabled = true;
       emailInput.style.display = "none";
     }
     if (contactLabel) {
@@ -16774,7 +17061,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (selectField) {
           selectField.classList.add("form__field--long");
         }
-        telInput.disabled = true;
+        // telInput.disabled = true;
         emailInput.style.display = "none";
         emailInput.disabled = true;
         if (contactLabel) contactLabel.textContent = "телефон/email";
@@ -16786,10 +17073,11 @@ document.addEventListener("DOMContentLoaded", () => {
         telField.style.display = "block";
       }
       // Убираем класс long у блока с селектом
-      if (selectField) {
-        selectField.classList.remove("form__field--long");
-      }
-      telInput.disabled = true;
+      // if (selectField) {
+      //   selectField.classList.remove("form__field--long");
+      // }
+
+      // telInput.disabled = true;
       emailInput.style.display = "none";
       emailInput.disabled = true;
       if (select?.value) {
@@ -16874,7 +17162,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!telInput.disabled && telInput.value) {
           contactValid = telInput.value.replace(/\D/g, "").length === 11;
         }
-        if (!emailInput.disabled && emailInput.value) {
+        if (emailInput && !emailInput.disabled && emailInput.value) {
           contactValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
         }
         submitBtn.disabled = !(nameValid && contactTypeValid && contactValid);
@@ -16899,35 +17187,411 @@ document.addEventListener("DOMContentLoaded", () => {
     initValidation();
     select?.addEventListener("change", initValidation);
   });
+});
 
-  // Открытие модального окна по клику на .modal-btn
-  document.querySelectorAll(".modal-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const modal = document.querySelector(".modal");
-      if (modal) {
-        modal.classList.add("active");
-      }
-    });
-  });
+/***/ }),
 
-  // Закрытие модального окна при клике вне .modal__content
-  const modal = document.querySelector(".modal");
-  if (modal) {
-    modal.addEventListener("click", e => {
-      const content = modal.querySelector(".modal__content");
-      const closeBtn = modal.querySelectorAll(".modal__close");
-      if (e.target === modal || content && !content.contains(e.target)) {
-        modal.classList.remove("active");
-      }
-      closeBtn.forEach(el => {
-        el.addEventListener("click", e => {
-          e.preventDefault();
-          modal.classList.remove("active");
+/***/ "./src/js/functions/video-player.js":
+/*!******************************************!*\
+  !*** ./src/js/functions/video-player.js ***!
+  \******************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   VideoPlayer: () => (/* binding */ VideoPlayer),
+/* harmony export */   videoPlayer: () => (/* binding */ videoPlayer)
+/* harmony export */ });
+/**
+ * Класс для управления видео с кастомными кнопками play и автовоспроизведением
+ */
+class VideoPlayer {
+  constructor() {
+    this.videoPlayers = new Map();
+    this.intersectionObserver = null;
+    // Setup IntersectionObserver first
+    this.setupIntersectionObserver();
+    // Then initialize videos
+    this.init();
+  }
+
+  /**
+   * Инициализация всех видео плееров на странице
+   */
+  init() {
+    // Находим все контейнеры video-wrapper с data-video-player
+    const videoContainers = document.querySelectorAll(".video-wrapper[data-video-player]");
+    videoContainers.forEach(container => {
+      const videoId = container.dataset.videoPlayer;
+      const video = container.querySelector("video");
+      const playButton = container.querySelector("[data-video-play]");
+      const cover = container.querySelector("[data-video-cover]");
+      const isAutoplay = container.hasAttribute("data-video-autoplay");
+      if (video) {
+        this.videoPlayers.set(videoId, {
+          container,
+          video,
+          playButton,
+          cover,
+          isPlaying: false,
+          isAutoplay,
+          isInViewport: false
         });
-      });
+        this.setupVideoPlayer(videoId);
+
+        // Add to intersection observer only if it's an autoplay video
+        if (isAutoplay && this.intersectionObserver) {
+          this.intersectionObserver.observe(container);
+        }
+      }
     });
   }
-});
+
+  /**
+   * Настройка Intersection Observer для автовоспроизведения
+   */
+  setupIntersectionObserver() {
+    const options = {
+      root: null,
+      // viewport
+      rootMargin: "0px",
+      threshold: 0.1 // 10% видео должно быть видимо
+    };
+    this.intersectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const videoId = entry.target.dataset.videoPlayer;
+        const player = this.videoPlayers.get(videoId);
+        if (!player || !player.isAutoplay) return;
+        if (entry.isIntersecting) {
+          player.isInViewport = true;
+          this.autoplayVideo(videoId);
+        } else {
+          player.isInViewport = false;
+          this.pauseVideo(videoId);
+        }
+      });
+    }, options);
+  }
+
+  /**
+   * Настройка отдельного видео плеера
+   * @param {string} videoId - ID видео плеера
+   */
+  setupVideoPlayer(videoId) {
+    const player = this.videoPlayers.get(videoId);
+    if (!player) return;
+    const {
+      video,
+      playButton,
+      cover,
+      container,
+      isAutoplay
+    } = player;
+
+    // Настройки для автовоспроизведения
+    if (isAutoplay) {
+      video.muted = true; // Автовоспроизведение работает только с muted видео
+      video.loop = true; // Зацикливаем автовидео
+      video.controls = false; // Убираем контролы для автовидео
+      video.playsInline = true; // Для мобильных устройств
+    } else {
+      // Для видео с кнопкой play
+      video.muted = false; // Включаем звук
+      video.controls = false; // Изначально контролы скрыты
+      video.preload = "metadata"; // Предзагрузка метаданных
+    }
+
+    // Обработчик клика по кнопке play (только для не-автовидео)
+    if (playButton && !isAutoplay) {
+      playButton.addEventListener("click", () => {
+        this.playVideo(videoId);
+      });
+    }
+
+    // Обработчики событий видео
+    video.addEventListener("play", () => {
+      this.onVideoPlay(videoId);
+    });
+    video.addEventListener("pause", () => {
+      // Handle pause from native controls
+      if (!isAutoplay) {
+        video.controls = false;
+        if (playButton) {
+          playButton.style.display = "block";
+          playButton.style.opacity = 1;
+          playButton.style.pointerEvents = "all";
+        }
+      }
+      this.onVideoPause(videoId);
+    });
+
+    // Add event listener for when user clicks native controls pause button
+    video.addEventListener("timeupdate", () => {
+      if (!player.isAutoplay && !video.paused && !video.controls) {
+        video.controls = true;
+      }
+    });
+    video.addEventListener("ended", () => {
+      this.onVideoEnd(videoId);
+    });
+
+    // Обработчик ошибок видео
+    video.addEventListener("error", e => {
+      console.error("Ошибка воспроизведения видео:", e);
+      this.onVideoError(videoId);
+    });
+
+    // Обработчик загрузки метаданных
+    video.addEventListener("loadedmetadata", () => {
+      console.log(`Видео "${videoId}" готово к воспроизведению`);
+    });
+  }
+
+  /**
+   * Автовоспроизведение видео при появлении в области видимости
+   * @param {string} videoId - ID видео плеера
+   */
+  autoplayVideo(videoId) {
+    const player = this.videoPlayers.get(videoId);
+    if (!player || !player.isAutoplay || player.isPlaying) return;
+    const {
+      video,
+      container,
+      cover
+    } = player;
+    try {
+      // Скрываем обложку для автовидео
+      if (cover) {
+        cover.style.display = "none";
+      }
+
+      // Показываем видео
+      container.classList.add("_active");
+
+      // Воспроизводим видео
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          player.isPlaying = true;
+          console.log(`Автовидео "${videoId}" воспроизводится`);
+        }).catch(error => {
+          console.error("Ошибка автовоспроизведения:", error);
+        });
+      }
+    } catch (error) {
+      console.error("Ошибка при автовоспроизведении:", error);
+    }
+  }
+
+  /**
+   * Воспроизведение видео по кнопке
+   * @param {string} videoId - ID видео плеера
+   */
+  playVideo(videoId) {
+    const player = this.videoPlayers.get(videoId);
+    if (!player) return;
+    const {
+      video,
+      container,
+      cover,
+      playButton
+    } = player;
+    try {
+      // Скрываем обложку
+      if (cover) {
+        cover.style.display = "none";
+      }
+
+      // Скрываем кастомную кнопку play
+      if (playButton) {
+        playButton.style.display = "none";
+      }
+
+      // Показываем видео
+      container.classList.add("_active");
+
+      // Включаем контролы и звук при ручном воспроизведении
+      video.controls = true;
+      video.muted = false;
+
+      // Воспроизводим видео
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          player.isPlaying = true;
+          console.log(`Видео "${videoId}" воспроизводится`);
+        }).catch(error => {
+          console.error("Ошибка воспроизведения:", error);
+          this.onVideoError(videoId);
+        });
+      }
+    } catch (error) {
+      console.error("Ошибка при попытке воспроизведения:", error);
+      this.onVideoError(videoId);
+    }
+  }
+
+  /**
+   * Пауза видео
+   * @param {string} videoId - ID видео плеера
+   */
+  pauseVideo(videoId) {
+    const player = this.videoPlayers.get(videoId);
+    if (!player) return;
+    const {
+      video
+    } = player;
+    video.pause();
+    player.isPlaying = false;
+  }
+
+  /**
+   * Остановка видео
+   * @param {string} videoId - ID видео плеера
+   */
+  stopVideo(videoId) {
+    const player = this.videoPlayers.get(videoId);
+    if (!player) return;
+    const {
+      video,
+      container,
+      cover,
+      isAutoplay
+    } = player;
+    video.pause();
+    video.currentTime = 0;
+    player.isPlaying = false;
+
+    // Скрываем видео и показываем обложку
+    container.classList.remove("_active");
+    if (cover) {
+      cover.style.display = "block";
+    }
+
+    // Для не-автовидео скрываем контролы при остановке
+    if (!isAutoplay) {
+      video.controls = false;
+    }
+  }
+
+  /**
+   * Обработчик начала воспроизведения
+   * @param {string} videoId - ID видео плеера
+   */
+  onVideoPlay(videoId) {
+    const player = this.videoPlayers.get(videoId);
+    if (!player) return;
+    player.isPlaying = true;
+    const videoType = player.isAutoplay ? "автовидео" : "видео";
+    console.log(`${videoType} "${videoId}" начало воспроизведение`);
+  }
+
+  /**
+   * Обработчик паузы
+   * @param {string} videoId - ID видео плеера
+   */
+  onVideoPause(videoId) {
+    const player = this.videoPlayers.get(videoId);
+    if (!player) return;
+    const {
+      video,
+      playButton,
+      isAutoplay
+    } = player;
+    player.isPlaying = false;
+
+    // Для видео с кнопкой (не автовоспроизведение)
+    if (!isAutoplay) {
+      // Скрываем стандартные контролы
+      video.controls = false;
+      // Показываем кастомную кнопку play
+      if (playButton) {
+        playButton.style.display = "block";
+      }
+    }
+    const videoType = player.isAutoplay ? "автовидео" : "видео";
+    console.log(`${videoType} "${videoId}" поставлено на паузу`);
+  }
+
+  /**
+   * Обработчик окончания видео
+   * @param {string} videoId - ID видео плеера
+   */
+  onVideoEnd(videoId) {
+    const player = this.videoPlayers.get(videoId);
+    if (!player) return;
+    player.isPlaying = false;
+    console.log(`Видео "${videoId}" завершено`);
+
+    // For non-autoplay videos, hide controls on end
+    if (!player.isAutoplay) {
+      player.video.controls = false;
+      // Можно добавить логику для показа обложки
+    }
+  }
+
+  /**
+   * Обработчик ошибки видео
+   * @param {string} videoId - ID видео плеера
+   */
+  onVideoError(videoId) {
+    const player = this.videoPlayers.get(videoId);
+    if (!player) return;
+    player.isPlaying = false;
+    console.error(`Ошибка в видео "${videoId}"`);
+
+    // Показываем обложку при ошибке
+    const {
+      container,
+      cover,
+      video,
+      isAutoplay
+    } = player;
+    container.classList.remove("_active");
+    if (cover) {
+      cover.style.display = "block";
+    }
+
+    // Скрываем контролы при ошибке
+    if (!isAutoplay) {
+      video.controls = false;
+    }
+  }
+
+  /**
+   * Получение состояния видео
+   * @param {string} videoId - ID видео плеера
+   * @returns {boolean}
+   */
+  isPlaying(videoId) {
+    const player = this.videoPlayers.get(videoId);
+    return player ? player.isPlaying : false;
+  }
+
+  /**
+   * Получение всех видео плееров
+   * @returns {Map}
+   */
+  getAllPlayers() {
+    return this.videoPlayers;
+  }
+
+  /**
+   * Уничтожение наблюдателя (для очистки ресурсов)
+   */
+  destroy() {
+    if (this.intersectionObserver) {
+      this.intersectionObserver.disconnect();
+    }
+  }
+}
+
+// Создаем экземпляр класса
+const videoPlayer = new VideoPlayer();
+
+// Экспортируем для использования в других модулях
+
 
 /***/ })
 

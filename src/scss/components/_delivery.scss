@@ -1,6 +1,8 @@
 .delivery {
   padding: 10rem 0;
-
+  @include mobile {
+    padding: 9.2rem 0 10rem;
+  }
   &__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -35,19 +37,75 @@
     overflow: hidden;
 
     @include mobile {
-      padding: 6rem 4rem;
+      padding: 4.8rem 4rem 5.2rem;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+      padding: 0;
+      margin-top: 0;
+      font-weight: 400;
+      font-size: 2.2rem;
+      line-height: 150%;
+      color: #000;
+
+      li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.8rem;
+
+        &:not(:last-child) {
+          margin-bottom: 3.2rem;
+          @include mobile {
+            margin-bottom: 2.2rem;
+          }
+        }
+
+        &::before {
+          content: "";
+          display: inline-block;
+          margin-top: 1.2rem;
+          width: 1rem;
+          height: 1rem;
+          border-radius: 100%;
+          flex-shrink: 0;
+          background-color: var(--ac-pink);
+        }
+      }
     }
   }
   &__title {
     margin-bottom: 4rem;
+
+    @include mobile {
+      margin-bottom: 3rem;
+    }
   }
   &__list {
     margin-bottom: 5.2rem;
+
+    @include mobile {
+      margin: 0;
+    }
   }
   &__btn {
     display: flex;
     width: 100%;
     padding: 1.4rem 1.5rem 1.6rem;
     font-size: 2.6rem;
+
+    @include mobile {
+      font-size: 2.8rem;
+      padding: 2.3rem 2rem 2.5rem;
+      display: none;
+    }
+
+    &_mob {
+      display: none;
+      @include mobile {
+        display: flex;
+      }
+    }
   }
 }

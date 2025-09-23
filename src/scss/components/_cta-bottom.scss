@@ -3,10 +3,17 @@
   &__container {
     display: flex;
     gap: 2rem;
+
+    @include mobile {
+      flex-direction: column;
+    }
   }
 
   &__title {
     margin-bottom: 5rem;
+    @include mobile {
+      margin-bottom: 3rem;
+    }
   }
 
   &__decor {
@@ -22,6 +29,11 @@
       width: 100%;
       height: 100%;
     }
+
+    @include mobile {
+      height: 48rem;
+      flex-basis: unset;
+    }
   }
 
   &__content {
@@ -30,28 +42,31 @@
     background-color: var(--ac-white);
     border-radius: 1rem;
     overflow: hidden;
-  }
-
-  &__decor {
-    img {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      max-width: 100%; // Адаптируем под новое изображение
-      height: auto;
+    @include mobile {
+      padding: 5rem 3rem 6rem;
+      max-width: 100%;
     }
   }
 
   .form {
     gap: 2rem;
+    @include mobile {
+      gap: 1.2rem;
+    }
   }
   .form__row {
     & > *:nth-child(1) {
       flex-basis: 41.6rem;
+      @include mobile {
+        flex-basis: unset;
+      }
     }
   }
   .form__field-wrapper--area {
     height: 16rem;
+    @include mobile {
+      height: 12rem;
+    }
   }
   .cta-extra {
     margin-top: -0.7rem;

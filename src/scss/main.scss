@@ -6,6 +6,7 @@
 @import "./components/ui";
 @import "./components/nav";
 @import "./components/header";
+@import "./components/video-player";
 @import "./components/hero";
 @import "./components/benefits";
 @import "./components/delivery";
@@ -19,3 +20,11 @@
 @import "./components/faq";
 @import "./components/footer";
 @import "./components/mobile-menu";
+@import "./components/modal";
+@import "./components/contacts";
+@import "./components/popular";
+@import "./components/services";
+
+.just-validate-error-label {
+  display: none;
+}

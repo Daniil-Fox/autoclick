@@ -1,8 +1,13 @@
 .testi {
   padding: 8.5rem 0;
-
+  @include mobile {
+    padding: 9rem 0;
+  }
   &__slider {
     padding: 0 calc((100% - var(--content-width)) / 2);
+    @include mobile {
+      padding: 0 var(--container-offset);
+    }
     .swiper-slide {
       width: auto;
     }
@@ -10,6 +15,9 @@
 
   &__title {
     margin-bottom: 3.8rem;
+    @include mobile {
+      margin-bottom: 5rem;
+    }
   }
 
   &__slide {
@@ -19,6 +27,10 @@
     overflow: hidden;
     background-color: var(--ac-white);
     min-height: 72.2rem;
+
+    @include mobile {
+      min-height: 80.8rem;
+    }
   }
 
   &__img {

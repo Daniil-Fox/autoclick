@@ -42,7 +42,7 @@ export const validateForms = (selector, rules, checkboxes = [], afterSend) => {
       }
     };
     const path =
-      location.origin + "/wp-content/themes/peremena/assets/mail.php";
+      location.origin + "/wp-content/themes/autoclick/assets/mail.php";
     xhr.open("POST", path, true);
     xhr.send(formData);
     form
@@ -54,7 +54,7 @@ export const validateForms = (selector, rules, checkboxes = [], afterSend) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   // Массив селекторов форм
-  const formSelectors = [".cta__form", ".modal__form"];
+  const formSelectors = [".cta__form", ".cta-bottom__form", ".modal__form"];
 
   formSelectors.forEach((formSelector) => {
     const form = document.querySelector(formSelector);
@@ -77,11 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Изначально блокируем оба поля и устанавливаем правильный лейбл
     if (telInput) {
       console.log("dis");
-      telInput.disabled = true;
+      // telInput.disabled = true;
       telInput.style.display = "block";
     }
     if (emailInput) {
-      emailInput.disabled = true;
+      // emailInput.disabled = true;
       emailInput.style.display = "none";
     }
     if (contactLabel) {
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (selectField) {
           selectField.classList.add("form__field--long");
         }
-        telInput.disabled = true;
+        // telInput.disabled = true;
         emailInput.style.display = "none";
         emailInput.disabled = true;
         if (contactLabel) contactLabel.textContent = "телефон/email";
@@ -160,11 +160,11 @@ document.addEventListener("DOMContentLoaded", () => {
         telField.style.display = "block";
       }
       // Убираем класс long у блока с селектом
-      if (selectField) {
-        selectField.classList.remove("form__field--long");
-      }
+      // if (selectField) {
+      //   selectField.classList.remove("form__field--long");
+      // }
 
-      telInput.disabled = true;
+      // telInput.disabled = true;
       emailInput.style.display = "none";
       emailInput.disabled = true;
 
@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!telInput.disabled && telInput.value) {
           contactValid = telInput.value.replace(/\D/g, "").length === 11;
         }
-        if (!emailInput.disabled && emailInput.value) {
+        if (emailInput && !emailInput.disabled && emailInput.value) {
           contactValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
         }
         submitBtn.disabled = !(nameValid && contactTypeValid && contactValid);
@@ -289,32 +289,4 @@ document.addEventListener("DOMContentLoaded", () => {
     initValidation();
     select?.addEventListener("change", initValidation);
   });
-
-  // Открытие модального окна по клику на .modal-btn
-  document.querySelectorAll(".modal-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const modal = document.querySelector(".modal");
-      if (modal) {
-        modal.classList.add("active");
-      }
-    });
-  });
-
-  // Закрытие модального окна при клике вне .modal__content
-  const modal = document.querySelector(".modal");
-  if (modal) {
-    modal.addEventListener("click", (e) => {
-      const content = modal.querySelector(".modal__content");
-      const closeBtn = modal.querySelectorAll(".modal__close");
-      if (e.target === modal || (content && !content.contains(e.target))) {
-        modal.classList.remove("active");
-      }
-      closeBtn.forEach((el) => {
-        el.addEventListener("click", (e) => {
-          e.preventDefault();
-          modal.classList.remove("active");
-        });
-      });
-    });
-  }
 });

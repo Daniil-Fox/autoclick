@@ -119,7 +119,7 @@
 
   &__nav {
     flex: 1;
-    margin-bottom: 3rem;
+    margin-bottom: 8rem;
 
     ul {
       list-style: none;
@@ -127,32 +127,27 @@
       padding: 0;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 4rem;
     }
 
     li {
       a {
         display: block;
-        padding: 1.5rem 0;
         font-weight: 400;
         font-size: 2.2rem;
         color: var(--ac-black);
         text-decoration: none;
-        transition: color 0.3s ease;
 
+        transition-property: color;
+        transition-duration: 0.3s;
         @include hover {
           color: var(--ac-pink);
         }
-
-        @include mobile {
-          padding: 1rem 0;
-          font-size: 2rem;
+        &:focus {
+          outline: none;
+          color: var(--ac-pink);
         }
       }
-    }
-
-    @include mobile {
-      margin-bottom: 2rem;
     }
   }
 

@@ -1,12 +1,23 @@
 .faq {
   padding: 10.2rem 0;
+  @include mobile {
+    padding: 9.8rem 0;
+  }
   &__title {
     margin-bottom: 4.8rem;
+
+    @include mobile {
+      text-align: left;
+      margin-bottom: 4rem;
+    }
   }
   &__items {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
   }
   &__col {
     display: flex;
@@ -24,6 +35,7 @@
   background-color: var(--ac-white);
   transition: min-height 0.3s ease;
   will-change: min-height;
+
   &__header {
     display: flex;
     align-items: center;
@@ -51,13 +63,21 @@
     height: 4rem;
     transition: transform 0.3s ease;
     position: relative;
-
+    @include mobile {
+      width: 2.8rem;
+      height: 2.8rem;
+    }
     svg {
       width: 3rem;
       height: 2rem;
       stroke: #040404;
       stroke-linecap: round;
       transition: stroke 0.3s ease-in;
+
+      @include mobile {
+        width: 2rem;
+        height: 1.8rem;
+      }
     }
   }
 
@@ -72,7 +92,9 @@
     padding-top: 4rem;
     color: var(--ac-black);
     font-size: 2rem;
-
+    font-weight: 300;
+    line-height: 150%;
+    color: #303030;
     p {
       margin: 0;
 
@@ -82,10 +104,9 @@
     }
   }
 
-  // Мобильная версия
-  @media (max-width: 576px) {
-    padding: 3rem 2rem;
-
+  @include mobile {
+    padding: 3.2rem 4rem;
+    border-radius: 2rem;
     &__text {
       padding-top: 2rem;
       font-size: 1.8rem;

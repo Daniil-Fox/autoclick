@@ -1,28 +1,37 @@
 <section class="hero">
-  <div class="hero__cover">
-    <picture>
-      <source srcset="./img/hero-mob.webp" media="(max-width: 600px)" type="image/webp">
-      <img loading="lazy" src="./img/hero.webp" class="image" width="1920" height="1000" aria-hidden="true" alt="">
-    </picture>
+  <div
+    class="video-wrapper hero__wrapper"
+    data-video-player="hero-video"
+    data-video-autoplay
+  >
+    <div class="hero__video">
+      <video src="./cover.mp4" preload="metadata" loop playsinline></video>
+    </div>
+    <div class="hero__cover" data-video-cover>
+      <picture>
+        <source
+          srcset="./img/hero-mob.webp"
+          media="(max-width: 600px)"
+          type="image/webp"
+        />
+        <img
+          loading="lazy"
+          src="./img/hero.webp"
+          class="image"
+          width="1920"
+          height="1000"
+          aria-hidden="true"
+          alt=""
+        />
+      </picture>
+    </div>
   </div>
-  <div class="hero__video">
-    <video src="./cover.mp4"></video>
-  </div>
-  <button class="btn-reset hero__play">
-    <svg class="">
-      <use xlink:href="img/sprite.svg#play"></use>
-    </svg>
-  </button>
   <div class="container">
     <div class="hero__container">
-      <h1 class="title1 hero__title">
-        Авто с&nbsp;Китая<br>
-        до&nbsp;вашего дома в&nbsp;один клик
-      </h1>
-      <button class="btn-reset hero__btn btn">
+      <h1 class="title1 hero__title">Авто из Китая<br />в один клик</h1>
+      <button class="btn-reset hero__btn btn" data-target="modal-cta">
         Оставить заявку
       </button>
-
     </div>
   </div>
 </section>

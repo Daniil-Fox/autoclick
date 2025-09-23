@@ -4,6 +4,9 @@ import "./components/dropdown.js";
 import "./components/sliders.js";
 import { burger } from "./functions/burger.js";
 import CustomTextarea from "./components/textarea.js";
+import { initTextTruncation } from "./functions/truncate-text.js";
+import { modalManager } from "./functions/modal.js";
+import { videoPlayer } from "./functions/video-player.js";
 
 import "./functions/validate-forms.js";
 import FAQ from "./components/faq.js";
@@ -16,6 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   new FAQ();
+
+  // Инициализация обрезки текста
+  initTextTruncation();
 });
 
 // Логика для скрытия/показа header при скролле
@@ -41,26 +47,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function onScroll() {
     const currentScroll = window.scrollY;
-    if (currentScroll < 30) {
-      // Почти в самом верху — возвращаем header в исходное состояние
+    const maxScroll =
+      document.documentElement.scrollHeight - window.innerHeight;
+
+    // Проверяем, находимся ли мы в самом верху страницы
+    if (currentScroll <= 0) {
+      // В самом верху — возвращаем header в исходное состояние
       header.classList.remove("header--fixed", "header--hidden");
-      setBodyPadding(false);
+      // setBodyPadding(false);
       isFixed = false;
       if (hideTimeout) {
         clearTimeout(hideTimeout);
         hideTimeout = null;
       }
     } else if (currentScroll > lastScroll && currentScroll > 50) {
-      // Скролл вниз — скрываем
+      // Скролл вниз — скрываем header
       header.classList.add("header--hidden");
       if (hideTimeout) clearTimeout(hideTimeout);
       hideTimeout = setTimeout(() => {
         header.classList.remove("header--fixed");
-        setBodyPadding(false);
+        // setBodyPadding(false);
         isFixed = false;
       }, 300); // 300ms = transition
-    } else if (currentScroll < lastScroll) {
-      // Скролл вверх — показываем
+    } else if (currentScroll < lastScroll && currentScroll > 0) {
+      // Скролл вверх (но не в самом верху) — показываем header
       if (hideTimeout) {
         clearTimeout(hideTimeout);
         hideTimeout = null;
@@ -68,10 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
       header.classList.remove("header--hidden");
       if (!isFixed) {
         header.classList.add("header--fixed");
-        setBodyPadding(true);
+        // setBodyPadding(true);
         isFixed = true;
       }
     }
+
     lastScroll = currentScroll;
     ticking = false;
   }

@@ -37,6 +37,10 @@
         outline-color 0.3s ease-in;
       &--area {
         height: 12rem;
+
+        @include mobile {
+          height: 24rem;
+        }
       }
     }
 
@@ -69,8 +73,15 @@
     display: flex;
     gap: 1.2rem;
 
+    @include mobile {
+      flex-direction: column;
+    }
+
     & > *:nth-child(1) {
       flex-basis: 58.3rem;
+      @include mobile {
+        flex-basis: unset;
+      }
     }
     & > *:nth-child(2) {
       flex: 1;
@@ -141,5 +152,10 @@
     grid-column: 2 span;
     padding: 1.5rem 3rem 1.6rem;
     font-size: 2.6rem;
+
+    @include mobile {
+      font-size: 2.8rem;
+      padding: 2.2rem 2rem 2.6rem;
+    }
   }
 }

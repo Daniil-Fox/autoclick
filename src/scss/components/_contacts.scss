@@ -1,0 +1,65 @@
+.contacts {
+  padding: 15rem 0;
+  @include mobile {
+    padding: 13rem 0;
+  }
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__content {
+    grid-column: 4 span;
+    border-radius: 1rem;
+    padding: 8rem;
+    background-color: var(--ac-white);
+
+    @include mobile {
+      padding: 6rem 4rem;
+    }
+  }
+
+  &__map {
+    grid-column: 8 span;
+    min-height: 63rem;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    @include mobile {
+      min-height: unset;
+      aspect-ratio: 1 / 1;
+    }
+  }
+
+  &__title {
+    margin-bottom: 6rem;
+
+    @include mobile {
+      margin-bottom: 4rem;
+    }
+  }
+  &__address {
+    margin-bottom: 4rem;
+    @include mobile {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__soc {
+    margin-bottom: 6rem;
+    @include mobile {
+      margin-bottom: 4rem;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    width: 100%;
+  }
+}

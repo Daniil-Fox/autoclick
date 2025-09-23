@@ -11,6 +11,7 @@
       min-height: unset;
       display: flex;
       flex-direction: column-reverse;
+      gap: 5rem;
     }
   }
 
@@ -22,13 +23,36 @@
     overflow: hidden;
 
     @include mobile {
-      padding: 6rem 4rem;
+      padding: 5rem 4rem;
     }
   }
   &__title {
     margin-bottom: 3rem;
+    @include mobile {
+      margin-bottom: 2rem;
+    }
   }
   &__desc {
+    @include mobile {
+      font-weight: 400;
+    }
+
+    .about__text {
+      @include mobile {
+        // Базовые ограничения для мобильных
+        max-height: calc(1.5em * 12); // 12 строк
+        overflow: hidden;
+        position: relative;
+        transition: max-height 0.3s ease;
+
+        // Класс для развернутого состояния
+        &.about__text--expanded {
+          max-height: none;
+          overflow: visible;
+        }
+      }
+    }
+
     p {
       margin: 0;
 
@@ -38,14 +62,53 @@
     }
   }
   &__video {
+    position: relative;
     grid-column: 7 span;
     border-radius: 1rem;
     overflow: hidden;
-
+    @include mobile {
+      height: 30.1rem;
+    }
     video {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+  }
+}
+
+.about__read-more {
+  display: none;
+  margin: 0 auto;
+  margin-top: 2rem;
+  width: 100%;
+  cursor: pointer;
+
+  font-weight: 400;
+  background: none;
+  border: none;
+  font-size: 20px;
+  line-height: 150%;
+  text-align: center;
+  color: var(--ac-black);
+  @include mobile {
+    display: block;
+  }
+  &:focus {
+    outline: none;
+  }
+
+  .about__read-more-text--hidden {
+    display: none;
+  }
+
+  &.about__read-more--expanded {
+    .about__read-more-text {
+      display: none;
+    }
+
+    .about__read-more-text--hidden {
+      display: block;
     }
   }
 }

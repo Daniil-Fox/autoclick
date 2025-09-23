@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="page__body">
+  <div class="site-container">
+    @include('partials/header.html')
+    <main class="main">
+      <section class="contacts">
+        <div class="container">
+          <a href="#" class="back-btn contacts__back">
+            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 1L1 7L7 13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Назад
+          </a>
+
+          <div class="contacts__container">
+            <div class="contacts__content">
+              <h1 class="title2 contacts__title">Контакты</h1>
+              <address class="footer__address contacts__address">
+                <p class="desc1 footer__link"><a href="#" class="link-btn">+7&nbsp;908-444-84-64</a></p>
+                <p class="desc1 footer__link"><a href="#" class="link-btn">carbuy@avtoklik.ru</a></p>
+                <p class="desc1 footer__link">Владивосток,&nbsp;ул.&nbsp;Станюковича&nbsp;
+                  д.&nbsp;46, офис 304</p>
+              </address>
+              <ul class="list-reset soc contacts__soc">
+                <li>
+                  <a href="#" target="_blank">
+                    <img src="./img/wa.svg" alt="WhatsApp">
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_blank">
+                    <img src="./img/tg.svg" alt="Telegram">
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_blank">
+                    <img src="./img/vk.svg" alt="VKontakte">
+                  </a>
+                </li>
+              </ul>
+              <button class="btn-reset contacts__btn btn" data-target="modal-cta">
+                Оставить заявку
+              </button>
+            </div>
+
+            <div class="contacts__map" id="map"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    @include('partials/footer.html')
+  </div>
+
+  @include('partials/modal-cta.html')
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=221cbec3-01c0-4b1a-8417-d7d65e719c35&lang=ru_RU"
+    type="text/javascript"></script>
+  <script>
+    ymaps.ready(function () {
+      const ourCompany = [43.109836, 132.349806];
+      let activeIndex = -1;
+      let markers = [];
+      let multiRoute;
+      var myMap = new ymaps.Map(
+        "map",
+        {
+          center: ourCompany,
+          zoom: 14,
+        },
+        {
+          searchControlProvider: "yandex#search",
+        }
+      ),
+        myPlacemark = new ymaps.Placemark(
+          myMap.getCenter(),
+          {},
+          {
+            iconLayout: "default#image",
+            iconImageHref: "./img/svg/marker.svg",
+            iconImageSize: [60, 60],
+            iconImageOffset: [0, -34],
+          }
+        );
+
+      myMap.geoObjects.add(myPlacemark);
+      myMap.controls.remove("geolocationControl"); // удаляем геолокацию
+      myMap.controls.remove("searchControl"); // удаляем поиск
+      myMap.controls.remove("trafficControl"); // удаляем контроль трафика
+      myMap.controls.remove("typeSelector"); // удаляем тип
+      myMap.controls.remove("fullscreenControl"); // удаляем кнопку перехода в полноэкранный режим
+      myMap.controls.remove("zoomControl"); // удаляем контрол зуммирования
+      myMap.controls.remove("rulerControl"); // удаляем контрол правил
+    });
+  </script>
+</body>
+
+</html>

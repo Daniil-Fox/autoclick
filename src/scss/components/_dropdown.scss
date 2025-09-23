@@ -1,7 +1,7 @@
 .dropdown {
   display: block;
   width: 100%;
-  border-radius: 2rem;
+  border-radius: 1rem;
   padding: 2.68rem 2rem;
   background-color: #fafafa;
   border: none;
@@ -23,16 +23,20 @@
   &__btn {
     position: absolute;
     top: 50%;
-    right: -1.6rem;
+    right: 0;
     transform: translateY(-50%);
     width: 2.2rem;
     height: 1.3rem;
     flex-shrink: 0;
+    transition: color 0.3s ease-in, transform 0.3s ease-in;
     svg {
       display: block;
       width: 100%;
       height: 100%;
-      fill: currentColor;
+      fill: none;
+      stroke-width: 3px;
+      stroke-linecap: round;
+      stroke: currentColor;
     }
   }
   &__label {
@@ -49,9 +53,9 @@
   &__body {
     position: absolute;
     z-index: 4;
-    left: -2px;
+    left: 0px;
     top: 100%;
-    right: -2px;
+    right: 0px;
 
     box-sizing: content-box;
 
@@ -66,7 +70,6 @@
     z-index: 5;
     padding: 0.5rem 3rem 2rem;
 
-    border: 2px solid transparent;
     border-top: none;
     border-radius: 0 0 2rem 2rem;
     transition: color 0.1s ease-out, background-color 0.1s ease-out,
@@ -83,23 +86,25 @@
       display: none;
     }
     @include hover {
-      color: var(--accent-cyan);
+      color: var(--ac-pink);
     }
   }
 
   &.open {
-    background: var(--ac-white);
+    background-color: #fafafa;
     border-radius: 2rem 2rem 0 0;
-    outline: 2px solid var(--ac-black);
     border-bottom: none;
     .dropdown__content {
-      border-color: var(--ac-black);
-      background-color: var(--ac-white);
+      background-color: #fafafa;
     }
     .dropdown__header {
       color: var(--ac-black);
     }
-
+    .dropdown__btn {
+      color: var(--ac-pink);
+      transform: rotateZ(180deg);
+      transform-origin: top;
+    }
     @include hover {
       .dropdown {
         &__capture {
@@ -131,7 +136,11 @@
   }
   &.open.filled {
     .dropdown__capture {
-      color: var(--ac-black);
+      color: var(--ac-pink);
+    }
+    .dropdown__btn {
+      color: var(--ac-pink);
+      transform: rotateZ(180deg) translateY(0.5rem);
     }
   }
   @include hover {

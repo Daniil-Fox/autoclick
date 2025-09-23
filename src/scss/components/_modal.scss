@@ -1,0 +1,155 @@
+// Модальное окно
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+
+  &.modal--active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+
+    @include mobile {
+      padding: 1rem;
+    }
+  }
+
+  &__content {
+    position: relative;
+    background-color: transparent;
+    max-width: 180rem;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+
+    @include mobile {
+      max-height: 95vh;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ac-black);
+    transition: all 0.3s ease;
+    background: none;
+    padding: 0;
+    svg {
+      width: 100%;
+      height: 100%;
+      stroke-width: 2px;
+    }
+  }
+
+  // Стили для содержимого CTA внутри модального окна
+  .cta__container {
+    display: flex;
+    position: relative;
+    gap: 2rem;
+    border-radius: 1rem;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  .cta__content {
+    padding: 7.5rem 8rem 9rem;
+    max-width: 107.3rem;
+    width: 100%;
+    flex-shrink: 0;
+    background-color: var(--ac-white);
+    border-radius: 1rem;
+    overflow: hidden;
+
+    @include mobile {
+      padding: 5rem 3rem 6rem;
+      max-width: 100%;
+    }
+  }
+
+  .cta__decor {
+    flex-grow: 1;
+    background-color: var(--ac-white);
+    position: relative;
+    background-image: url("./../img/lines.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+
+    @include mobile {
+      display: none;
+    }
+
+    img {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      max-width: 79rem;
+      height: auto;
+    }
+  }
+}
+
+// Анимация появления модального окна
+.modal--active .modal__content {
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-2rem) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Стили для кнопок, открывающих модальные окна
+[data-target] {
+  cursor: pointer;
+}
+
+// Блокировка скролла при открытом модальном окне
+body.modal-open {
+  overflow: hidden;
+}

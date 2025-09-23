@@ -25,6 +25,9 @@
   min-width: 320px;
   min-height: 100%;
   font-size: 16px;
+
+  display: flex;
+  flex-direction: column;
 }
 
 img {
@@ -38,7 +41,13 @@ a {
 }
 
 .site-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   overflow: hidden; // если используете на сайте position: sticky - уберите эту настройку
+}
+.main {
+  flex-grow: 1;
 }
 
 .is-hidden {

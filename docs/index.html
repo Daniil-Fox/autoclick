@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
-
-<head>
+  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -17,13 +16,13 @@
 </head>
 
 
-<body class="page__body">
-  <div class="site-container">
-    <header class="header">
+  <body class="page__body">
+    <div class="site-container">
+      <header class="header">
   <div class="container">
     <div class="header__container">
       <a href="#" class="logo header__logo">
-        <img src="./img/svg/logo.svg" width="50" height="26" alt="logo">
+        <img src="./img/svg/logo.svg" width="50" height="26" alt="logo" />
         <span>автоклик</span>
       </a>
 
@@ -43,11 +42,15 @@
 
       <div class="header__actions">
         <a href="#" class="header__lk">
-          <span>Личный кабинет</span>
-          <img src="./img/svg/lk.svg" width="30" height="30" alt="lk">
+          <img src="./img/svg/lk.svg" width="30" height="30" alt="lk" />
         </a>
 
-        <button class="burger" data-burger aria-label="Открыть меню" aria-expanded="false">
+        <button
+          class="burger"
+          data-burger
+          aria-label="Открыть меню"
+          aria-expanded="false"
+        >
           <span class="burger__line"></span>
         </button>
       </div>
@@ -71,40 +74,47 @@
 </div>
 
   </div>
-
 </header>
 
-    <main class="main">
-      <section class="hero">
-  <div class="hero__cover">
-    <picture>
-      <source srcset="./img/hero-mob.webp" media="(max-width: 600px)" type="image/webp">
-      <img loading="lazy" src="./img/hero.webp" class="image" width="1920" height="1000" aria-hidden="true" alt="">
-    </picture>
+      <main class="main">
+        <section class="hero">
+  <div
+    class="video-wrapper hero__wrapper"
+    data-video-player="hero-video"
+    data-video-autoplay
+  >
+    <div class="hero__video">
+      <video src="./cover.mp4" preload="metadata" loop playsinline></video>
+    </div>
+    <div class="hero__cover" data-video-cover>
+      <picture>
+        <source
+          srcset="./img/hero-mob.webp"
+          media="(max-width: 600px)"
+          type="image/webp"
+        />
+        <img
+          loading="lazy"
+          src="./img/hero.webp"
+          class="image"
+          width="1920"
+          height="1000"
+          aria-hidden="true"
+          alt=""
+        />
+      </picture>
+    </div>
   </div>
-  <div class="hero__video">
-    <video src="./cover.mp4"></video>
-  </div>
-  <button class="btn-reset hero__play">
-    <svg class="">
-      <use xlink:href="img/sprite.svg#play"></use>
-    </svg>
-  </button>
   <div class="container">
     <div class="hero__container">
-      <h1 class="title1 hero__title">
-        Авто с&nbsp;Китая<br>
-        до&nbsp;вашего дома в&nbsp;один клик
-      </h1>
-      <button class="btn-reset hero__btn btn">
+      <h1 class="title1 hero__title">Авто из Китая<br />в один клик</h1>
+      <button class="btn-reset hero__btn btn" data-target="modal-cta">
         Оставить заявку
       </button>
-
     </div>
   </div>
 </section>
-
-      <section class="benefits">
+ <section class="benefits">
   <div class="container">
     <h2 class="title2 benefits__title centered">Преимущества</h2>
 
@@ -285,7 +295,7 @@
   </div>
 </section>
 
-      <section class="delivery">
+        <section class="delivery">
   <div class="container">
     <div class="delivery__container">
       <div class="delivery__img">
@@ -301,55 +311,161 @@
         </h2>
 
         <ul class="list-reset list delivery__list">
-          <li>Безопасность перевозки: минимум перегрузок, никаких рисков повреждений, камень в кузов уже не прилетит
+          <li>Безопасность перевозки: минимум перегрузок, никаких рисков повреждений, камень в&nbsp;кузов
+            уже&nbsp;не&nbsp;прилетит
           </li>
-          <li>До 7 дней — срок доставки из Китая в РФ</li>
-          <li>Авто 100% застраховано в процессе перевозки</li>
-          <li>Приёмка автомобилей в домашнем порту</li>
-          <li>Цена ниже по сравнению с сухопутными перевозками</li>
+          <li>До&nbsp;7&nbsp;дней&nbsp;— срок доставки из&nbsp;Китая&nbsp;в&nbsp;РФ</li>
+          <li>Авто 100% застраховано в&nbsp;процессе&nbsp;перевозки</li>
+          <li>Приёмка автомобилей в&nbsp;домашнем&nbsp;порту</li>
+          <li>Цена ниже по&nbsp;сравнению с&nbsp;сухопутными перевозками</li>
         </ul>
 
-        <button class="btn-reset btn delivery__btn">Оставить заявку</button>
+        <button class="btn-reset btn delivery__btn" data-target="modal-cta">Оставить заявку</button>
       </div>
+      <button class="btn-reset btn delivery__btn delivery__btn_mob" data-target="modal-cta">Оставить заявку</button>
     </div>
   </div>
-</section>
-
-      <section class="about">
+</section> <section class="about">
   <div class="container">
     <div class="about__container">
       <div class="about__content">
         <h2 class="title2 about__title">О компании</h2>
         <div class="desc1 about__desc">
-          <p>Покупка автомобиля из&nbsp;Китая для&nbsp;многих кажется рискованным шагом: доставка может затянуться
-            на&nbsp;месяцы,
-            условия часто непрозрачны, а&nbsp;вместо ожидаемого авто легко получить “кота в&nbsp;мешке”.
-            Непредсказуемость
-            и&nbsp;подводные камни превращают мечту о&nbsp;новой машине в&nbsp;стресс и&nbsp;постоянные сомнения.
-          </p>
-          <p>
-            Компания АвтоКлик изменила правила игры. Мы&nbsp;сделали процесс покупки прозрачным, удобным
-            и&nbsp;безопасным: оплата
-            в&nbsp;один клик, официальное оформление без&nbsp;скрытых условий, онлайн отслеживание перевозки авто
-            и&nbsp;чёткие сроки
-            доставки за&nbsp;счёт собственного сервиса покупки в&nbsp;Китае и&nbsp;морской логистики. С&nbsp;нами
-            покупка
-            авто из&nbsp;Китая&nbsp;—
-            это&nbsp;не&nbsp;риск и&nbsp;неизвестность, а&nbsp;удобный и&nbsp;понятный процесс с&nbsp;гарантированным
-            результатом.
-          </p>
+          <div class="about__text">
+            <p>Покупка автомобиля из&nbsp;Китая для&nbsp;многих кажется рискованным шагом: доставка может затянуться
+              на&nbsp;месяцы,
+              условия часто непрозрачны, а&nbsp;вместо ожидаемого авто легко получить "кота в&nbsp;мешке".
+              Непредсказуемость
+              и&nbsp;подводные камни превращают мечту о&nbsp;новой машине в&nbsp;стресс и&nbsp;постоянные сомнения.
+            </p>
+            <p>
+              Компания АвтоКлик изменила правила игры. Мы&nbsp;сделали процесс покупки прозрачным, удобным
+              и&nbsp;безопасным: оплата
+              в&nbsp;один клик, официальное оформление без&nbsp;скрытых условий, онлайн отслеживание перевозки авто
+              и&nbsp;чёткие сроки
+              доставки за&nbsp;счёт собственного сервиса покупки в&nbsp;Китае и&nbsp;морской логистики. С&nbsp;нами
+              покупка
+              авто из&nbsp;Китая&nbsp;—
+              это&nbsp;не&nbsp;риск и&nbsp;неизвестность, а&nbsp;удобный и&nbsp;понятный процесс с&nbsp;гарантированным
+              результатом.
+            </p>
 
-          <p><b>Вы&nbsp;выбираете авто, мы&nbsp;гарантируем результат.</b></p>
+            <p><b>Вы&nbsp;выбираете авто, мы&nbsp;гарантируем результат.</b></p>
+          </div>
+          <button class="about__read-more" type="button">
+            <span class="about__read-more-text">Читать далее</span>
+            <span class="about__read-more-text--hidden">Свернуть</span>
+          </button>
         </div>
       </div>
-      <div class="about__video">
-        <video src="./" poster="./img/about.webp"></video>
+      <div class="video-wrapper about__video" data-video-player="about-video">
+        <div class="about__video-cover" data-video-cover>
+          <img src="./img/about.webp" alt="">
+        </div>
+        <div>
+          <video src="./cover.mp4"></video>
+        </div>
+        <button class="about__video-play" data-video-play>
+          <svg>
+            <use xlink:href="img/sprite.svg#play"></use>
+          </svg>
+        </button>
       </div>
     </div>
   </div>
 </section>
-
-      <section class="cta">
+        <section class="popular">
+  <div class="container">
+    <h2 class="title2 popular__title">Популярные авто<span>мобили</span></h2>
+  </div>
+  <div class="popular__slider">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="pop-item popular__item">
+            <div class="pop-item__img">
+              <img src="./img/popular/01.webp" alt="" />
+            </div>
+            <div class="pop-item__content">
+              <p class="pop-item__capture">Cherry Tiggo 4 Pro</p>
+              <ul class="list-reset pop-item__list">
+                <li>1.5 л</li>
+                <li>2021</li>
+                <li>26700 км</li>
+              </ul>
+              <div class="pop-item__price">~1 020 000 р</div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="pop-item popular__item">
+            <div class="pop-item__img">
+              <img src="./img/popular/01.webp" alt="" />
+            </div>
+            <div class="pop-item__content">
+              <p class="pop-item__capture">Cherry Tiggo 4 Pro</p>
+              <ul class="list-reset pop-item__list">
+                <li>1.5 л</li>
+                <li>2021</li>
+                <li>26700 км</li>
+              </ul>
+              <div class="pop-item__price">~1 020 000 р</div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="pop-item popular__item">
+            <div class="pop-item__img">
+              <img src="./img/popular/01.webp" alt="" />
+            </div>
+            <div class="pop-item__content">
+              <p class="pop-item__capture">Cherry Tiggo 4 Pro</p>
+              <ul class="list-reset pop-item__list">
+                <li>1.5 л</li>
+                <li>2021</li>
+                <li>26700 км</li>
+              </ul>
+              <div class="pop-item__price">~1 020 000 р</div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="pop-item popular__item">
+            <div class="pop-item__img">
+              <img src="./img/popular/01.webp" alt="" />
+            </div>
+            <div class="pop-item__content">
+              <p class="pop-item__capture">Cherry Tiggo 4 Pro</p>
+              <ul class="list-reset pop-item__list">
+                <li>1.5 л</li>
+                <li>2021</li>
+                <li>26700 км</li>
+              </ul>
+              <div class="pop-item__price">~1 020 000 р</div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="pop-item popular__item">
+            <div class="pop-item__img">
+              <img src="./img/popular/01.webp" alt="" />
+            </div>
+            <div class="pop-item__content">
+              <p class="pop-item__capture">Cherry Tiggo 4 Pro</p>
+              <ul class="list-reset pop-item__list">
+                <li>1.5 л</li>
+                <li>2021</li>
+                <li>26700 км</li>
+              </ul>
+              <div class="pop-item__price">~1 020 000 р</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ <section class="cta">
   <div class="container">
     <div class="cta__container">
       <div class="cta__content">
@@ -415,7 +531,7 @@
                 </div>
               </div>
             </div>
-            <span class="cta-extra">*Обязательные поля</span>
+
           </div>
           <div class="form__field form__field--long">
             <div class="form__field-wrapper">
@@ -424,6 +540,7 @@
               <label class="form__label">телефон/почта</label>
             </div>
           </div>
+          <span class="cta-extra">*Обязательные поля</span>
           <button class="btn btn-reset btn--accent form__btn" disabled>
             Получить расчет
           </button>
@@ -436,8 +553,7 @@
     </div>
   </div>
 </section>
-
-      <section class="testi">
+        <section class="testi">
   <div class="container">
     <h2 class="title2 testi__title">Отзывы</h2>
   </div>
@@ -536,8 +652,7 @@
     </div>
   </div>
 </section>
-
-      <section class="faq">
+ <section class="faq">
   <div class="container">
     <h2 class="title2 faq__title centered">Часто задаваемые вопросы</h2>
 
@@ -664,7 +779,7 @@
   </div>
 </section>
 
-      <section class="cta-bottom">
+        <section class="cta-bottom">
   <div class="container">
     <div class="cta-bottom__container">
       <div class="cta-bottom__decor">
@@ -701,8 +816,9 @@
           <div class="form__row">
             <div class="form__field form__field--long">
               <div class="form__field-wrapper">
-                <input id="phone2" type="tel" class="form__input input-tel" name="Телефон" />
-                <label for="phone2" class="form__label">Номер телефона*</label>
+                <input id="phone2" type="text" class="form__input input-tel" name="Телефон" style="display: block" />
+                <input type="email" class="form__input input-email" name="Почта" style="display: none" />
+                <label for="phone2" class="form__label">телефон/почта</label>
               </div>
             </div>
 
@@ -748,45 +864,163 @@
     </div>
   </div>
 </section>
-
-    </main>
-    <footer class="footer">
+      </main>
+      <footer class="footer">
   <div class="container">
     <div class="footer__container">
-      <address class="footer__address">
-        <p class="desc1 footer__link"><a href="#" class="link-btn">+7&nbsp;908-444-84-64</a></p>
-        <p class="desc1 footer__link"><a href="#" class="link-btn">carbuy@avtoklik.ru</a></p>
-        <p class="desc1 footer__link">Владивосток,&nbsp;ул.&nbsp;Станюковича&nbsp;
-          д.&nbsp;46, офис 304</p>
-      </address>
+      <div class="footer__left">
+        <address class="footer__address">
+          <p class="desc1 footer__link"><a href="#" class="link-btn">+7&nbsp;908-444-84-64</a></p>
+          <p class="desc1 footer__link"><a href="#" class="link-btn">carbuy@avtoklik.ru</a></p>
+          <p class="desc1 footer__link">Владивосток,&nbsp;ул.&nbsp;Станюковича&nbsp;
+            д.&nbsp;46, офис 304</p>
+        </address>
+        <ul class="list-reset soc footer__soc footer__soc--mobile">
+          <li>
+            <a href="#" target="_blank">
+              <img src="./img/wa.svg" alt="WhatsApp">
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank">
+              <img src="./img/tg.svg" alt="Telegram">
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank">
+              <img src="./img/vk.svg" alt="VKontakte">
+            </a>
+          </li>
+        </ul>
+      </div>
 
       <div class="footer__right">
-        <ul class="list-reset soc footer__soc">
+        <!-- Основной блок соцсетей для десктопа -->
+        <ul class="list-reset soc footer__soc footer__soc--desktop">
           <li>
             <a href="#" target="_blank">
-              <img src="./img/wa.svg" alt="">
+              <img src="./img/wa.svg" alt="WhatsApp">
             </a>
           </li>
           <li>
             <a href="#" target="_blank">
-              <img src="./img/tg.svg" alt="">
+              <img src="./img/tg.svg" alt="Telegram">
             </a>
           </li>
           <li>
             <a href="#" target="_blank">
-              <img src="./img/vk.svg" alt="">
+              <img src="./img/vk.svg" alt="VKontakte">
             </a>
           </li>
         </ul>
 
-        <a href="#" class=" desc1 footer__policy link-btn">Политика конфиденциальности</a>
-        <small class="desc1" class="footer__copy">©2025 Автоклик</small>
+        <a href="#" class="desc1 footer__policy link-btn">Политика конфиденциальности</a>
+        <small class="desc1 footer__copy">©2025 Автоклик</small>
       </div>
     </div>
   </div>
 </footer>
+    </div>
 
+    <!-- Модальные окна -->
+    <!-- Модальное окно "Оставить заявку" -->
+<div class="modal" id="modal-cta">
+  <div class="modal__overlay"></div>
+  <div class="modal__container">
+    <div class="modal__content">
+      <button class="modal__close" type="button" aria-label="Закрыть модальное окно">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L29 29M29 1L1 29" stroke="#050220" stroke-width="2" />
+        </svg>
+      </button>
+      <div class="cta__container">
+        <div class="cta__content">
+          <h2 class="title2 cta__title">Оставить заявку</h2>
+
+          <form action="#" class="modal__form form corner-smooth-40">
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input id="modal-model" type="text" class="form__input input-name" name="Марка, модель" />
+                <label for="modal-model" class="form__label">Марка, модель*</label>
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper form__field-wrapper--area">
+                <textarea id="modal-extra" class="form__input form__input--area input-mess"
+                  name="Дополнительно"></textarea>
+                <label for="modal-extra" class="form__label">Дополнительно (год, комплектация, мощность, т.д.)</label>
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="form__field form__field--long">
+                <div class="form__field-wrapper">
+                  <input id="modal-name" type="text" class="form__input input-name" name="Имя" />
+                  <label for="modal-name" class="form__label">Ваше имя*</label>
+                </div>
+              </div>
+
+              <div class="form__field form__field--long">
+                <div class="form__field-wrapper">
+                  <input id="modal-city" type="text" class="form__input input-name" name="Город" />
+                  <label for="modal-city" class="form__label">Ваш город*</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <select name="Способ связи" class="visually-hidden select-contact">
+                <option value="">Удобный формат связи</option>
+                <option value="Телефон">Телефон</option>
+                <option value="Telegram">Telegram</option>
+                <option value="Whatsapp">Whatsapp</option>
+                <option value="Email">Email</option>
+              </select>
+
+              <div class="dropdown form__dropdown">
+                <div class="dropdown__header">
+                  <div class="dropdown__label">Удобный формат связи</div>
+                  <div class="dropdown__capture">Удобный формат связи</div>
+                  <div class="dropdown__btn">
+                    <svg class="">
+                      <use xlink:href="img/sprite.svg#arr-down"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="dropdown__body">
+                  <div class="dropdown__content">
+                    <div class="dropdown__item"></div>
+                    <div class="dropdown__item">Телефон</div>
+                    <div class="dropdown__item">Telegram</div>
+                    <div class="dropdown__item">Whatsapp</div>
+                    <div class="dropdown__item">Email</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input type="text" class="form__input input-tel" name="Телефон" style="display: block" />
+                <input type="email" class="form__input input-email" name="Почта" style="display: none" />
+                <label class="form__label">телефон/почта</label>
+              </div>
+            </div>
+
+            <span class="cta-extra">*Обязательные поля</span>
+            <button class="btn btn-reset btn--accent form__btn" disabled>
+              Получить расчет
+            </button>
+          </form>
+        </div>
+
+        <div class="cta__decor">
+          <img src="./img/car.webp" aria-hidden="true" alt="">
+        </div>
+      </div>
+    </div>
   </div>
-</body>
-
+</div>
+  </body>
 </html>
