@@ -1,0 +1,85 @@
+<section class="cta cta-b2b">
+  <div class="container">
+    <div class="cta__container">
+      <div class="cta__content">
+        <h2 class="title2 cta__title">Оставить заявку</h2>
+
+        <form action="#" class="cta__form form corner-smooth-40">
+
+          <div class="form__row">
+              <div class="form__field form__field--long">
+                <div class="form__field-wrapper">
+                  <input id="name1" type="text" class="form__input input-name" name="Имя" />
+                  <label for="name1" class="form__label">Название вашей компании*</label>
+                </div>
+              </div>
+
+              <div class="form__field form__field--long">
+                <div class="form__field-wrapper">
+                  <input id="city1" type="text" class="form__input input-city" name="Город" />
+                  <label for="city1" class="form__label">Ваш город*</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper form__field-wrapper--area">
+                <textarea id="extra1" class="form__input form__input--area input-mess"
+                  name="Дополнительно"></textarea>
+                <label for="extra1" class="form__label">Комментарий</label>
+              </div>
+            </div>
+
+
+
+            <div class="form__field form__field--long">
+              <select name="Способ связи" class="visually-hidden select-contact">
+                <option value="">Удобный формат связи</option>
+                <option value="Телефон">Телефон</option>
+                <option value="Telegram">Telegram</option>
+                <option value="Whatsapp">Whatsapp</option>
+                <option value="Email">Email</option>
+              </select>
+
+              <div class="dropdown form__dropdown">
+                <div class="dropdown__header">
+                  <div class="dropdown__label">Удобный формат связи</div>
+                  <div class="dropdown__capture">Удобный формат связи</div>
+                  <div class="dropdown__btn">
+                    <svg class="">
+                      <use xlink:href="<?php echo get_template_directory_uri()?>/assets/img/sprite.svg#arr-down"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="dropdown__body">
+                  <div class="dropdown__content">
+                    <div class="dropdown__item"></div>
+                    <div class="dropdown__item">Телефон</div>
+                    <div class="dropdown__item">Telegram</div>
+                    <div class="dropdown__item">Whatsapp</div>
+                    <div class="dropdown__item">Email</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input type="text" class="form__input input-tel" name="Телефон" style="display: block" />
+                <input type="email" class="form__input input-email" name="Почта" style="display: none" />
+                <label class="form__label">телефон/почта</label>
+              </div>
+            </div>
+            <span class="cta-extra">*Обязательные поля</span>
+            <button class="btn btn-reset btn--accent form__btn" disabled>
+              Получить расчет
+            </button>
+        </form>
+      </div>
+
+      <div class="cta__decor">
+        <img src="<?php echo get_template_directory_uri()?>/assets/img/car.webp" aria-hidden="true" alt="">
+      </div>
+    </div>
+  </div>
+</section>

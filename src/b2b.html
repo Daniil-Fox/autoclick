@@ -1,19 +1,112 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
-  @include('partials/head.html')
+@include('partials/head.html')
 
-  <body class="page__body">
-    <div class="site-container">
-      @include('partials/header.html')
-      <main class="main">
-        @include('partials/hero.html') @include('partials/benefits.html')
-        @include('partials/delivery.html') @include('partials/services.html')
-        @include('partials/cta.html') @include('partials/cta-bottom.html')
-      </main>
-      @include('partials/footer.html')
+<body class="page__body">
+  <div class="site-container">
+    @include('partials/header.html')
+    <main class="main">
+      @include('partials/hero.html') @include('partials/benefits.html')
+      @include('partials/delivery.html') @include('partials/services.html')
+      @include('partials/cta.html') @include('partials/cta-bottom.html')
+    </main>
+    @include('partials/footer.html')
+  </div>
+  <div class="modal" id="modal-cta2">
+    <div class="modal__overlay"></div>
+    <div class="modal__container">
+      <div class="modal__content">
+        <button class="modal__close" type="button" aria-label="Закрыть модальное окно">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L29 29M29 1L1 29" stroke="#050220" stroke-width="2" />
+          </svg>
+        </button>
+        <div class="cta__container">
+          <div class="cta__content">
+            <h2 class="title2 cta__title">Оставить заявку</h2>
+
+            <form action="#" class="modal__form form corner-smooth-40">
+              <div class="form__row">
+                <div class="form__field form__field--long">
+                  <div class="form__field-wrapper">
+                    <input id="name143" type="text" class="form__input input-name" name="Имя" />
+                    <label for="name143" class="form__label">Название вашей компании*</label>
+                  </div>
+                </div>
+
+                <div class="form__field form__field--long">
+                  <div class="form__field-wrapper">
+                    <input id="city123" type="text" class="form__input input-city" name="Город" />
+                    <label for="city123" class="form__label">Ваш город*</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form__field form__field--long">
+                <div class="form__field-wrapper form__field-wrapper--area">
+                  <textarea id="extra1222" class="form__input form__input--area input-mess"
+                    name="Дополнительно"></textarea>
+                  <label for="extra1222" class="form__label">Комментарий</label>
+                </div>
+              </div>
+
+
+
+              <div class="form__field form__field--long">
+                <select name="Способ связи" class="visually-hidden select-contact">
+                  <option value="">Удобный формат связи</option>
+                  <option value="Телефон">Телефон</option>
+                  <option value="Telegram">Telegram</option>
+                  <option value="Whatsapp">Whatsapp</option>
+                  <option value="Email">Email</option>
+                </select>
+
+                <div class="dropdown form__dropdown">
+                  <div class="dropdown__header">
+                    <div class="dropdown__label">Удобный формат связи</div>
+                    <div class="dropdown__capture">Удобный формат связи</div>
+                    <div class="dropdown__btn">
+                      <svg class="">
+                        <use xlink:href="<?php echo get_template_directory_uri()?>/assets/img/sprite.svg#arr-down">
+                        </use>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="dropdown__body">
+                    <div class="dropdown__content">
+                      <div class="dropdown__item"></div>
+                      <div class="dropdown__item">Телефон</div>
+                      <div class="dropdown__item">Telegram</div>
+                      <div class="dropdown__item">Whatsapp</div>
+                      <div class="dropdown__item">Email</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form__field form__field--long">
+                <div class="form__field-wrapper">
+                  <input type="text" class="form__input input-tel" name="Телефон" style="display: block" />
+                  <input type="email" class="form__input input-email" name="Почта" style="display: none" />
+                  <label class="form__label">телефон/почта</label>
+                </div>
+              </div>
+              <span class="cta-extra">*Обязательные поля</span>
+              <button class="btn btn-reset btn--accent form__btn" disabled>
+                Получить расчет
+              </button>
+            </form>
+          </div>
+
+          <div class="cta__decor">
+            <img src="<?php echo get_template_directory_uri()?>/assets/img/car.webp" aria-hidden="true" alt="">
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+  <!-- Модальные окна -->
+  @include('partials/modal-cta.html')
+</body>
 
-    <!-- Модальные окна -->
-    @include('partials/modal-cta.html')
-  </body>
 </html>

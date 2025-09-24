@@ -153,3 +153,146 @@
 body.modal-open {
   overflow: hidden;
 }
+
+// Вариант успешной отправки
+.modal--success {
+  .modal__content {
+    background: var(--ac-white);
+    border-radius: 1rem;
+    max-width: 92rem;
+    width: 100%;
+    padding: 8rem;
+
+    @include mobile {
+      padding: 6rem 4rem;
+    }
+  }
+  .modal__text {
+    margin-bottom: 4rem;
+  }
+  .modal__ok,
+  .modal__neok {
+    max-width: 42rem;
+    padding: 1.3rem 5rem;
+    width: 100%;
+    font-size: 2.6rem;
+  }
+  .modal__success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.6rem;
+  }
+  .modal__success-icon {
+    height: 9rem;
+
+    color: #20a35b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+    svg {
+      height: 100%;
+    }
+  }
+  .modal__success-title {
+    margin: 0;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    font-size: 5.4rem;
+    text-align: center;
+    color: var(--ac-black);
+  }
+  .modal__success-text {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 2.6rem;
+    color: var(--ac-black);
+  }
+  .modal__success-btn {
+    margin-top: 0.8rem;
+    min-width: 16rem;
+  }
+}
+
+// Вариант успешной отправки
+.modal--error {
+  .modal__content {
+    background: var(--ac-white);
+    border-radius: 1rem;
+    max-width: 92rem;
+    width: 100%;
+    padding: 8rem;
+
+    @include mobile {
+      padding: 6rem 4rem;
+    }
+  }
+  .modal__text {
+    margin-bottom: 4rem;
+  }
+  .modal__ok {
+    max-width: 42rem;
+    padding: 1.3rem 5rem;
+    font-size: 2.6rem;
+  }
+  .modal__error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.6rem;
+  }
+  .modal__error-icon {
+    height: 9rem;
+
+    color: #20a35b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+    svg {
+      height: 100%;
+    }
+  }
+  .modal__error-title {
+    margin: 0;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    font-size: 5.4rem;
+    text-align: center;
+    color: var(--ac-black);
+  }
+  .modal__error-text {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 2.6rem;
+    color: var(--ac-black);
+    max-width: 45rem;
+    margin: 0 auto;
+    a {
+      color: inherit;
+      font-weight: 500;
+    }
+  }
+  .modal__error-btn {
+    margin-top: 0.8rem;
+    min-width: 16rem;
+  }
+
+  .modal__row {
+    display: flex;
+    width: 100%;
+    gap: 3rem;
+
+    & > * {
+      &:nth-child(1) {
+        flex: 1;
+      }
+      &:nth-child(2) {
+        flex: 2;
+      }
+    }
+  }
+}

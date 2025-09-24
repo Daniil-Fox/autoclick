@@ -1,0 +1,86 @@
+
+<section class="cta-bottom">
+  <div class="container">
+    <div class="cta-bottom__container">
+      <div class="cta-bottom__decor">
+        <img src="<?php the_field('cta_img', 'option')?>" aria-hidden="true" alt="">
+      </div>
+
+      <div class="cta-bottom__content">
+        <h2 class="title2 cta-bottom__title">Остались вопросы?</h2>
+
+        <form action="#" class="cta-bottom__form form">
+          <div class="form__field form__field--long">
+            <div class="form__field-wrapper form__field-wrapper--area">
+              <textarea id="question" class="form__input form__input--area input-mess" name="Вопрос"></textarea>
+              <label for="question" class="form__label">Ваш вопрос*</label>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input id="name2" type="text" class="form__input input-name" name="Имя" />
+                <label for="name2" class="form__label">Ваше имя*</label>
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input id="city2" type="text" class="form__input input-name" name="Город" />
+                <label for="city2" class="form__label">Ваш город*</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input id="phone2" type="text" class="form__input input-tel" name="Телефон" style="display: block" />
+                <input type="email" class="form__input input-email" name="Почта" style="display: none" />
+                <label for="phone2" class="form__label">телефон/почта</label>
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <select name="Способ связи" class="visually-hidden select-contact">
+                <option value="">Куда прислать ответ</option>
+                <option value="Телефон">Телефон</option>
+                <option value="Telegram">Telegram</option>
+                <option value="Whatsapp">Whatsapp</option>
+                <option value="Email">Email</option>
+              </select>
+
+              <div class="dropdown form__dropdown">
+                <div class="dropdown__header">
+                  <div class="dropdown__label">Куда прислать ответ</div>
+                  <div class="dropdown__capture">Куда прислать ответ</div>
+                  <div class="dropdown__btn">
+                    <svg class="">
+                      <use xlink:href="<?php echo get_template_directory_uri()?>/assets/img/sprite.svg#arr-down"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="dropdown__body">
+                  <div class="dropdown__content">
+                    <div class="dropdown__item"></div>
+                    <div class="dropdown__item">Телефон</div>
+                    <div class="dropdown__item">Telegram</div>
+                    <div class="dropdown__item">Whatsapp</div>
+                    <div class="dropdown__item">Email</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="cta-extra">*Обязательные поля</span>
+
+
+          <button class="btn btn-reset btn--accent form__btn" disabled>
+            Задать вопрос
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

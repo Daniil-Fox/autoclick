@@ -102,6 +102,12 @@
         margin-bottom: 1em;
       }
     }
+    ul,
+    ol {
+      li:not(:last-child) {
+        margin-bottom: 1.5em;
+      }
+    }
   }
 
   @include mobile {

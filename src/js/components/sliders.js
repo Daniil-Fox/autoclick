@@ -11,6 +11,15 @@ new Swiper(".popular__slider > .swiper", {
   slidesPerView: "auto",
   spaceBetween: 40,
   mousewheel: true,
+
+  breakpoints: {
+    320: {
+      spaceBetween: 30,
+    },
+    577: {
+      spaceBetween: 40,
+    },
+  },
 });
 
 window.addEventListener("DOMContentLoaded", () => {

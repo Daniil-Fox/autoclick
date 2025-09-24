@@ -113,17 +113,24 @@
     color: #adafb2;
     cursor: not-allowed;
   }
+  &_grey {
+    background-color: #fafafa;
+    color: var(--ac-black);
+  }
   @include hover {
     &:not(:disabled) {
       background-color: #de2f5e;
+      color: var(--ac-white);
     }
   }
   &:not(:disabled):focus {
     outline: none;
     background-color: #de2f5e;
+    color: var(--ac-white);
   }
   &:not(:disabled):active {
     background-color: var(--ac-pink);
+    color: var(--ac-white);
   }
 }
 .link-btn {
@@ -240,10 +247,14 @@
   h5,
   h6 {
     font-weight: 700;
-    font-size: 5rem;
+    font-size: 4.2rem;
     color: var(--ac-black);
     span {
       color: var(--ac-pink);
+    }
+
+    @include mobile {
+      font-size: 3.6rem;
     }
   }
 

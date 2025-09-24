@@ -5,33 +5,42 @@
         <h2 class="title2 cta__title">Оставить заявку</h2>
 
         <form action="#" class="cta__form form corner-smooth-40">
-          <div class="form__field form__field--long">
-            <div class="form__field-wrapper">
-              <input id="model1" type="text" class="form__input input-name" name="Марка, модель" />
-              <label for="model1" class="form__label">Марка, модель*</label>
+          <div class="form__row">
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input
+                  id="name1"
+                  type="text"
+                  class="form__input input-name"
+                  name="Имя"
+                />
+                <label for="name1" class="form__label"
+                  >Название вашей компании*</label
+                >
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input
+                  id="city1"
+                  type="text"
+                  class="form__input input-city"
+                  name="Город"
+                />
+                <label for="city1" class="form__label">Ваш город*</label>
+              </div>
             </div>
           </div>
 
           <div class="form__field form__field--long">
             <div class="form__field-wrapper form__field-wrapper--area">
-              <textarea id="extra1" class="form__input form__input--area input-mess" name="Дополнительно"></textarea>
-              <label for="extra1" class="form__label">Дополнительно (год, комплектация, мощность, т.д.)</label>
-            </div>
-          </div>
-
-          <div class="form__row">
-            <div class="form__field form__field--long">
-              <div class="form__field-wrapper">
-                <input id="name1" type="text" class="form__input input-name" name="Имя" />
-                <label for="name1" class="form__label">Ваше имя*</label>
-              </div>
-            </div>
-
-            <div class="form__field form__field--long">
-              <div class="form__field-wrapper">
-                <input id="city1" type="text" class="form__input input-name" name="Город" />
-                <label for="city1" class="form__label">Ваш город*</label>
-              </div>
+              <textarea
+                id="extra1"
+                class="form__input form__input--area input-mess"
+                name="Дополнительно"
+              ></textarea>
+              <label for="extra1" class="form__label">Комментарий</label>
             </div>
           </div>
 
@@ -50,7 +59,9 @@
                 <div class="dropdown__capture">Удобный формат связи</div>
                 <div class="dropdown__btn">
                   <svg class="">
-                    <use xlink:href="img/sprite.svg#arr-down"></use>
+                    <use
+                      xlink:href="<?php echo get_template_directory_uri()?>/assets/img/sprite.svg#arr-down"
+                    ></use>
                   </svg>
                 </div>
               </div>
@@ -64,12 +75,21 @@
                 </div>
               </div>
             </div>
-
           </div>
           <div class="form__field form__field--long">
             <div class="form__field-wrapper">
-              <input type="text" class="form__input input-tel" name="Телефон" style="display: block" />
-              <input type="email" class="form__input input-email" name="Почта" style="display: none" />
+              <input
+                type="text"
+                class="form__input input-tel"
+                name="Телефон"
+                style="display: block"
+              />
+              <input
+                type="email"
+                class="form__input input-email"
+                name="Почта"
+                style="display: none"
+              />
               <label class="form__label">телефон/почта</label>
             </div>
           </div>
@@ -81,7 +101,7 @@
       </div>
 
       <div class="cta__decor">
-        <img src="./img/car.webp" aria-hidden="true" alt="">
+        <img src="./img/car.webp" aria-hidden="true" alt="" />
       </div>
     </div>
   </div>

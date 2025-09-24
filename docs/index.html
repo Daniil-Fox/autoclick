@@ -472,33 +472,42 @@
         <h2 class="title2 cta__title">Оставить заявку</h2>
 
         <form action="#" class="cta__form form corner-smooth-40">
-          <div class="form__field form__field--long">
-            <div class="form__field-wrapper">
-              <input id="model1" type="text" class="form__input input-name" name="Марка, модель" />
-              <label for="model1" class="form__label">Марка, модель*</label>
+          <div class="form__row">
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input
+                  id="name1"
+                  type="text"
+                  class="form__input input-name"
+                  name="Имя"
+                />
+                <label for="name1" class="form__label"
+                  >Название вашей компании*</label
+                >
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input
+                  id="city1"
+                  type="text"
+                  class="form__input input-city"
+                  name="Город"
+                />
+                <label for="city1" class="form__label">Ваш город*</label>
+              </div>
             </div>
           </div>
 
           <div class="form__field form__field--long">
             <div class="form__field-wrapper form__field-wrapper--area">
-              <textarea id="extra1" class="form__input form__input--area input-mess" name="Дополнительно"></textarea>
-              <label for="extra1" class="form__label">Дополнительно (год, комплектация, мощность, т.д.)</label>
-            </div>
-          </div>
-
-          <div class="form__row">
-            <div class="form__field form__field--long">
-              <div class="form__field-wrapper">
-                <input id="name1" type="text" class="form__input input-name" name="Имя" />
-                <label for="name1" class="form__label">Ваше имя*</label>
-              </div>
-            </div>
-
-            <div class="form__field form__field--long">
-              <div class="form__field-wrapper">
-                <input id="city1" type="text" class="form__input input-name" name="Город" />
-                <label for="city1" class="form__label">Ваш город*</label>
-              </div>
+              <textarea
+                id="extra1"
+                class="form__input form__input--area input-mess"
+                name="Дополнительно"
+              ></textarea>
+              <label for="extra1" class="form__label">Комментарий</label>
             </div>
           </div>
 
@@ -517,7 +526,9 @@
                 <div class="dropdown__capture">Удобный формат связи</div>
                 <div class="dropdown__btn">
                   <svg class="">
-                    <use xlink:href="img/sprite.svg#arr-down"></use>
+                    <use
+                      xlink:href="<?php echo get_template_directory_uri()?>/assets/img/sprite.svg#arr-down"
+                    ></use>
                   </svg>
                 </div>
               </div>
@@ -531,12 +542,21 @@
                 </div>
               </div>
             </div>
-
           </div>
           <div class="form__field form__field--long">
             <div class="form__field-wrapper">
-              <input type="text" class="form__input input-tel" name="Телефон" style="display: block" />
-              <input type="email" class="form__input input-email" name="Почта" style="display: none" />
+              <input
+                type="text"
+                class="form__input input-tel"
+                name="Телефон"
+                style="display: block"
+              />
+              <input
+                type="email"
+                class="form__input input-email"
+                name="Почта"
+                style="display: none"
+              />
               <label class="form__label">телефон/почта</label>
             </div>
           </div>
@@ -548,11 +568,12 @@
       </div>
 
       <div class="cta__decor">
-        <img src="./img/car.webp" aria-hidden="true" alt="">
+        <img src="./img/car.webp" aria-hidden="true" alt="" />
       </div>
     </div>
   </div>
 </section>
+
         <section class="testi">
   <div class="container">
     <h2 class="title2 testi__title">Отзывы</h2>
@@ -1017,6 +1038,89 @@
 
         <div class="cta__decor">
           <img src="./img/car.webp" aria-hidden="true" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div> <!-- Модальное окно успешной отправки -->
+<div class="modal modal--success" id="modal-success">
+  <div class="modal__overlay"></div>
+  <div class="modal__container">
+    <div class="modal__content">
+      <button
+        class="modal__close"
+        type="button"
+        aria-label="Закрыть модальное окно"
+      >
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 30 30"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M1 1L29 29M29 1L1 29" stroke="#050220" stroke-width="2" />
+        </svg>
+      </button>
+
+      <div class="modal__success">
+        <div class="modal__success-icon" aria-hidden="true">
+          <svg
+            width="124"
+            height="90"
+            viewBox="0 0 124 90"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M42.4097 70.3563L110.361 2.40535C111.964 0.801783 113.835 0 115.973 0C118.111 0 119.982 0.801783 121.586 2.40535C123.189 4.00891 123.991 5.91448 123.991 8.12205C123.991 10.3296 123.189 12.2325 121.586 13.8307L48.0222 87.5947C46.4186 89.1982 44.5478 90 42.4097 90C40.2716 90 38.4008 89.1982 36.7973 87.5947L2.32065 53.118C0.717082 51.5145 -0.0526295 49.6116 0.011513 47.4094C0.0756556 45.2071 0.912179 43.3016 2.52109 41.6926C4.13 40.0837 6.03557 39.282 8.23779 39.2873C10.44 39.2926 12.3429 40.0944 13.9465 41.6926L42.4097 70.3563Z"
+              fill="#75EA75"
+            />
+          </svg>
+        </div>
+        <div class="modal__text">
+          <h3 class="modal__success-title">Заявка успешно отправлена!</h3>
+          <p class="modal__success-text desc1">
+            Наш менеджер свяжется с вами в ближайшее время
+          </p>
+        </div>
+        <button class="btn btn-reset modal__ok btn_grey">Отлично</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Модальное окно успешной отправки -->
+<div class="modal modal--error" id="modal-error">
+  <div class="modal__overlay"></div>
+  <div class="modal__container">
+    <div class="modal__content">
+      <button class="modal__close" type="button" aria-label="Закрыть модальное окно">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L29 29M29 1L1 29" stroke="#050220" stroke-width="2" />
+        </svg>
+      </button>
+
+      <div class="modal__error">
+        <div class="modal__error-icon" aria-hidden="true">
+          <svg width="91" height="90" viewBox="0 0 91 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M78.5 12L12.5 78M12.5 12L78.5 78" stroke="#D80B42" stroke-width="15" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="modal__text">
+          <h3 class="modal__error-title">Ошибка при отправке</h3>
+          <p class="modal__error-text desc1">
+            Пожалуйста, попробуйте ещё раз или свяжитесь с нами по телефону
+            <a href="tel:+7 908-444-84-64">+7 908-444-84-64</a>
+          </p>
+        </div>
+
+        <div class="modal__row">
+          <button class="btn btn-reset modal__ok btn_grey">Закрыть</button>
+          <button class="btn btn-reset modal__ok modal__retry btn_grey">
+            Повторить отправку
+          </button>
         </div>
       </div>
     </div>

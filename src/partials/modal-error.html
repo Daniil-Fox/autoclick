@@ -1,0 +1,36 @@
+<!-- Модальное окно успешной отправки -->
+<div class="modal modal--error" id="modal-error">
+  <div class="modal__overlay"></div>
+  <div class="modal__container">
+    <div class="modal__content">
+      <button class="modal__close" type="button" aria-label="Закрыть модальное окно">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L29 29M29 1L1 29" stroke="#050220" stroke-width="2" />
+        </svg>
+      </button>
+
+      <div class="modal__error">
+        <div class="modal__error-icon" aria-hidden="true">
+          <svg width="91" height="90" viewBox="0 0 91 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M78.5 12L12.5 78M12.5 12L78.5 78" stroke="#D80B42" stroke-width="15" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="modal__text">
+          <h3 class="modal__error-title">Ошибка при отправке</h3>
+          <p class="modal__error-text desc1">
+            Пожалуйста, попробуйте ещё раз или свяжитесь с нами по телефону
+            <a href="tel:+7 908-444-84-64">+7 908-444-84-64</a>
+          </p>
+        </div>
+
+        <div class="modal__row">
+          <button class="btn btn-reset modal__ok btn_grey">Закрыть</button>
+          <button class="btn btn-reset modal__ok modal__retry btn_grey">
+            Повторить отправку
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
