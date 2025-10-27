@@ -2,7 +2,7 @@
   padding: 10rem 0;
 
   &__title {
-    margin-bottom: 5rem;
+    margin-bottom: 6rem;
 
     span {
       color: inherit;
@@ -11,8 +11,15 @@
       }
     }
   }
-
+  .owl-carousel {
+    .owl-stage-outer {
+      overflow: visible;
+    }
+  }
   &__slider {
+    cursor: grab;
+    padding: 0 calc((100% - var(--content-width)) / 2);
+
     .swiper {
       padding: 0 calc((100% - var(--content-width)) / 2);
 
@@ -24,7 +31,17 @@
       width: auto;
       height: auto;
     }
+
+
+    &:active {
+      cursor: grabbing;
+    }
+    @include mobile {
+      padding: 0 var(--container-offset);
+    }
   }
+
+
 }
 
 .pop-item {

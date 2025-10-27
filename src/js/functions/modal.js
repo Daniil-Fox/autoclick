@@ -30,6 +30,25 @@ class Modal {
       if (overlay) {
         overlay.addEventListener("click", () => this.close(modalId));
       }
+
+      // Закрытие по клику на container (вне контента)
+      const container = modal.querySelector(".modal__container");
+      if (container) {
+        container.addEventListener("click", (e) => {
+          // Закрываем только если клик был именно по container, а не по его дочерним элементам
+          if (e.target === container) {
+            this.close(modalId);
+          }
+        });
+      }
+
+      // Предотвращаем закрытие при клике на контент модалки
+      const content = modal.querySelector(".modal__content");
+      if (content) {
+        content.addEventListener("click", (e) => {
+          e.stopPropagation();
+        });
+      }
     });
 
     // Обработчики для кнопок, открывающих модальные окна

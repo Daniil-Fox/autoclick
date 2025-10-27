@@ -16028,8 +16028,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _functions_truncate_text_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./functions/truncate-text.js */ "./src/js/functions/truncate-text.js");
 /* harmony import */ var _functions_modal_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./functions/modal.js */ "./src/js/functions/modal.js");
 /* harmony import */ var _functions_video_player_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./functions/video-player.js */ "./src/js/functions/video-player.js");
-/* harmony import */ var _functions_validate_forms_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./functions/validate-forms.js */ "./src/js/functions/validate-forms.js");
-/* harmony import */ var _components_faq_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/faq.js */ "./src/js/components/faq.js");
+/* harmony import */ var _components_docs_preview_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/docs-preview.js */ "./src/js/components/docs-preview.js");
+/* harmony import */ var _components_utm_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/utm.js */ "./src/js/components/utm.js");
+/* harmony import */ var _functions_validate_forms_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./functions/validate-forms.js */ "./src/js/functions/validate-forms.js");
+/* harmony import */ var _components_faq_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/faq.js */ "./src/js/components/faq.js");
+
+
 
 
 
@@ -16048,7 +16052,7 @@ document.addEventListener("DOMContentLoaded", () => {
   textareas.forEach(textarea => {
     new _components_textarea_js__WEBPACK_IMPORTED_MODULE_4__["default"](textarea);
   });
-  new _components_faq_js__WEBPACK_IMPORTED_MODULE_9__["default"]();
+  new _components_faq_js__WEBPACK_IMPORTED_MODULE_11__["default"]();
 
   // Инициализация обрезки текста
   (0,_functions_truncate_text_js__WEBPACK_IMPORTED_MODULE_5__.initTextTruncation)();
@@ -16138,6 +16142,97 @@ __webpack_require__.r(__webpack_exports__);
   htmlEl: document.documentElement,
   bodyEl: document.body
 });
+
+/***/ }),
+
+/***/ "./src/js/components/docs-preview.js":
+/*!*******************************************!*\
+  !*** ./src/js/components/docs-preview.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// Предпросмотр документов в модалке "modal-doc"
+// Кнопка/ссылка-триггер должна иметь класс .js-doc-preview и атрибуты:
+//  - data-doc  — URL, который подставляется в src iframe (без изменений)
+//  - data-file — URL для кнопки в модалке (открывается в новой вкладке)
+(function () {
+  document.addEventListener("DOMContentLoaded", () => {
+    const triggers = document.querySelectorAll(".js-doc-preview");
+    if (!triggers.length) return;
+    const modal = document.getElementById("modal-doc");
+    if (!modal) return;
+    const iframe = modal.querySelector("iframe");
+    const downloadLink = modal.querySelector(".modal-doc__download");
+    const overlay = modal.querySelector(".modal__overlay");
+    const closeBtn = modal.querySelector(".modal__close");
+    function openModal() {
+      modal.classList.add("modal--active");
+      document.body.classList.add("modal-open");
+    }
+    function closeModal() {
+      modal.classList.remove("modal--active");
+      document.body.classList.remove("modal-open");
+      if (iframe) iframe.src = "about:blank";
+    }
+
+    // Закрытие по клику на overlay
+    if (overlay) overlay.addEventListener("click", closeModal);
+
+    // Закрытие по кнопке закрытия
+    if (closeBtn) closeBtn.addEventListener("click", closeModal);
+
+    // Закрытие по клику на container (вне контента)
+    const container = modal.querySelector(".modal__container");
+    if (container) {
+      container.addEventListener("click", e => {
+        // Закрываем только если клик был именно по container, а не по его дочерним элементам
+        if (e.target === container) {
+          closeModal();
+        }
+      });
+    }
+
+    // Предотвращаем закрытие при клике на контент модалки
+    const content = modal.querySelector(".modal__content");
+    if (content) {
+      content.addEventListener("click", e => {
+        e.stopPropagation();
+      });
+    }
+
+    // Закрытие по клавише Escape
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape" && modal.classList.contains("modal--active")) {
+        closeModal();
+      }
+    });
+    triggers.forEach(btn => {
+      btn.removeAttribute("download");
+      btn.setAttribute("href", "#");
+      btn.addEventListener("click", e => {
+        e.preventDefault();
+        const docUrl = btn.getAttribute("data-doc") || "";
+        const fileUrl = btn.getAttribute("data-file") || "";
+        if (iframe) iframe.src = docUrl;
+        if (downloadLink) {
+          if (fileUrl) {
+            downloadLink.href = fileUrl;
+            downloadLink.removeAttribute("download");
+            downloadLink.setAttribute("target", "_blank");
+            downloadLink.setAttribute("rel", "noopener");
+            downloadLink.style.display = "";
+          } else {
+            downloadLink.removeAttribute("href");
+            downloadLink.style.display = "none";
+          }
+        }
+        openModal();
+      });
+    });
+  });
+})();
 
 /***/ }),
 
@@ -16350,19 +16445,72 @@ new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(".testi__slider", {
   slidesPerView: "auto",
   spaceBetween: 20
 });
-new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(".popular__slider > .swiper", {
-  slidesPerView: "auto",
-  spaceBetween: 40,
-  mousewheel: true,
-  breakpoints: {
-    320: {
-      spaceBetween: 30
-    },
-    577: {
-      spaceBetween: 40
-    }
+
+// new Swiper(".popular__slider > .swiper", {
+//   slidesPerView: "auto",
+//   spaceBetween: 40,
+//   mousewheel: {
+//     enabled: true,
+//     releaseOnEdges: true,
+//   },
+
+//   breakpoints: {
+//     320: {
+//       spaceBetween: 30,
+//     },
+//     577: {
+//       spaceBetween: 40,
+//     },
+//   },
+// });
+
+const autoSlider = $('.popular__slider').owlCarousel({
+  loop: true,
+  margin: 30,
+  nav: false,
+  dots: false,
+  autoplay: false,
+  autoplaySpeed: 1000,
+  autoplayTimeout: 3500,
+  autoplayHoverPause: false,
+  smartSpeed: 1000,
+  items: 4,
+  margin: 20,
+  autoWidth: true,
+  center: false,
+  startPosition: 0,
+  responsive: {
+    // 0: {
+    //   items: 2,
+    //   margin: 20,
+    //   autoWidth: true,
+    // },
+    // 601: {
+    //   items: 4,
+    //   center: false,
+    //   margin: 30,
+    // }
   }
 });
+
+// Intersection Observer для автоплея clients слайдера
+const clientsObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Слайдер в зоне видимости - запускаем автоплей
+      if (autoSlider) autoSlider.trigger('play.owl.autoplay');
+    } else {
+      // Слайдер вне зоны видимости - останавливаем автоплей
+      if (autoSlider) autoSlider.trigger('stop.owl.autoplay');
+    }
+  });
+}, {
+  threshold: 0.1
+});
+
+// Наблюдаем за clients слайдером
+const clientsElement = document.querySelector('.popular__slider');
+if (clientsElement) clientsObserver.observe(clientsElement);
 window.addEventListener("DOMContentLoaded", () => {
   const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
     let swiper;
@@ -16394,7 +16542,10 @@ window.addEventListener("DOMContentLoaded", () => {
   resizableSwiper("(min-width: 601px)", ".benefits__slider", {
     slidesPerView: "auto",
     spaceBetween: 20,
-    mousewheel: true
+    mousewheel: {
+      enabled: true,
+      releaseOnEdges: true
+    }
   });
 });
 
@@ -16544,6 +16695,96 @@ class CustomTextarea {
     this.scrollbar.classList.toggle("disabled", isTop && isBottom);
   }
 }
+
+/***/ }),
+
+/***/ "./src/js/components/utm.js":
+/*!**********************************!*\
+  !*** ./src/js/components/utm.js ***!
+  \**********************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+(function () {
+  function parseQuery() {
+    const q = {};
+    location.search.replace(/^\?/, '').split('&').forEach(p => {
+      if (!p) return;
+      const [k, v = ''] = p.split('=');
+      q[decodeURIComponent(k)] = decodeURIComponent(v.replace(/\+/g, ' '));
+    });
+    return q;
+  }
+  function fillForm(form, data) {
+    Object.keys(data).forEach(name => {
+      let input = form.querySelector('input[name="' + name + '"]');
+      if (!input) {
+        input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = name;
+        form.appendChild(input);
+      }
+      if (data[name]) input.value = data[name];
+    });
+  }
+  const qs = parseQuery();
+
+  // Базовые маппинги из UTM
+  const base = {
+    'Источник трафика': qs.utm_source || '',
+    'Тип трафика': qs.utm_medium || '',
+    'Рекламная кампания': qs.utm_campaign || '',
+    'Ключевая фраза': qs.utm_term || '',
+    'Дополнительный параметр': qs.rsysvo || qs.gbid || qs.yclid || qs.fbclid || ''
+  };
+
+  // Яндекс.Метрика clientID (id замените на ваш, он уже есть в header)
+  function getYmClientId(cb) {
+    if (typeof ym !== 'function') return cb('');
+    // 104261485 — ваш ID счётчика из header.php
+    ym(104261485, 'getClientID', function (clientId) {
+      cb(clientId || '');
+    });
+  }
+
+  // Геолокация по IP (клиентский способ; при желании перенесите на сервер)
+  function getIpLocation(cb) {
+    fetch('https://ipapi.co/json/') // можно ipwho.is/ip-api.com
+    .then(r => r.ok ? r.json() : null).then(j => {
+      if (!j) return cb('');
+      const parts = [j.country_name, j.region, j.city].filter(Boolean);
+      cb(parts.join(', '));
+    }).catch(() => cb(''));
+  }
+
+  // Заполняем при первом фокусе/отправке, чтобы все значения успели подтянуться
+  function bindForms() {
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+      const apply = () => {
+        const data = Object.assign({}, base);
+        // подставим актуальные значения
+        getYmClientId(cid => {
+          data['ym_client_id'] = cid;
+          getIpLocation(loc => {
+            data['ip_location'] = loc;
+            fillForm(form, data);
+          });
+        });
+      };
+      form.addEventListener('focusin', apply, {
+        once: true
+      });
+      form.addEventListener('submit', apply);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindForms);
+  } else {
+    bindForms();
+  }
+})();
 
 /***/ }),
 
@@ -16701,6 +16942,25 @@ class Modal {
       const overlay = modal.querySelector(".modal__overlay");
       if (overlay) {
         overlay.addEventListener("click", () => this.close(modalId));
+      }
+
+      // Закрытие по клику на container (вне контента)
+      const container = modal.querySelector(".modal__container");
+      if (container) {
+        container.addEventListener("click", e => {
+          // Закрываем только если клик был именно по container, а не по его дочерним элементам
+          if (e.target === container) {
+            this.close(modalId);
+          }
+        });
+      }
+
+      // Предотвращаем закрытие при клике на контент модалки
+      const content = modal.querySelector(".modal__content");
+      if (content) {
+        content.addEventListener("click", e => {
+          e.stopPropagation();
+        });
       }
     });
 
@@ -16971,6 +17231,11 @@ const validateForms = (selector, rules, checkboxes = [], afterSend) => {
   }
   function openSuccessModal() {
     try {
+      const successModal = document.getElementById("modal-success");
+      if (!successModal) {
+        console.warn("Модалка успешной отправки не найдена на странице");
+        return;
+      }
       const active = _modal_js__WEBPACK_IMPORTED_MODULE_2__.modalManager.getActiveModal?.();
       if (active && active !== "modal-success" && active !== "modal-error") {
         _modal_js__WEBPACK_IMPORTED_MODULE_2__.modalManager.close(active);
@@ -16982,6 +17247,11 @@ const validateForms = (selector, rules, checkboxes = [], afterSend) => {
   }
   function openErrorModal() {
     try {
+      const errorModal = document.getElementById("modal-error");
+      if (!errorModal) {
+        console.warn("Модалка ошибки не найдена на странице");
+        return;
+      }
       const active = _modal_js__WEBPACK_IMPORTED_MODULE_2__.modalManager.getActiveModal?.();
       if (active && active !== "modal-success" && active !== "modal-error") {
         _modal_js__WEBPACK_IMPORTED_MODULE_2__.modalManager.close(active);
@@ -17083,7 +17353,7 @@ function retryLastSubmit() {
       if (xhr.status >= 200 && xhr.status < 300) {
         try {
           _modal_js__WEBPACK_IMPORTED_MODULE_2__.modalManager.close("modal-error");
-          _modal_js__WEBPACK_IMPORTED_MODULE_2__.modalManager.open("modal-success");
+          openSuccessModal();
         } catch (_) {}
         form.querySelectorAll(".filled").forEach(el => el.classList.remove("filled"));
         form.reset();
@@ -17152,6 +17422,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (contactLabel) {
       contactLabel.textContent = "Телефон/Email";
     }
+
+    // Устанавливаем правильный for для лейбла при инициализации
+    updateLabelFor();
     function initMask() {
       if (!inputMask && telInput) {
         inputMask = new _node_modules_inputmask_dist_inputmask_es6_js__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -17160,11 +17433,41 @@ document.addEventListener("DOMContentLoaded", () => {
           showMaskOnFocus: true,
           onBeforeMask: function (value) {
             if (!value || typeof value !== "string") return value;
-            if (value.startsWith("7") || value.startsWith("8")) return "";
+            // Удаляем все нежелательные символы из начала
+            const cleaned = value.replace(/^[78+]/, '').replace(/^[78+]/, '');
+            return cleaned;
+          },
+          onBeforePaste: function (value) {
+            // Очищаем вставленное значение от 7, 8 и +
+            if (typeof value === 'string') {
+              return value.replace(/^[78+]/, '').replace(/^[78+]/, '');
+            }
             return value;
           }
         });
         inputMask.mask(telInput);
+
+        // Запрещаем ввод 7, 8 и + через клавиатуру в начале
+        telInput.addEventListener('keydown', function (e) {
+          const key = e.key;
+
+          // Получаем только цифры из текущего значения
+          const currentValue = this.value.replace(/\D/g, '');
+
+          // Запрещаем ввод 7, 8 и + если меньше 3 цифр всего
+          if ((key === '7' || key === '8' || key === '+' || key === '7' || key === '8') && currentValue.length < 3) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+          }
+
+          // Запрещаем ввод 7 и 8 если это будет вторая или третья позиция (индексы 1 или 2)
+          if (currentValue.length <= 1 && (key === '7' || key === '8')) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+          }
+        }, true); // Используем захват события (capture phase)
       }
     }
     function clearMask() {
@@ -17222,6 +17525,22 @@ document.addEventListener("DOMContentLoaded", () => {
           if (contactLabel) contactLabel.textContent = "Телефон";
           initMask();
         }
+      }
+
+      // Обновляем атрибут for у лейбла для активного инпута
+      updateLabelFor();
+
+      // Удаляем класс form__row_only у ближайшего родителя с классом form__row
+      const formRow = select?.closest('.form__row');
+      if (formRow && formRow.classList.contains('form__row_only')) {
+        formRow.classList.remove('form__row_only');
+      }
+    }
+    function updateLabelFor() {
+      if (!contactLabel) return;
+      const activeInput = telInput?.style.display !== "none" ? telInput : emailInput;
+      if (activeInput) {
+        contactLabel.setAttribute("for", activeInput.id);
       }
     }
     function getRules() {

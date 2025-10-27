@@ -247,22 +247,22 @@
   h5,
   h6 {
     font-weight: 700;
-    font-size: 4.2rem;
+    font-size: 3.2rem;
     color: var(--ac-black);
     span {
       color: var(--ac-pink);
     }
 
     @include mobile {
-      font-size: 3.6rem;
+      font-size: 2.6rem;
     }
   }
 
   p,
   ul,
   ol {
-    font-weight: 300;
-    font-size: 2rem;
+    font-weight: 400;
+    font-size: 2.2rem;
     line-height: 150%;
     color: var(--ac-black);
 
@@ -272,6 +272,20 @@
 
     b {
       font-weight: 500;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    transition: color 0.3s ease-in;
+
+    @include hover {
+      color: var(--ac-pink);
+    }
+    &:focus {
+      outline: none;
+      color: var(--ac-pink);
     }
   }
 }

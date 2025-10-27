@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
-  <head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -10,15 +10,18 @@
   <link rel="preload" href="fonts/Ubuntu-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Ubuntu-Medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Ubuntu-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="owl/owl.carousel.min.css">
   <link rel="stylesheet" href="css/vendor.css">
   <link rel="stylesheet" href="css/main.css">
+  <script defer src="jquery.js"></script>
+  <script defer src="owl/owl.carousel.min.js"></script>
   <script defer src="js/main.js"></script>
 </head>
 
 
-  <body class="page__body">
-    <div class="site-container">
-      <header class="header">
+<body class="page__body">
+  <div class="site-container">
+    <header class="header">
   <div class="container">
     <div class="header__container">
       <a href="#" class="logo header__logo">
@@ -76,8 +79,8 @@
   </div>
 </header>
 
-      <main class="main">
-        <section class="hero">
+    <main class="main">
+      <section class="hero">
   <div
     class="video-wrapper hero__wrapper"
     data-video-player="hero-video"
@@ -295,7 +298,7 @@
   </div>
 </section>
 
-        <section class="delivery">
+      <section class="delivery">
   <div class="container">
     <div class="delivery__container">
       <div class="delivery__img">
@@ -325,7 +328,147 @@
       <button class="btn-reset btn delivery__btn delivery__btn_mob" data-target="modal-cta">Оставить заявку</button>
     </div>
   </div>
-</section> <section class="about">
+</section> <section class="steps">
+  <div class="container">
+    <h2 class="steps__title title2">Этапы покупки авто</h2>
+
+    <div class="steps__container">
+      <div class="steps__item">
+        <div class="steps__top">
+          <p class="steps__capture">Оформление заявки</p>
+        </div>
+
+        <div class="steps__row">
+          <div class="steps__icon">
+            <img src="./img/steps/01.svg" width="73" height="73" aria-hidden="true" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="steps__item">
+        <div class="steps__top">
+          <p class="steps__capture">Получение</p>
+          <div class="steps__desc">
+            <p>Бесплатной консультации</p>
+            <p>Расчета за авто</p>
+          </div>
+        </div>
+
+        <div class="steps__row">
+          <div class="steps__icon">
+            <img src="./img/steps/02.svg" width="73" height="73" aria-hidden="true" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="steps__item">
+        <div class="steps__top">
+          <p class="steps__capture">Заключение договора</p>
+        </div>
+
+        <div class="steps__row">
+          <div class="steps__icon">
+            <img src="./img/steps/03.svg" width="73" height="73" aria-hidden="true" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="steps__item">
+        <div class="steps__top">
+          <p class="steps__capture">Внесение предоплаты</p>
+          <div class="steps__desc">
+            <p>Входит в конечную стоимость</p>
+          </div>
+        </div>
+
+        <div class="steps__row">
+          <div class="steps__icon">
+            <img src="./img/steps/04.svg" width="73" height="73" aria-hidden="true" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="steps__item">
+        <div class="steps__top">
+          <p class="steps__capture">Подбор автомобиля</p>
+        </div>
+
+        <div class="steps__row">
+          <div class="steps__icon">
+            <img src="./img/steps/05.svg" width="73" height="73" aria-hidden="true" alt="">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="steps__item">
+        <div class="steps__top">
+          <p class="steps__capture">Покупка авто</p>
+        </div>
+
+        <div class="steps__row">
+          <div class="steps__icon">
+            <img src="./img/steps/06.svg" width="73" height="73" aria-hidden="true" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="steps__item">
+        <div class="steps__top">
+          <p class="steps__capture">Оплата</p>
+          <div class="steps__desc">
+            <p>Стоимости автомобиля</p>
+            <p>Расходов на доставку</p>
+          </div>
+        </div>
+
+        <div class="steps__row">
+          <div class="steps__icon">
+            <img src="./img/steps/07.svg" width="73" height="73" aria-hidden="true" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="steps__item">
+        <div class="steps__top">
+          <p class="steps__capture">Таможенное оформление</p>
+        </div>
+
+        <div class="steps__row">
+          <div class="steps__icon">
+            <img src="./img/steps/08.svg" width="73" height="73" aria-hidden="true" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="steps__item">
+        <div class="steps__top">
+          <p class="steps__capture">Оплата </p>
+          <div class="steps__desc">
+            <p>Услуг СВХ</p>
+            <p>Лаборатории</p>
+            <p>Таможенных платежей</p>
+          </div>
+        </div>
+
+        <div class="steps__row">
+          <div class="steps__icon">
+            <img src="./img/steps/09.svg" width="73" height="73" aria-hidden="true" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="steps__item">
+        <div class="steps__top">
+          <p class="steps__capture">Выдача автомобиля клиенту </p>
+          <div class="steps__desc">
+            <p> С возможностью отправки в другой регион</p>
+          </div>
+        </div>
+
+        <div class="steps__row">
+          <div class="steps__icon">
+            <img src="./img/steps/10.svg" width="73" height="73" aria-hidden="true" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <section class="about">
   <div class="container">
     <div class="about__container">
       <div class="about__content">
@@ -373,93 +516,98 @@
       </div>
     </div>
   </div>
+</section> <section class="sea">
+  <div class="sea__title">В море нет пробок </div>
+  <div class="sea__row">
+    <p class="sea__desc">
+      Привезем за&nbsp;7&nbsp;дней
+    </p>
+    <button class="btn-reset btn sea__btn" data-target="modal-cta">Оставить заявку</button>
+  </div>
+
 </section>
-        <section class="popular">
+      <section class="popular">
   <div class="container">
     <h2 class="title2 popular__title">Популярные авто<span>мобили</span></h2>
   </div>
-  <div class="popular__slider">
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="pop-item popular__item">
-            <div class="pop-item__img">
-              <img src="./img/popular/01.webp" alt="" />
-            </div>
-            <div class="pop-item__content">
-              <p class="pop-item__capture">Cherry Tiggo 4 Pro</p>
-              <ul class="list-reset pop-item__list">
-                <li>1.5 л</li>
-                <li>2021</li>
-                <li>26700 км</li>
-              </ul>
-              <div class="pop-item__price">~1 020 000 р</div>
-            </div>
-          </div>
+  <div class="owl-carousel popular__slider">
+    <div class="item">
+      <div class="pop-item popular__item">
+        <div class="pop-item__img">
+          <img src="./img/popular/01.webp" alt="" />
         </div>
-        <div class="swiper-slide">
-          <div class="pop-item popular__item">
-            <div class="pop-item__img">
-              <img src="./img/popular/01.webp" alt="" />
-            </div>
-            <div class="pop-item__content">
-              <p class="pop-item__capture">Cherry Tiggo 4 Pro</p>
-              <ul class="list-reset pop-item__list">
-                <li>1.5 л</li>
-                <li>2021</li>
-                <li>26700 км</li>
-              </ul>
-              <div class="pop-item__price">~1 020 000 р</div>
-            </div>
-          </div>
+        <div class="pop-item__content">
+          <p class="pop-item__capture">Cherry Tiggo 4 Pro</p>
+          <ul class="list-reset pop-item__list">
+            <li>1.5 л</li>
+            <li>2021</li>
+            <li>26700 км</li>
+          </ul>
+          <div class="pop-item__price">~1 020 000 р</div>
         </div>
-        <div class="swiper-slide">
-          <div class="pop-item popular__item">
-            <div class="pop-item__img">
-              <img src="./img/popular/01.webp" alt="" />
-            </div>
-            <div class="pop-item__content">
-              <p class="pop-item__capture">Cherry Tiggo 4 Pro</p>
-              <ul class="list-reset pop-item__list">
-                <li>1.5 л</li>
-                <li>2021</li>
-                <li>26700 км</li>
-              </ul>
-              <div class="pop-item__price">~1 020 000 р</div>
-            </div>
-          </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="pop-item popular__item">
+        <div class="pop-item__img">
+          <img src="./img/popular/01.webp" alt="" />
         </div>
-        <div class="swiper-slide">
-          <div class="pop-item popular__item">
-            <div class="pop-item__img">
-              <img src="./img/popular/01.webp" alt="" />
-            </div>
-            <div class="pop-item__content">
-              <p class="pop-item__capture">Cherry Tiggo 4 Pro</p>
-              <ul class="list-reset pop-item__list">
-                <li>1.5 л</li>
-                <li>2021</li>
-                <li>26700 км</li>
-              </ul>
-              <div class="pop-item__price">~1 020 000 р</div>
-            </div>
-          </div>
+        <div class="pop-item__content">
+          <p class="pop-item__capture">Cherry Tiggo 4 Pro</p>
+          <ul class="list-reset pop-item__list">
+            <li>1.5 л</li>
+            <li>2021</li>
+            <li>26700 км</li>
+          </ul>
+          <div class="pop-item__price">~1 020 000 р</div>
         </div>
-        <div class="swiper-slide">
-          <div class="pop-item popular__item">
-            <div class="pop-item__img">
-              <img src="./img/popular/01.webp" alt="" />
-            </div>
-            <div class="pop-item__content">
-              <p class="pop-item__capture">Cherry Tiggo 4 Pro</p>
-              <ul class="list-reset pop-item__list">
-                <li>1.5 л</li>
-                <li>2021</li>
-                <li>26700 км</li>
-              </ul>
-              <div class="pop-item__price">~1 020 000 р</div>
-            </div>
-          </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="pop-item popular__item">
+        <div class="pop-item__img">
+          <img src="./img/popular/01.webp" alt="" />
+        </div>
+        <div class="pop-item__content">
+          <p class="pop-item__capture">Cherry Tiggo 4 Pro</p>
+          <ul class="list-reset pop-item__list">
+            <li>1.5 л</li>
+            <li>2021</li>
+            <li>26700 км</li>
+          </ul>
+          <div class="pop-item__price">~1 020 000 р</div>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="pop-item popular__item">
+        <div class="pop-item__img">
+          <img src="./img/popular/01.webp" alt="" />
+        </div>
+        <div class="pop-item__content">
+          <p class="pop-item__capture">Cherry Tiggo 4 Pro</p>
+          <ul class="list-reset pop-item__list">
+            <li>1.5 л</li>
+            <li>2021</li>
+            <li>26700 км</li>
+          </ul>
+          <div class="pop-item__price">~1 020 000 р</div>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="pop-item popular__item">
+        <div class="pop-item__img">
+          <img src="./img/popular/01.webp" alt="" />
+        </div>
+        <div class="pop-item__content">
+          <p class="pop-item__capture">Cherry Tiggo 4 Pro</p>
+          <ul class="list-reset pop-item__list">
+            <li>1.5 л</li>
+            <li>2021</li>
+            <li>26700 км</li>
+          </ul>
+          <div class="pop-item__price">~1 020 000 р</div>
         </div>
       </div>
     </div>
@@ -546,18 +694,20 @@
           <div class="form__field form__field--long">
             <div class="form__field-wrapper">
               <input
+                id="tel1"
                 type="text"
                 class="form__input input-tel"
                 name="Телефон"
                 style="display: block"
               />
               <input
+                id="email1"
                 type="email"
                 class="form__input input-email"
                 name="Почта"
                 style="display: none"
               />
-              <label class="form__label">телефон/почта</label>
+              <label for="tel1" class="form__label">телефон/почта</label>
             </div>
           </div>
           <span class="cta-extra">*Обязательные поля</span>
@@ -574,7 +724,7 @@
   </div>
 </section>
 
-        <section class="testi">
+      <section class="testi">
   <div class="container">
     <h2 class="title2 testi__title">Отзывы</h2>
   </div>
@@ -800,7 +950,7 @@
   </div>
 </section>
 
-        <section class="cta-bottom">
+      <section class="cta-bottom">
   <div class="container">
     <div class="cta-bottom__container">
       <div class="cta-bottom__decor">
@@ -834,14 +984,8 @@
             </div>
           </div>
 
-          <div class="form__row">
-            <div class="form__field form__field--long">
-              <div class="form__field-wrapper">
-                <input id="phone2" type="text" class="form__input input-tel" name="Телефон" style="display: block" />
-                <input type="email" class="form__input input-email" name="Почта" style="display: none" />
-                <label for="phone2" class="form__label">телефон/почта</label>
-              </div>
-            </div>
+          <div class="form__row form__row_only">
+
 
             <div class="form__field form__field--long">
               <select name="Способ связи" class="visually-hidden select-contact">
@@ -873,6 +1017,14 @@
                 </div>
               </div>
             </div>
+
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input id="phone2" type="text" class="form__input input-tel" name="Телефон" style="display: block" />
+                <input id="email2" type="email" class="form__input input-email" name="Почта" style="display: none" />
+                <label for="phone2" class="form__label">телефон/почта</label>
+              </div>
+            </div>
           </div>
           <span class="cta-extra">*Обязательные поля</span>
 
@@ -885,8 +1037,9 @@
     </div>
   </div>
 </section>
-      </main>
-      <footer class="footer">
+
+    </main>
+    <footer class="footer">
   <div class="container">
     <div class="footer__container">
       <div class="footer__left">
@@ -941,17 +1094,17 @@
     </div>
   </div>
 </footer>
-    </div>
+  </div>
 
-    <!-- Модальные окна -->
-    <!-- Модальное окно "Оставить заявку" -->
+  <!-- Модальные окна -->
+  <!-- Модальное окно "Оставить заявку" -->
 <div class="modal" id="modal-cta">
   <div class="modal__overlay"></div>
   <div class="modal__container">
     <div class="modal__content">
       <button class="modal__close" type="button" aria-label="Закрыть модальное окно">
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1L29 29M29 1L1 29" stroke="#050220" stroke-width="2" />
+          <path d="M1 1L29 29M29 1L1 29" stroke-width="2" />
         </svg>
       </button>
       <div class="cta__container">
@@ -1023,9 +1176,9 @@
 
             <div class="form__field form__field--long">
               <div class="form__field-wrapper">
-                <input type="text" class="form__input input-tel" name="Телефон" style="display: block" />
-                <input type="email" class="form__input input-email" name="Почта" style="display: none" />
-                <label class="form__label">телефон/почта</label>
+                <input id="modal-tel" type="text" class="form__input input-tel" name="Телефон" style="display: block" />
+                <input id="modal-email" type="email" class="form__input input-email" name="Почта" style="display: none" />
+                <label for="modal-tel" class="form__label">телефон/почта</label>
               </div>
             </div>
 
@@ -1042,7 +1195,8 @@
       </div>
     </div>
   </div>
-</div> <!-- Модальное окно успешной отправки -->
+</div>
+ <!-- Модальное окно успешной отправки -->
 <div class="modal modal--success" id="modal-success">
   <div class="modal__overlay"></div>
   <div class="modal__container">
@@ -1090,7 +1244,7 @@
   </div>
 </div>
 
-    <!-- Модальное окно успешной отправки -->
+  <!-- Модальное окно успешной отправки -->
 <div class="modal modal--error" id="modal-error">
   <div class="modal__overlay"></div>
   <div class="modal__container">
@@ -1126,5 +1280,222 @@
     </div>
   </div>
 </div>
-  </body>
+
+  <!-- Cookie notice -->
+  <div class="cookie-notice" id="cookie-notice">
+  <div class="cookie-notice__container">
+    <div class="cookie-notice__content">
+      <div class="cookie-notice__text">
+        <p>Мы&nbsp;используем файлы cookie для улучшения работы сайта и&nbsp;анализа трафика.<br>
+          Продолжая использовать сайт, вы&nbsp;соглашаетесь с&nbsp;нашей <a href="#">политикой использования cookie.</a></p>
+      </div>
+      <button class="cookie-notice__btn" type="button" id="cookie-accept">
+        Хорошо
+      </button>
+    </div>
+    <div class="cookie-notice__icon">
+      <img src="./img/cookies.png" alt="Cookies" width="100" height="100">
+    </div>
+  </div>
+</div>
+
+<style>
+.cookie-notice {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: #fff;
+  border-top: 0.1rem solid #e0e0e0;
+  box-shadow: 0 -0.4rem 2rem rgba(0, 0, 0, 0.1);
+  transform: translateY(200%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cookie-notice.show {
+  transform: translateY(0);
+}
+
+.cookie-notice__container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  position: relative;
+}
+
+.cookie-notice__content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
+}
+
+.cookie-notice__text {
+  flex: 1;
+}
+
+.cookie-notice__text p {
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1.4;
+  color: #333;
+}
+.cookie-notice__text a {
+  color: #0056b3;
+  text-decoration: underline;
+}
+.cookie-notice__btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 1.2rem 4rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cookie-notice__btn:hover {
+  background: #0056b3;
+}
+
+.cookie-notice__icon {
+  position: absolute;
+  top: 0rem;
+  transform: translateY(-50%);
+  right: -5rem;
+  width: 8rem;
+  height: 8rem;
+  flex-shrink: 0;
+}
+
+.cookie-notice__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Адаптивность */
+@media (max-width: 76.8rem) {
+  .cookie-notice__container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .cookie-notice__content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .cookie-notice__btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cookie-notice__icon {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .cookie-notice__text p {
+    font-size: 2.2rem;
+  }
+
+  .cookie-notice__btn {
+    padding: 1.2rem 2rem;
+    font-size: 2rem;
+  }
+}
+@media (max-width: 76.8rem){
+
+  .cookie-notice__icon {
+    width: 8rem;
+    height: 8rem;
+    right: 2rem;
+  }
+}
+
+</style>
+
+<script>
+(function() {
+  'use strict';
+
+  // Проверяем, согласился ли пользователь с куки
+  function hasCookieConsent() {
+    return localStorage.getItem('cookie-consent') === 'accepted';
+  }
+
+  // Сохраняем согласие пользователя
+  function setCookieConsent() {
+    localStorage.setItem('cookie-consent', 'accepted');
+  }
+
+  // Показываем плашку о куки
+  function showCookieNotice() {
+    const notice = document.getElementById('cookie-notice');
+    if (notice) {
+      notice.classList.add('show');
+    }
+  }
+
+  // Скрываем плашку о куки
+  function hideCookieNotice() {
+    const notice = document.getElementById('cookie-notice');
+    if (notice) {
+      notice.classList.remove('show');
+      // Удаляем элемент из DOM через некоторое время после анимации
+      setTimeout(() => {
+        if (notice.parentNode) {
+          notice.parentNode.removeChild(notice);
+        }
+      }, 300);
+    }
+  }
+
+  // Обработчик клика по кнопке "Хорошо"
+  function handleCookieAccept() {
+    setCookieConsent();
+    hideCookieNotice();
+  }
+
+  // Инициализация
+  function init() {
+    // Если пользователь уже согласился, не показываем плашку
+    if (hasCookieConsent()) {
+      return;
+    }
+
+    // Показываем плашку через небольшую задержку для плавности
+    setTimeout(showCookieNotice, 500);
+
+    // Добавляем обработчик клика
+    const acceptBtn = document.getElementById('cookie-accept');
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', handleCookieAccept);
+    }
+  }
+
+  // Запускаем инициализацию когда DOM готов
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+
 </html>

@@ -1,0 +1,93 @@
+.sea {
+  margin: 10rem 0;
+  min-height: 43.4rem;
+  padding: 10rem 9rem;
+
+  background-image: url("./../img/sea.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  @include mobile {
+    background-image: url("./../img/sea-mob.webp");
+    background-position: top;
+    min-height: unset;
+    height: 100vh;
+    overflow: hidden;
+    padding: 15vh var(--container-offset) 12vh;
+    border-radius: 1rem;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 5rem;
+    font-weight: 700;
+    font-size: 17.1rem;
+    line-height: 85%;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--ac-white);
+    position: relative;
+    @include mobile {
+      font-size: 12.5rem;
+      line-height: 1;
+      margin-bottom: 3rem;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 80%;
+      width: 100vw;
+      height: 25.5rem;
+      transform: translateX(-50%);
+      background-image: url("./../img/sea-mask.webp");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      @include mobile {
+        height: 62rem;
+        top: 91%;
+        width: calc(100% + var(--container-offset) * 2);
+        background-image: url("./../img/sea-mask-mob.webp");
+      }
+    }
+  }
+
+  &__desc {
+    margin: 0;
+    font-weight: 700;
+    font-size: 6.9rem;
+    color: var(--ac-white);
+  }
+
+  &__row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    position: relative;
+    z-index: 4;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: stretch;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+  }
+
+  &__btn {
+    padding: 1.4rem 7.6rem;
+
+    @include mobile {
+      padding: 2.25rem;
+    }
+  }
+}

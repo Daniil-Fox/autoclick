@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+@include('partials/head.html')
+
+<body class="page__body">
+  <div class="site-container">
+    @include('partials/header.html')
+    <main class="main">
+      <section class="info">
+        <div class="container">
+          <a href="#" class="back-btn contacts__back info__back">
+            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 1L1 7L7 13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Назад
+          </a>
+
+          <div class="info__grid">
+            <div class="info-card info__company">
+              <h2 class="title2 info-card__title">Карточка компании</h2>
+              <div class="info-card__cols">
+                <ul>
+                  <li><span>ООО «АвтоКлик»</span></li>
+                  <li><span>690003, г. Владивосток,</span></li>
+                  <li><span>ул. Станюковича, 46, оф. 304</span></li>
+                  <li><span>ОГРН 1252500001631</span></li>
+                  <li><span>ИНН 2540029342</span></li>
+                  <li><span>КПП 254001001</span></li>
+                </ul>
+                <ul>
+                  <li><span>р/с 40702810600810018840 в ПАО «ВТБ»</span></li>
+                  <li><span>к/с 30101810452050000411</span></li>
+                  <li><span>БИК 040525411</span></li>
+                  <li><a href="#">+7 908 444 84 64</a></li>
+                  <li><a href="#">carbuy@avtoklik.ru</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="info-card info__docs">
+              <h2 class="title2 info-card__title">Документы</h2>
+              <div class="info-docs">
+                <a href="#" class="info-docs__item btn btn_grey btn-reset js-doc-preview"
+                  data-doc="./docs/contract.docx">Шаблон договора</a>
+                <a href="#" class="info-docs__item btn btn_grey btn-reset">Политика конфиденциальности</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="info__how">
+            <h2 class="title2 info__how-title">Как работает онлайн сервис Автоклик</h2>
+            <div class="info__flex">
+              <div class="info__wrapper">
+                <div class="info__video">
+                  <div class="video-wrapper" data-video-player="info-video">
+                    <div class="info__video-cover" data-video-cover>
+                      <picture>
+                        <source srcset="./img/info-cover.webp" type="image/webp">
+                        <img src="./img/info-cover.jpg" alt="Превью видео" loading="lazy">
+                      </picture>
+                    </div>
+                    <div class="info__video">
+                      <video src="./cover.mp4" preload="metadata"></video>
+                    </div>
+                    <button class="btn-reset info__play" aria-label="Запустить видео" data-video-play>
+                      <svg>
+                        <use xlink:href="img/sprite.svg#play"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <p>Как работает сервис Автоклик</p>
+              </div>
+
+              <div class="info__wrapper">
+                <div class="info__video">
+                  <div class="video-wrapper" data-video-player="info-video">
+                    <div class="info__video-cover" data-video-cover>
+                      <picture>
+                        <source srcset="./img/info-cover.webp" type="image/webp">
+                        <img src="./img/info-cover.jpg" alt="Превью видео" loading="lazy">
+                      </picture>
+                    </div>
+                    <div class="info__video">
+                      <video src="./cover.mp4" preload="metadata"></video>
+                    </div>
+                    <button class="btn-reset info__play" aria-label="Запустить видео" data-video-play>
+                      <svg>
+                        <use xlink:href="img/sprite.svg#play"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <p>Как работает сервис Автоклик</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    @include('partials/footer.html')
+  </div>
+
+  <!-- Модальные окна -->
+  @include('partials/modal-cta.html') @include('partials/modal-success.html')
+  @include('partials/modal-error.html')
+  @include('partials/modal-doc.html')
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!-- Модальное окно предпросмотра документа -->
+<div class="modal modal--doc" id="modal-doc">
+  <div class="modal__overlay"></div>
+  <div class="modal__container">
+    <div class="modal__content">
+      <div class="modal__row">
+        <a class="btn btn-reset btn--accent modal-doc__download" href="#">Скачать договор</a>
+
+        <button class="modal__close" type="button" aria-label="Закрыть модальное окно">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L29 29M29 1L1 29" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-doc__frame">
+        <iframe
+          src="https://docs.google.com/document/d/e/2PACX-1vSu_X7pCRsbM8EZ1-9ufb1MGD7FOu0NSQiGGKR9RiwKzh1XbuYwJ3DnC_qWNcjyuDqJMCO-24_zbgMy/pub?embedded=true"></iframe>
+      </div>
+    </div>
+  </div>
+</div>

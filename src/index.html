@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="ru" class="page">
-  @include('partials/head.html')
+@include('partials/head.html')
 
-  <body class="page__body">
-    <div class="site-container">
-      @include('partials/header.html')
-      <main class="main">
-        @include('partials/hero.html') @include('partials/benefits.html')
-        @include('partials/delivery.html') @include('partials/about.html')
-        @include('partials/popular.html') @include('partials/cta.html')
-        @include('partials/testi.html') @include('partials/faq.html')
-        @include('partials/cta-bottom.html')
-      </main>
-      @include('partials/footer.html')
-    </div>
+<body class="page__body">
+  <div class="site-container">
+    @include('partials/header.html')
+    <main class="main">
+      @include('partials/hero.html') @include('partials/benefits.html')
+      @include('partials/delivery.html') @include('partials/steps.html')  @include('partials/about.html') @include('partials/sea.html')
+      @include('partials/popular.html') @include('partials/cta.html')
+      @include('partials/testi.html') @include('partials/faq.html')
+      @include('partials/cta-bottom.html')
+    </main>
+    @include('partials/footer.html')
+  </div>
 
-    <!-- Модальные окна -->
-    @include('partials/modal-cta.html') @include('partials/modal-success.html')
-    @include('partials/modal-error.html')
-  </body>
+  <!-- Модальные окна -->
+  @include('partials/modal-cta.html') @include('partials/modal-success.html')
+  @include('partials/modal-error.html')
+
+  <!-- Cookie notice -->
+  @include('partials/cookie.html')
+</body>
+
 </html>

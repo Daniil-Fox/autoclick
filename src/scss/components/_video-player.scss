@@ -66,10 +66,12 @@
     padding-left: 1.3rem;
     transition-property: transform;
     transition-duration: 0.2s;
+
     svg {
       width: 4.5rem;
       aspect-ratio: 1 / 1;
       fill: var(--ac-black);
+      filter: drop-shadow(0 0 50px rgba(0, 0, 0, 0.7));
     }
     @include hover {
       transform: translate(-50%, -50%) scale(1.1);
@@ -94,4 +96,8 @@
     opacity: 1;
     transform: scale(1);
   }
+}
+
+[data-video-opacity-1] video {
+  opacity: 1;
 }

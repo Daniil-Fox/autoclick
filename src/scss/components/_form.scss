@@ -44,13 +44,16 @@
     display: block;
     width: 100%;
     position: relative;
-
+    cursor: pointer;
     &--long {
       grid-column: 2 span;
     }
 
     @include hover {
       input:not(:disabled) ~ .form__label {
+        color: rgba(0, 0, 0, 0.45);
+      }
+      textarea:not(:disabled) ~ .form__label {
         color: rgba(0, 0, 0, 0.45);
       }
     }
@@ -66,6 +69,7 @@
       font-size: 2.2rem;
       line-height: 120%;
       overflow: hidden;
+      cursor: pointer;
       transition: color 0.3s ease-out, background-color 0.3s ease-out,
         outline-color 0.3s ease-in;
       &--area {
@@ -119,6 +123,12 @@
     & > *:nth-child(2) {
       flex: 1;
     }
+
+    &_only {
+      & > * {
+        flex-grow: 1;
+      }
+    }
   }
 
   &__label {
@@ -132,13 +142,15 @@
     font-weight: 400;
     font-size: 2.2rem;
     line-height: 120%;
-    color: rgba(0, 0, 0, 0.45);
+    color: rgba(0, 0, 0, 0.25);
     transition: color 0.3s ease-out;
+    cursor: pointer;
     transition: transform 0.3s ease-in, font-size 0.3s ease-in,
-      background-color 0.3s ease-in;
+      background-color 0.3s ease-in, color 0.3s ease;
   }
 
   &__input {
+    cursor: pointer;
     height: 100%;
     font-size: 2.2rem;
     display: block;

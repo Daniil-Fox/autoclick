@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#111111">
+  <title>Autoclick</title>
+  <link rel="preload" href="fonts/Ubuntu-Light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Ubuntu-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Ubuntu-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Ubuntu-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="owl/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/vendor.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script defer src="jquery.js"></script>
+  <script defer src="owl/owl.carousel.min.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+
+
+<body class="page__body">
+  <div class="site-container">
+    <header class="header">
+  <div class="container">
+    <div class="header__container">
+      <a href="#" class="logo header__logo">
+        <img src="./img/svg/logo.svg" width="50" height="26" alt="logo" />
+        <span>автоклик</span>
+      </a>
+
+      <nav class="nav header__nav">
+        <ul>
+          <li>
+            <a href="#">В2В</a>
+          </li>
+          <li>
+            <a href="#">Контакты</a>
+          </li>
+          <li>
+            <a href="#">Юридическая информация</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a href="#" class="header__lk">
+          <img src="./img/svg/lk.svg" width="30" height="30" alt="lk" />
+        </a>
+
+        <button
+          class="burger"
+          data-burger
+          aria-label="Открыть меню"
+          aria-expanded="false"
+        >
+          <span class="burger__line"></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" data-menu>
+  <div class="mobile-menu__overlay" data-menu-overlay></div>
+  <div class="mobile-menu__content">
+
+    <nav class="mobile-menu__nav">
+      <ul>
+        <li><a href="#" data-menu-item>В2В</a></li>
+        <li><a href="#" data-menu-item>Контакты</a></li>
+        <li><a href="#" data-menu-item>Юридическая информация</a></li>
+      </ul>
+    </nav>
+
+    <button class="mobile-menu__cta btn btn-reset" data-menu-item>
+      Оставить заявку
+    </button>
+  </div>
+</div>
+
+  </div>
+</header>
+
+    <main class="main">
+      <section class="info">
+        <div class="container">
+          <a href="#" class="back-btn contacts__back info__back">
+            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 1L1 7L7 13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Назад
+          </a>
+
+          <div class="info__grid">
+            <div class="info-card info__company">
+              <h2 class="title2 info-card__title">Карточка компании</h2>
+              <div class="info-card__cols">
+                <ul>
+                  <li><span>ООО «АвтоКлик»</span></li>
+                  <li><span>690003, г. Владивосток,</span></li>
+                  <li><span>ул. Станюковича, 46, оф. 304</span></li>
+                  <li><span>ОГРН 1252500001631</span></li>
+                  <li><span>ИНН 2540029342</span></li>
+                  <li><span>КПП 254001001</span></li>
+                </ul>
+                <ul>
+                  <li><span>р/с 40702810600810018840 в ПАО «ВТБ»</span></li>
+                  <li><span>к/с 30101810452050000411</span></li>
+                  <li><span>БИК 040525411</span></li>
+                  <li><a href="#">+7 908 444 84 64</a></li>
+                  <li><a href="#">carbuy@avtoklik.ru</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="info-card info__docs">
+              <h2 class="title2 info-card__title">Документы</h2>
+              <div class="info-docs">
+                <a href="#" class="info-docs__item btn btn_grey btn-reset js-doc-preview"
+                  data-doc="./docs/contract.docx">Шаблон договора</a>
+                <a href="#" class="info-docs__item btn btn_grey btn-reset">Политика конфиденциальности</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="info__how">
+            <h2 class="title2 info__how-title">Как работает онлайн сервис Автоклик</h2>
+            <div class="info__flex">
+              <div class="info__wrapper">
+                <div class="info__video">
+                  <div class="video-wrapper" data-video-player="info-video">
+                    <div class="info__video-cover" data-video-cover>
+                      <picture>
+                        <source srcset="./img/info-cover.webp" type="image/webp">
+                        <img src="./img/info-cover.jpg" alt="Превью видео" loading="lazy">
+                      </picture>
+                    </div>
+                    <div class="info__video">
+                      <video src="./cover.mp4" preload="metadata"></video>
+                    </div>
+                    <button class="btn-reset info__play" aria-label="Запустить видео" data-video-play>
+                      <svg>
+                        <use xlink:href="img/sprite.svg#play"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <p>Как работает сервис Автоклик</p>
+              </div>
+
+              <div class="info__wrapper">
+                <div class="info__video">
+                  <div class="video-wrapper" data-video-player="info-video">
+                    <div class="info__video-cover" data-video-cover>
+                      <picture>
+                        <source srcset="./img/info-cover.webp" type="image/webp">
+                        <img src="./img/info-cover.jpg" alt="Превью видео" loading="lazy">
+                      </picture>
+                    </div>
+                    <div class="info__video">
+                      <video src="./cover.mp4" preload="metadata"></video>
+                    </div>
+                    <button class="btn-reset info__play" aria-label="Запустить видео" data-video-play>
+                      <svg>
+                        <use xlink:href="img/sprite.svg#play"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <p>Как работает сервис Автоклик</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+  <div class="container">
+    <div class="footer__container">
+      <div class="footer__left">
+        <address class="footer__address">
+          <p class="desc1 footer__link"><a href="#" class="link-btn">+7&nbsp;908-444-84-64</a></p>
+          <p class="desc1 footer__link"><a href="#" class="link-btn">carbuy@avtoklik.ru</a></p>
+          <p class="desc1 footer__link">Владивосток,&nbsp;ул.&nbsp;Станюковича&nbsp;
+            д.&nbsp;46, офис 304</p>
+        </address>
+        <ul class="list-reset soc footer__soc footer__soc--mobile">
+          <li>
+            <a href="#" target="_blank">
+              <img src="./img/wa.svg" alt="WhatsApp">
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank">
+              <img src="./img/tg.svg" alt="Telegram">
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank">
+              <img src="./img/vk.svg" alt="VKontakte">
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__right">
+        <!-- Основной блок соцсетей для десктопа -->
+        <ul class="list-reset soc footer__soc footer__soc--desktop">
+          <li>
+            <a href="#" target="_blank">
+              <img src="./img/wa.svg" alt="WhatsApp">
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank">
+              <img src="./img/tg.svg" alt="Telegram">
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank">
+              <img src="./img/vk.svg" alt="VKontakte">
+            </a>
+          </li>
+        </ul>
+
+        <a href="#" class="desc1 footer__policy link-btn">Политика конфиденциальности</a>
+        <small class="desc1 footer__copy">©2025 Автоклик</small>
+      </div>
+    </div>
+  </div>
+</footer>
+  </div>
+
+  <!-- Модальные окна -->
+  <!-- Модальное окно "Оставить заявку" -->
+<div class="modal" id="modal-cta">
+  <div class="modal__overlay"></div>
+  <div class="modal__container">
+    <div class="modal__content">
+      <button class="modal__close" type="button" aria-label="Закрыть модальное окно">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L29 29M29 1L1 29" stroke-width="2" />
+        </svg>
+      </button>
+      <div class="cta__container">
+        <div class="cta__content">
+          <h2 class="title2 cta__title">Оставить заявку</h2>
+
+          <form action="#" class="modal__form form corner-smooth-40">
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input id="modal-model" type="text" class="form__input input-name" name="Марка, модель" />
+                <label for="modal-model" class="form__label">Марка, модель*</label>
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper form__field-wrapper--area">
+                <textarea id="modal-extra" class="form__input form__input--area input-mess"
+                  name="Дополнительно"></textarea>
+                <label for="modal-extra" class="form__label">Дополнительно (год, комплектация, мощность, т.д.)</label>
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="form__field form__field--long">
+                <div class="form__field-wrapper">
+                  <input id="modal-name" type="text" class="form__input input-name" name="Имя" />
+                  <label for="modal-name" class="form__label">Ваше имя*</label>
+                </div>
+              </div>
+
+              <div class="form__field form__field--long">
+                <div class="form__field-wrapper">
+                  <input id="modal-city" type="text" class="form__input input-name" name="Город" />
+                  <label for="modal-city" class="form__label">Ваш город*</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <select name="Способ связи" class="visually-hidden select-contact">
+                <option value="">Удобный формат связи</option>
+                <option value="Телефон">Телефон</option>
+                <option value="Telegram">Telegram</option>
+                <option value="Whatsapp">Whatsapp</option>
+                <option value="Email">Email</option>
+              </select>
+
+              <div class="dropdown form__dropdown">
+                <div class="dropdown__header">
+                  <div class="dropdown__label">Удобный формат связи</div>
+                  <div class="dropdown__capture">Удобный формат связи</div>
+                  <div class="dropdown__btn">
+                    <svg class="">
+                      <use xlink:href="img/sprite.svg#arr-down"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="dropdown__body">
+                  <div class="dropdown__content">
+                    <div class="dropdown__item"></div>
+                    <div class="dropdown__item">Телефон</div>
+                    <div class="dropdown__item">Telegram</div>
+                    <div class="dropdown__item">Whatsapp</div>
+                    <div class="dropdown__item">Email</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input id="modal-tel" type="text" class="form__input input-tel" name="Телефон" style="display: block" />
+                <input id="modal-email" type="email" class="form__input input-email" name="Почта" style="display: none" />
+                <label for="modal-tel" class="form__label">телефон/почта</label>
+              </div>
+            </div>
+
+            <span class="cta-extra">*Обязательные поля</span>
+            <button class="btn btn-reset btn--accent form__btn" disabled>
+              Получить расчет
+            </button>
+          </form>
+        </div>
+
+        <div class="cta__decor">
+          <img src="./img/car.webp" aria-hidden="true" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Модальное окно успешной отправки -->
+<div class="modal modal--success" id="modal-success">
+  <div class="modal__overlay"></div>
+  <div class="modal__container">
+    <div class="modal__content">
+      <button
+        class="modal__close"
+        type="button"
+        aria-label="Закрыть модальное окно"
+      >
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 30 30"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M1 1L29 29M29 1L1 29" stroke="#050220" stroke-width="2" />
+        </svg>
+      </button>
+
+      <div class="modal__success">
+        <div class="modal__success-icon" aria-hidden="true">
+          <svg
+            width="124"
+            height="90"
+            viewBox="0 0 124 90"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M42.4097 70.3563L110.361 2.40535C111.964 0.801783 113.835 0 115.973 0C118.111 0 119.982 0.801783 121.586 2.40535C123.189 4.00891 123.991 5.91448 123.991 8.12205C123.991 10.3296 123.189 12.2325 121.586 13.8307L48.0222 87.5947C46.4186 89.1982 44.5478 90 42.4097 90C40.2716 90 38.4008 89.1982 36.7973 87.5947L2.32065 53.118C0.717082 51.5145 -0.0526295 49.6116 0.011513 47.4094C0.0756556 45.2071 0.912179 43.3016 2.52109 41.6926C4.13 40.0837 6.03557 39.282 8.23779 39.2873C10.44 39.2926 12.3429 40.0944 13.9465 41.6926L42.4097 70.3563Z"
+              fill="#75EA75"
+            />
+          </svg>
+        </div>
+        <div class="modal__text">
+          <h3 class="modal__success-title">Заявка успешно отправлена!</h3>
+          <p class="modal__success-text desc1">
+            Наш менеджер свяжется с вами в ближайшее время
+          </p>
+        </div>
+        <button class="btn btn-reset modal__ok btn_grey">Отлично</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Модальное окно успешной отправки -->
+<div class="modal modal--error" id="modal-error">
+  <div class="modal__overlay"></div>
+  <div class="modal__container">
+    <div class="modal__content">
+      <button class="modal__close" type="button" aria-label="Закрыть модальное окно">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L29 29M29 1L1 29" stroke="#050220" stroke-width="2" />
+        </svg>
+      </button>
+
+      <div class="modal__error">
+        <div class="modal__error-icon" aria-hidden="true">
+          <svg width="91" height="90" viewBox="0 0 91 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M78.5 12L12.5 78M12.5 12L78.5 78" stroke="#D80B42" stroke-width="15" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="modal__text">
+          <h3 class="modal__error-title">Ошибка при отправке</h3>
+          <p class="modal__error-text desc1">
+            Пожалуйста, попробуйте ещё раз или свяжитесь с нами по телефону
+            <a href="tel:+7 908-444-84-64">+7 908-444-84-64</a>
+          </p>
+        </div>
+
+        <div class="modal__row">
+          <button class="btn btn-reset modal__ok btn_grey">Закрыть</button>
+          <button class="btn btn-reset modal__ok modal__retry btn_grey">
+            Повторить отправку
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Модальное окно предпросмотра документа -->
+<div class="modal modal--doc" id="modal-doc">
+  <div class="modal__overlay"></div>
+  <div class="modal__container">
+    <div class="modal__content">
+      <div class="modal__row">
+        <a class="btn btn-reset btn--accent modal-doc__download" href="#">Скачать договор</a>
+
+        <button class="modal__close" type="button" aria-label="Закрыть модальное окно">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L29 29M29 1L1 29" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-doc__frame">
+        <iframe
+          src="https://docs.google.com/document/d/e/2PACX-1vSu_X7pCRsbM8EZ1-9ufb1MGD7FOu0NSQiGGKR9RiwKzh1XbuYwJ3DnC_qWNcjyuDqJMCO-24_zbgMy/pub?embedded=true"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

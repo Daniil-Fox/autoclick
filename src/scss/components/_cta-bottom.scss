@@ -38,6 +38,7 @@
   }
 
   &__content {
+    position: relative;
     flex: 1;
     padding: 6.5rem 8rem 8rem;
     background-color: var(--ac-white);
@@ -56,7 +57,21 @@
     }
   }
   .form__row {
-    & > *:nth-child(1) {
+    // & > *:nth-child(1) {
+    //   flex-basis: 41.6rem;
+    //   @include mobile {
+    //     flex-basis: unset;
+    //   }
+    // }
+
+    &:nth-child(even) > *:nth-child(1) {
+      flex-basis: 41.6rem;
+      @include mobile {
+        flex-basis: unset;
+      }
+    }
+
+    &:nth-child(odd) > *:nth-child(2) {
       flex-basis: 41.6rem;
       @include mobile {
         flex-basis: unset;

@@ -35,6 +35,12 @@ export const validateForms = (selector, rules, checkboxes = [], afterSend) => {
 
   function openSuccessModal() {
     try {
+      const successModal = document.getElementById("modal-success");
+      if (!successModal) {
+        console.warn("Модалка успешной отправки не найдена на странице");
+        return;
+      }
+
       const active = modalManager.getActiveModal?.();
       if (active && active !== "modal-success" && active !== "modal-error") {
         modalManager.close(active);
@@ -47,6 +53,12 @@ export const validateForms = (selector, rules, checkboxes = [], afterSend) => {
 
   function openErrorModal() {
     try {
+      const errorModal = document.getElementById("modal-error");
+      if (!errorModal) {
+        console.warn("Модалка ошибки не найдена на странице");
+        return;
+      }
+
       const active = modalManager.getActiveModal?.();
       if (active && active !== "modal-success" && active !== "modal-error") {
         modalManager.close(active);
@@ -162,7 +174,7 @@ function retryLastSubmit() {
       if (xhr.status >= 200 && xhr.status < 300) {
         try {
           modalManager.close("modal-error");
-          modalManager.open("modal-success");
+          openSuccessModal();
         } catch (_) {}
         form
           .querySelectorAll(".filled")
@@ -259,6 +271,9 @@ document.addEventListener("DOMContentLoaded", () => {
       contactLabel.textContent = "Телефон/Email";
     }
 
+    // Устанавливаем правильный for для лейбла при инициализации
+    updateLabelFor();
+
     function initMask() {
       if (!inputMask && telInput) {
         inputMask = new Inputmask({
@@ -267,11 +282,41 @@ document.addEventListener("DOMContentLoaded", () => {
           showMaskOnFocus: true,
           onBeforeMask: function (value) {
             if (!value || typeof value !== "string") return value;
-            if (value.startsWith("7") || value.startsWith("8")) return "";
-            return value;
+            // Удаляем все нежелательные символы из начала
+            const cleaned = value.replace(/^[78+]/, '').replace(/^[78+]/, '');
+            return cleaned;
           },
+          onBeforePaste: function(value) {
+            // Очищаем вставленное значение от 7, 8 и +
+            if (typeof value === 'string') {
+              return value.replace(/^[78+]/, '').replace(/^[78+]/, '');
+            }
+            return value;
+          }
         });
         inputMask.mask(telInput);
+
+        // Запрещаем ввод 7, 8 и + через клавиатуру в начале
+        telInput.addEventListener('keydown', function(e) {
+          const key = e.key;
+
+          // Получаем только цифры из текущего значения
+          const currentValue = this.value.replace(/\D/g, '');
+
+          // Запрещаем ввод 7, 8 и + если меньше 3 цифр всего
+          if ((key === '7' || key === '8' || key === '+' || key === '7' || key === '8') && currentValue.length < 3) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+          }
+
+          // Запрещаем ввод 7 и 8 если это будет вторая или третья позиция (индексы 1 или 2)
+          if (currentValue.length <= 1 && (key === '7' || key === '8')) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+          }
+        }, true); // Используем захват события (capture phase)
       }
     }
 
@@ -337,6 +382,24 @@ document.addEventListener("DOMContentLoaded", () => {
           if (contactLabel) contactLabel.textContent = "Телефон";
           initMask();
         }
+      }
+
+      // Обновляем атрибут for у лейбла для активного инпута
+      updateLabelFor();
+
+      // Удаляем класс form__row_only у ближайшего родителя с классом form__row
+      const formRow = select?.closest('.form__row');
+      if (formRow && formRow.classList.contains('form__row_only')) {
+        formRow.classList.remove('form__row_only');
+      }
+    }
+
+    function updateLabelFor() {
+      if (!contactLabel) return;
+
+      const activeInput = telInput?.style.display !== "none" ? telInput : emailInput;
+      if (activeInput) {
+        contactLabel.setAttribute("for", activeInput.id);
       }
     }
 

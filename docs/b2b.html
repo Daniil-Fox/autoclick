@@ -10,8 +10,11 @@
   <link rel="preload" href="fonts/Ubuntu-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Ubuntu-Medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Ubuntu-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="owl/owl.carousel.min.css">
   <link rel="stylesheet" href="css/vendor.css">
   <link rel="stylesheet" href="css/main.css">
+  <script defer src="jquery.js"></script>
+  <script defer src="owl/owl.carousel.min.js"></script>
   <script defer src="js/main.js"></script>
 </head>
 
@@ -77,44 +80,130 @@
 </header>
 
     <main class="main">
-      <section class="hero">
-  <div
-    class="video-wrapper hero__wrapper"
-    data-video-player="hero-video"
-    data-video-autoplay
-  >
-    <div class="hero__video">
-      <video src="./cover.mp4" preload="metadata" loop playsinline></video>
-    </div>
-    <div class="hero__cover" data-video-cover>
-      <picture>
-        <source
-          srcset="./img/hero-mob.webp"
-          media="(max-width: 600px)"
-          type="image/webp"
-        />
-        <img
-          loading="lazy"
-          src="./img/hero.webp"
-          class="image"
-          width="1920"
-          height="1000"
-          aria-hidden="true"
-          alt=""
-        />
-      </picture>
-    </div>
-  </div>
-  <div class="container">
-    <div class="hero__container">
-      <h1 class="title1 hero__title">Авто из Китая<br />в один клик</h1>
-      <button class="btn-reset hero__btn btn" data-target="modal-cta">
+      <section class="hero-b2b">
+  <div class="container hero-b2b__container">
+    <div class="hero-b2b__content">
+      <h1 class="title1 hero-b2b__title">Авто из&nbsp;Китая
+        в&nbsp;один клик
+        морем</h1>
+      <ul class="list-reset hero-b2b__list">
+        <li>Оперативная доставка</li>
+        <li>Удобный личный кабинет</li>
+        <li>Повышенная безопасность</li>
+      </ul>
+      <button class="btn-reset hero-b2b__btn btn" data-target="modal-cta">
         Оставить заявку
       </button>
     </div>
+
+    <div class="hero-b2b__img">
+      <picture>
+        <source srcset="./img/hero-b2b.webp" type="image/webp">
+        <img loading="lazy" src="./img/hero-b2b.jpg" class="image" width="1193" height="880" alt="">
+      </picture>
+    </div>
   </div>
 </section>
- <section class="benefits">
+
+      <section class="work">
+  <div class="container">
+    <h2 class="title2 work__title centered">
+      Как работает наш сервис для B2B
+    </h2>
+    <div class="work__container">
+      <div class="work__item">
+        <div class="work__item-top">
+          <p class="work__item-capture">
+            Вы заключаете договор
+            с компанией АвтоКлик
+          </p>
+          <p class="work__item-desc">
+            Начинаете сотрудничество
+            на официальных условиях
+          </p>
+        </div>
+
+        <div class="work__item-bottom">
+          <div class="work__item-icon">
+            <img src="./img/work/01.svg" aria-hidden="true" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="work__item">
+        <div class="work__item-top">
+          <p class="work__item-capture">
+            Получаете доступ<br>
+            в личный кабинет
+          </p>
+          <p class="work__item-desc">
+            Ведете всех ваших клиентов
+            самостоятельно
+          </p>
+        </div>
+
+        <div class="work__item-bottom">
+          <div class="work__item-icon">
+            <img src="./img/work/03.svg" aria-hidden="true" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="work__item">
+        <div class="work__item-top">
+          <p class="work__item-capture">
+            Для оплаты в Китай используете<br>
+            наш уникальный сервис
+          </p>
+          <p class="work__item-desc">
+            Оплата производится по счету
+            или через QR-код на реквизиты российского банка
+          </p>
+        </div>
+
+        <div class="work__item-bottom">
+          <div class="work__item-icon">
+            <img src="./img/work/03.svg" aria-hidden="true" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="work__item">
+        <div class="work__item-top">
+          <p class="work__item-capture">
+            Через систему уведомлений отслеживаете статус купленных авто
+          </p>
+          <p class="work__item-desc">
+            Вы всегда знаете, где находится автомобиль
+            и можете сообщить об этом клиенту
+          </p>
+        </div>
+
+        <div class="work__item-bottom">
+          <div class="work__item-icon">
+            <img src="./img/work/04.svg" aria-hidden="true" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="work__item">
+        <div class="work__item-top">
+          <p class="work__item-capture">
+            <span>Ваш клиент работает с Вами </span>
+            Вы работаете с нами
+          </p>
+        </div>
+
+        <div class="work__item-bottom">
+          <div class="work__item-icon">
+            <img src="./img/work/05.svg" aria-hidden="true" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="benefits">
   <div class="container">
     <h2 class="title2 benefits__title centered">Преимущества</h2>
 
@@ -462,18 +551,20 @@
           <div class="form__field form__field--long">
             <div class="form__field-wrapper">
               <input
+                id="tel1"
                 type="text"
                 class="form__input input-tel"
                 name="Телефон"
                 style="display: block"
               />
               <input
+                id="email1"
                 type="email"
                 class="form__input input-email"
                 name="Почта"
                 style="display: none"
               />
-              <label class="form__label">телефон/почта</label>
+              <label for="tel1" class="form__label">телефон/почта</label>
             </div>
           </div>
           <span class="cta-extra">*Обязательные поля</span>
@@ -523,14 +614,8 @@
             </div>
           </div>
 
-          <div class="form__row">
-            <div class="form__field form__field--long">
-              <div class="form__field-wrapper">
-                <input id="phone2" type="text" class="form__input input-tel" name="Телефон" style="display: block" />
-                <input type="email" class="form__input input-email" name="Почта" style="display: none" />
-                <label for="phone2" class="form__label">телефон/почта</label>
-              </div>
-            </div>
+          <div class="form__row form__row_only">
+
 
             <div class="form__field form__field--long">
               <select name="Способ связи" class="visually-hidden select-contact">
@@ -562,6 +647,14 @@
                 </div>
               </div>
             </div>
+
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input id="phone2" type="text" class="form__input input-tel" name="Телефон" style="display: block" />
+                <input id="email2" type="email" class="form__input input-email" name="Почта" style="display: none" />
+                <label for="phone2" class="form__label">телефон/почта</label>
+              </div>
+            </div>
           </div>
           <span class="cta-extra">*Обязательные поля</span>
 
@@ -574,6 +667,7 @@
     </div>
   </div>
 </section>
+
     </main>
     <footer class="footer">
   <div class="container">
@@ -705,9 +799,9 @@
               </div>
               <div class="form__field form__field--long">
                 <div class="form__field-wrapper">
-                  <input type="text" class="form__input input-tel" name="Телефон" style="display: block" />
-                  <input type="email" class="form__input input-email" name="Почта" style="display: none" />
-                  <label class="form__label">телефон/почта</label>
+                  <input id="tel-b2b" type="text" class="form__input input-tel" name="Телефон" style="display: block" />
+                  <input id="email-b2b" type="email" class="form__input input-email" name="Почта" style="display: none" />
+                  <label for="tel-b2b" class="form__label">телефон/почта</label>
                 </div>
               </div>
               <span class="cta-extra">*Обязательные поля</span>
@@ -732,7 +826,7 @@
     <div class="modal__content">
       <button class="modal__close" type="button" aria-label="Закрыть модальное окно">
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1L29 29M29 1L1 29" stroke="#050220" stroke-width="2" />
+          <path d="M1 1L29 29M29 1L1 29" stroke-width="2" />
         </svg>
       </button>
       <div class="cta__container">
@@ -804,9 +898,9 @@
 
             <div class="form__field form__field--long">
               <div class="form__field-wrapper">
-                <input type="text" class="form__input input-tel" name="Телефон" style="display: block" />
-                <input type="email" class="form__input input-email" name="Почта" style="display: none" />
-                <label class="form__label">телефон/почта</label>
+                <input id="modal-tel" type="text" class="form__input input-tel" name="Телефон" style="display: block" />
+                <input id="modal-email" type="email" class="form__input input-email" name="Почта" style="display: none" />
+                <label for="modal-tel" class="form__label">телефон/почта</label>
               </div>
             </div>
 
@@ -824,6 +918,223 @@
     </div>
   </div>
 </div>
+
+
+  <!-- Cookie notice -->
+  <div class="cookie-notice" id="cookie-notice">
+  <div class="cookie-notice__container">
+    <div class="cookie-notice__content">
+      <div class="cookie-notice__text">
+        <p>Мы&nbsp;используем файлы cookie для улучшения работы сайта и&nbsp;анализа трафика.<br>
+          Продолжая использовать сайт, вы&nbsp;соглашаетесь с&nbsp;нашей <a href="#">политикой использования cookie.</a></p>
+      </div>
+      <button class="cookie-notice__btn" type="button" id="cookie-accept">
+        Хорошо
+      </button>
+    </div>
+    <div class="cookie-notice__icon">
+      <img src="./img/cookies.png" alt="Cookies" width="100" height="100">
+    </div>
+  </div>
+</div>
+
+<style>
+.cookie-notice {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: #fff;
+  border-top: 0.1rem solid #e0e0e0;
+  box-shadow: 0 -0.4rem 2rem rgba(0, 0, 0, 0.1);
+  transform: translateY(200%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cookie-notice.show {
+  transform: translateY(0);
+}
+
+.cookie-notice__container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  position: relative;
+}
+
+.cookie-notice__content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
+}
+
+.cookie-notice__text {
+  flex: 1;
+}
+
+.cookie-notice__text p {
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1.4;
+  color: #333;
+}
+.cookie-notice__text a {
+  color: #0056b3;
+  text-decoration: underline;
+}
+.cookie-notice__btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 1.2rem 4rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cookie-notice__btn:hover {
+  background: #0056b3;
+}
+
+.cookie-notice__icon {
+  position: absolute;
+  top: 0rem;
+  transform: translateY(-50%);
+  right: -5rem;
+  width: 8rem;
+  height: 8rem;
+  flex-shrink: 0;
+}
+
+.cookie-notice__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Адаптивность */
+@media (max-width: 76.8rem) {
+  .cookie-notice__container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .cookie-notice__content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .cookie-notice__btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cookie-notice__icon {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .cookie-notice__text p {
+    font-size: 2.2rem;
+  }
+
+  .cookie-notice__btn {
+    padding: 1.2rem 2rem;
+    font-size: 2rem;
+  }
+}
+@media (max-width: 76.8rem){
+
+  .cookie-notice__icon {
+    width: 8rem;
+    height: 8rem;
+    right: 2rem;
+  }
+}
+
+</style>
+
+<script>
+(function() {
+  'use strict';
+
+  // Проверяем, согласился ли пользователь с куки
+  function hasCookieConsent() {
+    return localStorage.getItem('cookie-consent') === 'accepted';
+  }
+
+  // Сохраняем согласие пользователя
+  function setCookieConsent() {
+    localStorage.setItem('cookie-consent', 'accepted');
+  }
+
+  // Показываем плашку о куки
+  function showCookieNotice() {
+    const notice = document.getElementById('cookie-notice');
+    if (notice) {
+      notice.classList.add('show');
+    }
+  }
+
+  // Скрываем плашку о куки
+  function hideCookieNotice() {
+    const notice = document.getElementById('cookie-notice');
+    if (notice) {
+      notice.classList.remove('show');
+      // Удаляем элемент из DOM через некоторое время после анимации
+      setTimeout(() => {
+        if (notice.parentNode) {
+          notice.parentNode.removeChild(notice);
+        }
+      }, 300);
+    }
+  }
+
+  // Обработчик клика по кнопке "Хорошо"
+  function handleCookieAccept() {
+    setCookieConsent();
+    hideCookieNotice();
+  }
+
+  // Инициализация
+  function init() {
+    // Если пользователь уже согласился, не показываем плашку
+    if (hasCookieConsent()) {
+      return;
+    }
+
+    // Показываем плашку через небольшую задержку для плавности
+    setTimeout(showCookieNotice, 500);
+
+    // Добавляем обработчик клика
+    const acceptBtn = document.getElementById('cookie-accept');
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', handleCookieAccept);
+    }
+  }
+
+  // Запускаем инициализацию когда DOM готов
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
 </body>
 
 </html>

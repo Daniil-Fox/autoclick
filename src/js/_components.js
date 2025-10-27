@@ -7,7 +7,9 @@ import CustomTextarea from "./components/textarea.js";
 import { initTextTruncation } from "./functions/truncate-text.js";
 import { modalManager } from "./functions/modal.js";
 import { videoPlayer } from "./functions/video-player.js";
+import "./components/docs-preview.js";
 
+import "./components/utm.js";
 import "./functions/validate-forms.js";
 import FAQ from "./components/faq.js";
 
