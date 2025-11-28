@@ -12,6 +12,7 @@ import "./components/docs-preview.js";
 import "./components/utm.js";
 import "./functions/validate-forms.js";
 import FAQ from "./components/faq.js";
+import MoreVideo from "./components/more-video.js";
 
 // Инициализация кастомных textarea
 document.addEventListener("DOMContentLoaded", () => {
@@ -21,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   new FAQ();
+  new MoreVideo();
 
   // Инициализация обрезки текста
   initTextTruncation();

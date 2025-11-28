@@ -1,12 +1,33 @@
 import { Swiper } from "swiper";
-import { Mousewheel, Navigation } from "swiper/modules";
-Swiper.use([Navigation, Mousewheel]);
+import { Mousewheel, Navigation, Thumbs } from "swiper/modules";
+Swiper.use([Navigation, Mousewheel, Thumbs]);
+
+const heroSliderThumbs = new Swiper(".hero__thumbs", {
+  slidesPerView: "auto",
+  spaceBetween: 20,
+});
+
+const heroSlider = new Swiper(".hero__gallery > .swiper", {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  thumbs: {
+    swiper: heroSliderThumbs,
+  },
+});
 
 new Swiper(".testi__slider", {
   slidesPerView: "auto",
   spaceBetween: 20,
 });
 
+new Swiper(".more__slider", {
+  slidesPerView: "auto",
+  spaceBetween: 20,
+  mousewheel: {
+    enabled: true,
+    releaseOnEdges: true,
+  },
+});
 // new Swiper(".popular__slider > .swiper", {
 //   slidesPerView: "auto",
 //   spaceBetween: 40,
@@ -25,7 +46,7 @@ new Swiper(".testi__slider", {
 //   },
 // });
 
-const autoSlider = $('.popular__slider').owlCarousel({
+const autoSlider = $(".popular__slider").owlCarousel({
   loop: true,
   margin: 30,
   nav: false,
@@ -51,26 +72,29 @@ const autoSlider = $('.popular__slider').owlCarousel({
     //   center: false,
     //   margin: 30,
     // }
-  }
-})
-
-// Intersection Observer для автоплея clients слайдера
-const clientsObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Слайдер в зоне видимости - запускаем автоплей
-      if (autoSlider) autoSlider.trigger('play.owl.autoplay');
-    } else {
-      // Слайдер вне зоны видимости - останавливаем автоплей
-      if (autoSlider) autoSlider.trigger('stop.owl.autoplay');
-    }
-  });
-}, {
-  threshold: 0.1
+  },
 });
 
+// Intersection Observer для автоплея clients слайдера
+const clientsObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Слайдер в зоне видимости - запускаем автоплей
+        if (autoSlider) autoSlider.trigger("play.owl.autoplay");
+      } else {
+        // Слайдер вне зоны видимости - останавливаем автоплей
+        if (autoSlider) autoSlider.trigger("stop.owl.autoplay");
+      }
+    });
+  },
+  {
+    threshold: 0.1,
+  }
+);
+
 // Наблюдаем за clients слайдером
-const clientsElement = document.querySelector('.popular__slider');
+const clientsElement = document.querySelector(".popular__slider");
 if (clientsElement) clientsObserver.observe(clientsElement);
 
 window.addEventListener("DOMContentLoaded", () => {

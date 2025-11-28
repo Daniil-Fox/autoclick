@@ -16032,6 +16032,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_utm_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/utm.js */ "./src/js/components/utm.js");
 /* harmony import */ var _functions_validate_forms_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./functions/validate-forms.js */ "./src/js/functions/validate-forms.js");
 /* harmony import */ var _components_faq_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/faq.js */ "./src/js/components/faq.js");
+/* harmony import */ var _components_more_video_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/more-video.js */ "./src/js/components/more-video.js");
+
 
 
 
@@ -16053,6 +16055,7 @@ document.addEventListener("DOMContentLoaded", () => {
     new _components_textarea_js__WEBPACK_IMPORTED_MODULE_4__["default"](textarea);
   });
   new _components_faq_js__WEBPACK_IMPORTED_MODULE_11__["default"]();
+  new _components_more_video_js__WEBPACK_IMPORTED_MODULE_12__["default"]();
 
   // Инициализация обрезки текста
   (0,_functions_truncate_text_js__WEBPACK_IMPORTED_MODULE_5__.initTextTruncation)();
@@ -16428,6 +16431,138 @@ if (fields.length > 0) {
 
 /***/ }),
 
+/***/ "./src/js/components/more-video.js":
+/*!*****************************************!*\
+  !*** ./src/js/components/more-video.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ MoreVideo)
+/* harmony export */ });
+class MoreVideo {
+  constructor() {
+    this.items = document.querySelectorAll(".more__item");
+    this.currentIframe = null;
+    this.init();
+  }
+  init() {
+    if (this.items.length === 0) return;
+    this.bindEvents();
+  }
+  bindEvents() {
+    this.items.forEach(item => {
+      item.addEventListener("click", () => this.handleClick(item));
+    });
+  }
+  handleClick(clickedItem) {
+    // Если уже есть активный iframe и он не тот, который кликнули - скрываем его
+    if (this.currentIframe && this.currentIframe !== clickedItem) {
+      this.hideVideo(this.currentIframe);
+    }
+
+    // Получаем data-src из clickedItem или из img внутри
+    const img = clickedItem.querySelector("img");
+    const dataSrc = clickedItem.getAttribute("data-src") || img?.getAttribute("data-src");
+    if (!dataSrc) return;
+
+    // Проверяем, есть ли уже iframe в этом элементе
+    const existingIframe = clickedItem.querySelector("iframe");
+    if (existingIframe) {
+      // Если iframe уже есть, переключаемся на него
+      this.showVideo(clickedItem);
+      this.currentIframe = clickedItem;
+    } else {
+      // Если iframe нет, создаем его
+      this.createVideo(clickedItem, dataSrc);
+      this.currentIframe = clickedItem;
+    }
+  }
+  createVideo(item, dataSrc) {
+    // Конвертируем VK URL в формат iframe
+    const iframeSrc = this.convertVkUrl(dataSrc);
+
+    // Находим img для скрытия
+    const img = item.querySelector(".img-wrapper");
+
+    // Создаем iframe
+    const iframe = document.createElement("iframe");
+    iframe.src = iframeSrc;
+    iframe.setAttribute("allow", "autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;");
+    iframe.setAttribute("frameborder", "0");
+    iframe.setAttribute("allowfullscreen", "");
+
+    // Добавляем iframe в item
+    item.appendChild(iframe);
+
+    // Анимируем переход
+    requestAnimationFrame(() => {
+      if (img) img.style.opacity = "0";
+      setTimeout(() => {
+        if (img) img.style.display = "none";
+        iframe.style.opacity = "1";
+        iframe.style.pointerEvents = "auto";
+      }, 150);
+    });
+  }
+  showVideo(item) {
+    const iframe = item.querySelector("iframe");
+    const img = item.querySelector(".img-wrapper");
+    if (!iframe) return;
+
+    // Показываем iframe и скрываем img
+    requestAnimationFrame(() => {
+      if (img) {
+        img.style.opacity = "0";
+        setTimeout(() => {
+          if (img) img.style.display = "none";
+        }, 150);
+      }
+      iframe.style.opacity = "1";
+      iframe.style.pointerEvents = "auto";
+    });
+  }
+  hideVideo(item) {
+    const iframe = item.querySelector("iframe");
+    const img = item.querySelector(".img-wrapper");
+    if (!iframe || !img) return;
+
+    // Плавно скрываем iframe и показываем img
+    iframe.style.opacity = "0";
+    iframe.style.pointerEvents = "none";
+    setTimeout(() => {
+      // Останавливаем воспроизведение и удаляем iframe
+      try {
+        iframe.src = "";
+      } catch (_) {}
+      iframe.remove();
+
+      // Возвращаем обложку
+      img.style.display = "block";
+      requestAnimationFrame(() => {
+        img.style.opacity = "1";
+      });
+      if (this.currentIframe === item) {
+        this.currentIframe = null;
+      }
+    }, 150);
+  }
+  convertVkUrl(url) {
+    // Извлекаем oid и id из URL вида https://vk.com/clip-232383915_456239022
+    const match = url.match(/clip-(\d+)_(\d+)/);
+    if (match) {
+      const oid = match[1];
+      const id = match[2];
+      return `https://vk.com/video_ext.php?oid=-${oid}&id=${id}&hd=2&autoplay=1`;
+    }
+    return url;
+  }
+}
+
+/***/ }),
+
 /***/ "./src/js/components/sliders.js":
 /*!**************************************!*\
   !*** ./src/js/components/sliders.js ***!
@@ -16440,12 +16575,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper_modules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/modules */ "./node_modules/swiper/modules/index.mjs");
 
 
-swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper.use([swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Mousewheel]);
+swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper.use([swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Mousewheel, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Thumbs]);
+const heroSliderThumbs = new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(".hero__thumbs", {
+  slidesPerView: "auto",
+  spaceBetween: 20
+});
+const heroSlider = new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(".hero__gallery > .swiper", {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  thumbs: {
+    swiper: heroSliderThumbs
+  }
+});
 new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(".testi__slider", {
   slidesPerView: "auto",
   spaceBetween: 20
 });
-
+new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(".more__slider", {
+  slidesPerView: "auto",
+  spaceBetween: 20,
+  mousewheel: {
+    enabled: true,
+    releaseOnEdges: true
+  }
+});
 // new Swiper(".popular__slider > .swiper", {
 //   slidesPerView: "auto",
 //   spaceBetween: 40,
@@ -16464,7 +16617,7 @@ new swiper__WEBPACK_IMPORTED_MODULE_0__.Swiper(".testi__slider", {
 //   },
 // });
 
-const autoSlider = $('.popular__slider').owlCarousel({
+const autoSlider = $(".popular__slider").owlCarousel({
   loop: true,
   margin: 30,
   nav: false,
@@ -16498,10 +16651,10 @@ const clientsObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       // Слайдер в зоне видимости - запускаем автоплей
-      if (autoSlider) autoSlider.trigger('play.owl.autoplay');
+      if (autoSlider) autoSlider.trigger("play.owl.autoplay");
     } else {
       // Слайдер вне зоны видимости - останавливаем автоплей
-      if (autoSlider) autoSlider.trigger('stop.owl.autoplay');
+      if (autoSlider) autoSlider.trigger("stop.owl.autoplay");
     }
   });
 }, {
@@ -16509,7 +16662,7 @@ const clientsObserver = new IntersectionObserver(entries => {
 });
 
 // Наблюдаем за clients слайдером
-const clientsElement = document.querySelector('.popular__slider');
+const clientsElement = document.querySelector(".popular__slider");
 if (clientsElement) clientsObserver.observe(clientsElement);
 window.addEventListener("DOMContentLoaded", () => {
   const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {

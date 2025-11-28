@@ -18,13 +18,13 @@
     min-height: unset;
     height: 100vh;
     overflow: hidden;
-    padding: 15vh var(--container-offset) 12vh;
+    padding: 27vh var(--container-offset) 12vh;
+
     border-radius: 1rem;
   }
 
   &__title {
     margin: 0;
-    margin-bottom: 5rem;
     font-weight: 700;
     font-size: 17.1rem;
     line-height: 85%;
@@ -32,31 +32,22 @@
     text-transform: uppercase;
     color: var(--ac-white);
     position: relative;
+    & > span {
+      display: block;
+      position: relative;
+      z-index: 4;
+
+      @include mobile {
+        position: static;
+        span {
+          position: relative;
+          z-index: 5;
+        }
+      }
+    }
     @include mobile {
       font-size: 12.5rem;
       line-height: 1;
-      margin-bottom: 3rem;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 80%;
-      width: 100vw;
-      height: 25.5rem;
-      transform: translateX(-50%);
-      background-image: url("./../img/sea-mask.webp");
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-
-      @include mobile {
-        height: 62rem;
-        top: 91%;
-        width: calc(100% + var(--container-offset) * 2);
-        background-image: url("./../img/sea-mask-mob.webp");
-      }
     }
   }
 
@@ -74,7 +65,26 @@
     gap: 2rem;
     position: relative;
     z-index: 4;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      width: 100vw;
+      height: 27.5rem;
+      transform: translateX(-50%);
+      background-image: url("./../img/sea-mask.webp");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
 
+      @include mobile {
+        height: 72rem;
+        top: 31%;
+        width: calc(100% + var(--container-offset) * 2);
+        background-image: url("./../img/sea-mask-mob.webp");
+      }
+    }
     @include mobile {
       flex-direction: column;
       align-items: stretch;
@@ -84,6 +94,8 @@
   }
 
   &__btn {
+    position: relative;
+    z-index: 10;
     padding: 1.4rem 7.6rem;
 
     @include mobile {

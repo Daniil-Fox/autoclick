@@ -81,7 +81,7 @@
 
     <main class="main">
       <section class="hero">
-  <div
+  <!-- <div
     class="video-wrapper hero__wrapper"
     data-video-player="hero-video"
     data-video-autoplay
@@ -115,9 +115,70 @@
         Оставить заявку
       </button>
     </div>
+  </div> -->
+
+  <div class="container">
+    <div class="hero__container">
+      <div class="hero__content">
+        <div class="hero__heading">
+          <h1 class="title1 hero__title">
+            Доставка авто в&nbsp;один
+            клик
+          </h1>
+          <ul class="list-reset hero__list">
+            <li>
+              <img src="./img/flags/china.svg" alt="">
+              Китай
+            </li>
+            <li>
+              <img src="./img/flags/china.svg" alt="">
+              Китай
+            </li>
+            <li>
+              <img src="./img/flags/china.svg" alt="">
+              Китай
+            </li>
+            <li>
+              <img src="./img/flags/china.svg" alt="">
+              Китай
+            </li>
+          </ul>
+        </div>
+        <button class="btn-reset hero__btn btn" data-target="modal-cta">
+          Оставить заявку
+        </button>
+
+      </div>
+
+      <div class="hero__gallery">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="hero__gallery-item">
+                <img src="./img/thumbs/001.webp" alt="">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="hero__gallery-item">
+                <img src="./img/thumbs/001.webp" alt="">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="hero__gallery-item">
+                <img src="./img/thumbs/001.webp" alt="">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="hero__gallery-item">
+                <img src="./img/thumbs/001.webp" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</section>
- <section class="benefits">
+</section> <section class="benefits">
   <div class="container">
     <h2 class="title2 benefits__title centered">Преимущества</h2>
 
@@ -517,15 +578,18 @@
     </div>
   </div>
 </section> <section class="sea">
-  <div class="sea__title">В море нет пробок </div>
   <div class="sea__row">
-    <p class="sea__desc">
-      Привезем за&nbsp;7&nbsp;дней
-    </p>
-    <button class="btn-reset btn sea__btn" data-target="modal-cta">Оставить заявку</button>
-  </div>
+    <div class="sea__title">
+      в море
+      <span>нет <span>пробок</span></span>
+    </div>
 
+    <button class="btn-reset btn sea__btn" data-target="modal-cta">
+      Оставить заявку
+    </button>
+  </div>
 </section>
+
       <section class="popular">
   <div class="container">
     <h2 class="title2 popular__title">Популярные авто<span>мобили</span></h2>
@@ -612,6 +676,94 @@
       </div>
     </div>
   </div>
+</section>
+ <section class="more">
+  <div class="container">
+    <div class="more__header">
+      <div class="more__left">
+        <h2 class="title2 more__title">
+          Вопросы и ответы
+        </h2>
+        <p class="more__desc desc1">
+          Больше информации в наших соц. сетях
+        </p>
+      </div>
+      <ul class="list-reset soc more__soc more__soc--desktop">
+        <li>
+          <a href="#" target="_blank">
+            <img src="./img/wa.svg" alt="WhatsApp">
+          </a>
+        </li>
+        <li>
+          <a href="#" target="_blank">
+            <img src="./img/tg.svg" alt="Telegram">
+          </a>
+        </li>
+        <li>
+          <a href="#" target="_blank">
+            <img src="./img/vk.svg" alt="VKontakte">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="more__container">
+    <div class="swiper more__slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="more__item" data-src="https://vk.com/clip-232383915_456239022">
+            <img src="./img/faq/01.webp" alt="Video 1">
+            <button class="btn-reset info__play" aria-label="Запустить видео" data-video-play>
+              <svg>
+                <use xlink:href="img/sprite.svg#play"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="more__item" data-src="https://vk.com/clip-232383915_456239022">
+            <img src="./img/faq/02.webp" alt="Video 2">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="more__item" data-src="https://vk.com/clip-232383915_456239022">
+            <img src="./img/faq/03.webp" alt="Video 3">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="more__item" data-src="https://vk.com/clip-232383915_456239022">
+            <img src="./img/faq/04.webp" alt="Video 4">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="more__item" data-src="https://vk.com/clip-232383915_456239022">
+            <img src="./img/faq/05.webp" alt="Video 5">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="container more__desc more__desc--mobile desc1">
+    Больше информации в наших соц. сетях
+  </p>
+  <ul class="list-reset soc more__soc more__soc--mobile">
+    <li>
+      <a href="#" target="_blank">
+        <img src="./img/wa.svg" alt="WhatsApp">
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_blank">
+        <img src="./img/tg.svg" alt="Telegram">
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_blank">
+        <img src="./img/vk.svg" alt="VKontakte">
+      </a>
+    </li>
+  </ul>
 </section>
  <section class="cta">
   <div class="container">
