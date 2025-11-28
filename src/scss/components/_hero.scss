@@ -22,6 +22,7 @@
     max-width: 95rem;
     line-height: 1;
     font-size: 7rem;
+
     span {
       color: inherit;
 
@@ -38,13 +39,17 @@
       }
     }
     @include mobile {
-      margin-bottom: 5.5rem;
+      font-size: 4.6rem;
+      margin-bottom: 0;
       line-height: 100%;
       letter-spacing: 0.036em;
     }
   }
 
   &__list {
+    @include mobile {
+      display: none;
+    }
     li {
       display: flex;
       align-items: center;
@@ -67,25 +72,80 @@
     }
   }
   &__thumbs {
+    --hero-thumb-progress-duration: 6000ms;
+    position: absolute;
+    z-index: 9;
+    left: calc((100% - var(--content-width)) / 2 + 8rem);
+    bottom: 8rem;
     margin: 0;
     padding: 1rem;
-
-    .swiper-slide {
-      width: auto;
+    @include mobile {
+      left: 6rem;
+      bottom: 6rem;
     }
-    img {
-      display: block;
+    .swiper-wrapper {
+      align-items: center;
+    }
+    .swiper-slide {
       width: 6rem;
       height: 6rem;
+      pointer-events: all;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: width 0.3s ease, height 0.3s ease;
+      @include mobile {
+        width: 4.5rem;
+        height: 4.5rem;
+      }
+      &.hero-thumb-progressing {
+        .hero__thumb::after {
+          opacity: 1;
+          animation: hero-thumb-progress var(--hero-thumb-progress-duration)
+            linear forwards;
+        }
+      }
+      &.hero-thumb-progress-paused {
+        .hero__thumb::after {
+          animation-play-state: paused;
+        }
+      }
+      &.swiper-slide-thumb-active {
+        width: 8rem;
+        height: 8rem;
+
+        @include mobile {
+          width: 6rem;
+          height: 6rem;
+        }
+      }
+    }
+  }
+  &__thumb {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 4px;
+      width: 100%;
+      background-color: var(--ac-pink);
+      transform-origin: left;
+      transform: scaleX(0);
+      opacity: 0;
+      will-change: transform;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
       border-radius: 0.5rem;
 
       transition: transform 0.3s ease-in;
-    }
-
-    .swiper-slide-thumb-active {
-      img {
-        transform: scale(1.2);
-      }
     }
   }
   &__container {
@@ -93,25 +153,64 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 2rem;
+
+    @include mobile {
+      display: flex;
+      flex-direction: column-reverse;
+    }
   }
   &__content {
     grid-column: 4 span;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 7rem;
 
     padding: 8rem;
     background-color: var(--ac-white);
     border-radius: 1rem;
+
+    @include mobile {
+      padding: 6rem 4rem;
+      padding-bottom: 18rem;
+      gap: 4rem;
+    }
   }
 
+  &__slider {
+    min-width: 0;
+    max-width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    & > .swiper-wrapper {
+      flex-grow: 1;
+      min-height: 100%;
+
+      & > .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+      }
+    }
+  }
   &__gallery {
     grid-column: 8 span;
+
+    @include mobile {
+      flex-grow: 1;
+    }
   }
 
   &__btn {
     width: 100%;
     padding: 2.2rem 2rem 2.6rem;
+
+    @include mobile {
+      font-size: 2.2rem;
+      line-height: 1;
+      padding: 1.7rem;
+    }
   }
 
   &__gallery-item {
@@ -119,11 +218,26 @@
     overflow: hidden;
     width: 100%;
     height: 100%;
+    position: relative;
 
-    img {
+    img,
+    video {
       display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
       width: 100%;
       height: 100%;
+      object-fit: cover;
+      opacity: 1;
     }
+  }
+}
+@keyframes hero-thumb-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
   }
 }
