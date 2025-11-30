@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#111111">
+  <title>Autoclick</title>
+  <link rel="preload" href="fonts/Ubuntu-Light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Ubuntu-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Ubuntu-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Ubuntu-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="owl/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/vendor.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script defer src="jquery.js"></script>
+  <script defer src="owl/owl.carousel.min.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+
+
+<body class="page__body">
+  <div class="site-container">
+    <header class="header">
+  <div class="container">
+    <div class="header__container">
+      <a href="#" class="logo header__logo">
+        <img src="./img/svg/logo.svg" width="50" height="26" alt="logo" />
+        <span>автоклик</span>
+      </a>
+
+      <nav class="nav header__nav">
+        <ul>
+          <li>
+            <a href="#">В2В</a>
+          </li>
+          <li>
+            <a href="#">Контакты</a>
+          </li>
+          <li>
+            <a href="#">Юридическая информация</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a href="#" class="header__lk">
+          <img src="./img/svg/lk.svg" width="30" height="30" alt="lk" />
+        </a>
+
+        <button
+          class="burger"
+          data-burger
+          aria-label="Открыть меню"
+          aria-expanded="false"
+        >
+          <span class="burger__line"></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" data-menu>
+  <div class="mobile-menu__overlay" data-menu-overlay></div>
+  <div class="mobile-menu__content">
+
+    <nav class="mobile-menu__nav">
+      <ul>
+        <li><a href="#" data-menu-item>В2В</a></li>
+        <li><a href="#" data-menu-item>Контакты</a></li>
+        <li><a href="#" data-menu-item>Юридическая информация</a></li>
+      </ul>
+    </nav>
+
+    <button class="mobile-menu__cta btn btn-reset" data-menu-item>
+      Оставить заявку
+    </button>
+  </div>
+</div>
+
+  </div>
+</header>
+
+    <main class="main">
+      <section class="hero-b2b">
+        <div class="container hero-b2b__container">
+          <div class="hero-b2b__content">
+            <h1 class="title1 hero-b2b__title">
+              Импорт автомобилей из&nbsp;Китая
+              в&nbsp;разбор
+            </h1>
+            <div class="hero-b2b__text">
+              <p>
+                Поставки морем<br>
+                в&nbsp;виде комплектующих
+              </p>
+            </div>
+            <button class="btn-reset hero-b2b__btn btn" data-target="modal-cta">
+              Оставить заявку
+            </button>
+          </div>
+
+          <div class="hero-b2b__img">
+            <picture>
+              <source srcset="./img/parsing-hero.webp" type="image/webp">
+              <img loading="lazy" src="./img/parsing-hero.jpg" class="image" width="1193" height="880" alt="">
+            </picture>
+          </div>
+        </div>
+      </section>
+
+      <section class="selection">
+  <div class="container">
+
+    <div class="selection__container">
+      <div class="selection__content">
+        <h2 class="selection__title title2">
+          Подбор и&nbsp;выкуп авто
+          в&nbsp;Китае под&nbsp;разбор
+        </h2>
+        <p class=" selection__desc">
+          Выполняем профессиональный подбор<br>
+          и&nbsp;выкуп авто с&nbsp;последующей отправкой<br>
+          морским транспортом в&nbsp;Россию
+        </p>
+      </div>
+      <div class="selection__img">
+        <img src="./img/selection.webp" aria-hidden="true" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="declare">
+  <div class="container">
+    <div class="declare__container">
+      <div class="declare__img">
+        <picture>
+          <source srcset="./img/declare-mob.webp" type="image/webp" media="(max-width: 600px)">
+          <source srcset="./img/declare.webp" type="image/webp">
+          <img loading="lazy" src="./img/declare.jpg" class="image" width="" height="" alt="">
+        </picture>
+      </div>
+      <div class="declare__content">
+        <h2 class="title2 declare__title">
+          Оказываем услуги
+          по&nbsp;<span>декларированию</span>
+          разобранных авто
+        </h2>
+        <p class="desc1 declare__desc">
+          Оформляем документы для ввоза автомобилей
+          в&nbsp;разобранном виде, обеспечивая корректное декларирование и&nbsp;соблюдение всех
+          таможенных требований.
+        </p>
+
+        <button class="btn btn-reset declare__btn" data-target="modal-cta">Оставить заявку</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="guarantee">
+  <div class="container">
+    <h2 class="centered guarantee__title">
+      Наша компания гарантирует
+    </h2>
+
+    <div class="guarantee__container">
+      <div class="guarantee__item">
+        <div class="guarantee__item-content">
+          <h4 class="guarantee__item-title capture1">
+            Разбор автомобилей
+          </h4>
+          <p class="guarantee__item-desc desc1">
+            По&nbsp;всем требованиям<br>
+            российского законодательства
+          </p>
+        </div>
+        <div class="guarantee__item-img">
+          <picture>
+            <source srcset="./img/guarantee/01-mob.webp" type="image/webp" media="(max-width: 600px)">
+            <source srcset="./img/guarantee/01.webp" type="image/webp">
+            <img loading="lazy" src="./img/guarantee/01.png" class="image" width="890" height="560" alt="Block text 1">
+          </picture>
+        </div>
+      </div>
+      <div class="guarantee__item">
+        <div class="guarantee__item-content">
+          <h4 class="guarantee__item-title capture1">
+            Проведение<br>
+            их таможенной очистки
+          </h4>
+          <p class="guarantee__item-desc desc1">
+            С&nbsp;предоставлением заказчику<br>
+            всех необходимых документов для последующей реализации
+          </p>
+        </div>
+        <div class="guarantee__item-img">
+          <picture>
+            <source srcset="./img/guarantee/02-mob.webp" type="image/webp" media="(max-width: 600px)">
+            <source srcset="./img/guarantee/02.webp" type="image/webp">
+            <img loading="lazy" src="./img/guarantee/02.png" class="image" width="890" height="560" alt="Block text 1">
+          </picture>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="poss">
+  <div class="container ">
+    <div class="poss__container">
+      <div class="poss__content">
+        <h2 class="poss__title">
+          Широкие возможности<br>транспортировки
+        </h2>
+        <p class="capture1 poss__desc">
+          Благодаря собственному складу и&nbsp;логистическому сервису мы&nbsp;можем организовать отправку в&nbsp;регионы
+        </p>
+      </div>
+      <div class="poss__img">
+        <picture>
+          <source srcset="./img/poss-mob.webp" type="image/webp" media="(max-width: 600px)">
+          <source srcset="./img/poss.webp" type="image/webp">
+          <img loading="lazy" src="./img/poss.jpg" class="image" width="1800" height="900" alt="">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="cta">
+  <div class="container">
+    <div class="cta__container">
+      <div class="cta__content">
+        <h2 class="title2 cta__title">Оставить заявку</h2>
+
+        <form action="#" class="cta__form form corner-smooth-40">
+          <div class="form__row">
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input
+                  id="name1"
+                  type="text"
+                  class="form__input input-name"
+                  name="Имя"
+                />
+                <label for="name1" class="form__label"
+                  >Название вашей компании*</label
+                >
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input
+                  id="city1"
+                  type="text"
+                  class="form__input input-city"
+                  name="Город"
+                />
+                <label for="city1" class="form__label">Ваш город*</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form__field form__field--long">
+            <div class="form__field-wrapper form__field-wrapper--area">
+              <textarea
+                id="extra1"
+                class="form__input form__input--area input-mess"
+                name="Дополнительно"
+              ></textarea>
+              <label for="extra1" class="form__label">Комментарий</label>
+            </div>
+          </div>
+
+          <div class="form__field form__field--long">
+            <select name="Способ связи" class="visually-hidden select-contact">
+              <option value="">Удобный формат связи</option>
+              <option value="Телефон">Телефон</option>
+              <option value="Telegram">Telegram</option>
+              <option value="Whatsapp">Whatsapp</option>
+              <option value="Email">Email</option>
+            </select>
+
+            <div class="dropdown form__dropdown">
+              <div class="dropdown__header">
+                <div class="dropdown__label">Удобный формат связи</div>
+                <div class="dropdown__capture">Удобный формат связи</div>
+                <div class="dropdown__btn">
+                  <svg class="">
+                    <use
+                      xlink:href="<?php echo get_template_directory_uri()?>/assets/img/sprite.svg#arr-down"
+                    ></use>
+                  </svg>
+                </div>
+              </div>
+              <div class="dropdown__body">
+                <div class="dropdown__content">
+                  <div class="dropdown__item"></div>
+                  <div class="dropdown__item">Телефон</div>
+                  <div class="dropdown__item">Telegram</div>
+                  <div class="dropdown__item">Whatsapp</div>
+                  <div class="dropdown__item">Email</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form__field form__field--long">
+            <div class="form__field-wrapper">
+              <input
+                id="tel1"
+                type="text"
+                class="form__input input-tel"
+                name="Телефон"
+                style="display: block"
+              />
+              <input
+                id="email1"
+                type="email"
+                class="form__input input-email"
+                name="Почта"
+                style="display: none"
+              />
+              <label for="tel1" class="form__label">телефон/почта</label>
+            </div>
+          </div>
+          <span class="cta-extra">*Обязательные поля</span>
+          <button class="btn btn-reset btn--accent form__btn" disabled>
+            Получить расчет
+          </button>
+        </form>
+      </div>
+
+      <div class="cta__decor">
+        <img src="./img/car.webp" aria-hidden="true" alt="" />
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="cta-bottom">
+  <div class="container">
+    <div class="cta-bottom__container">
+      <div class="cta-bottom__decor">
+        <img src="./img/cta.webp" aria-hidden="true" alt="">
+      </div>
+
+      <div class="cta-bottom__content">
+        <h2 class="title2 cta-bottom__title">Остались вопросы?</h2>
+
+        <form action="#" class="cta-bottom__form form corner-smooth-40">
+          <div class="form__field form__field--long">
+            <div class="form__field-wrapper form__field-wrapper--area">
+              <textarea id="question" class="form__input form__input--area input-mess" name="Вопрос"></textarea>
+              <label for="question" class="form__label">Ваш вопрос*</label>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input id="name2" type="text" class="form__input input-name" name="Имя" />
+                <label for="name2" class="form__label">Ваше имя*</label>
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input id="city2" type="text" class="form__input input-name" name="Город" />
+                <label for="city2" class="form__label">Ваш город*</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form__row form__row_only">
+
+
+            <div class="form__field form__field--long">
+              <select name="Способ связи" class="visually-hidden select-contact">
+                <option value="">Куда прислать ответ</option>
+                <option value="Телефон">Телефон</option>
+                <option value="Telegram">Telegram</option>
+                <option value="Whatsapp">Whatsapp</option>
+                <option value="Email">Email</option>
+              </select>
+
+              <div class="dropdown form__dropdown">
+                <div class="dropdown__header">
+                  <div class="dropdown__label">Куда прислать ответ</div>
+                  <div class="dropdown__capture">Куда прислать ответ</div>
+                  <div class="dropdown__btn">
+                    <svg class="">
+                      <use xlink:href="img/sprite.svg#arr-down"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="dropdown__body">
+                  <div class="dropdown__content">
+                    <div class="dropdown__item"></div>
+                    <div class="dropdown__item">Телефон</div>
+                    <div class="dropdown__item">Telegram</div>
+                    <div class="dropdown__item">Whatsapp</div>
+                    <div class="dropdown__item">Email</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input id="phone2" type="text" class="form__input input-tel" name="Телефон" style="display: block" />
+                <input id="email2" type="email" class="form__input input-email" name="Почта" style="display: none" />
+                <label for="phone2" class="form__label">телефон/почта</label>
+              </div>
+            </div>
+          </div>
+          <span class="cta-extra">*Обязательные поля</span>
+
+
+          <button class="btn btn-reset btn--accent form__btn" disabled>
+            Задать вопрос
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+    </main>
+    <footer class="footer">
+  <div class="container">
+    <div class="footer__container">
+      <div class="footer__left">
+        <address class="footer__address">
+          <p class="desc1 footer__link"><a href="#" class="link-btn">+7&nbsp;908-444-84-64</a></p>
+          <p class="desc1 footer__link"><a href="#" class="link-btn">carbuy@avtoklik.ru</a></p>
+          <p class="desc1 footer__link">Владивосток,&nbsp;ул.&nbsp;Станюковича&nbsp;
+            д.&nbsp;46, офис 304</p>
+        </address>
+        <ul class="list-reset soc footer__soc footer__soc--mobile">
+          <li>
+            <a href="#" target="_blank">
+              <img src="./img/wa.svg" alt="WhatsApp">
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank">
+              <img src="./img/tg.svg" alt="Telegram">
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank">
+              <img src="./img/vk.svg" alt="VKontakte">
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__right">
+        <!-- Основной блок соцсетей для десктопа -->
+        <ul class="list-reset soc footer__soc footer__soc--desktop">
+          <li>
+            <a href="#" target="_blank">
+              <img src="./img/wa.svg" alt="WhatsApp">
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank">
+              <img src="./img/tg.svg" alt="Telegram">
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank">
+              <img src="./img/vk.svg" alt="VKontakte">
+            </a>
+          </li>
+        </ul>
+
+        <a href="#" class="desc1 footer__policy link-btn">Политика конфиденциальности</a>
+        <small class="desc1 footer__copy">©2025 Автоклик</small>
+      </div>
+    </div>
+  </div>
+</footer>
+  </div>
+
+  <!-- Модальные окна -->
+  <!-- Модальное окно "Оставить заявку" -->
+<div class="modal" id="modal-cta">
+  <div class="modal__overlay"></div>
+  <div class="modal__container">
+    <div class="modal__content">
+      <button class="modal__close" type="button" aria-label="Закрыть модальное окно">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L29 29M29 1L1 29" stroke-width="2" />
+        </svg>
+      </button>
+      <div class="cta__container">
+        <div class="cta__content">
+          <h2 class="title2 cta__title">Оставить заявку</h2>
+
+          <form action="#" class="modal__form form corner-smooth-40">
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input id="modal-model" type="text" class="form__input input-name" name="Марка, модель" />
+                <label for="modal-model" class="form__label">Марка, модель*</label>
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper form__field-wrapper--area">
+                <textarea id="modal-extra" class="form__input form__input--area input-mess"
+                  name="Дополнительно"></textarea>
+                <label for="modal-extra" class="form__label">Дополнительно (год, комплектация, мощность, т.д.)</label>
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="form__field form__field--long">
+                <div class="form__field-wrapper">
+                  <input id="modal-name" type="text" class="form__input input-name" name="Имя" />
+                  <label for="modal-name" class="form__label">Ваше имя*</label>
+                </div>
+              </div>
+
+              <div class="form__field form__field--long">
+                <div class="form__field-wrapper">
+                  <input id="modal-city" type="text" class="form__input input-name" name="Город" />
+                  <label for="modal-city" class="form__label">Ваш город*</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <select name="Способ связи" class="visually-hidden select-contact">
+                <option value="">Удобный формат связи</option>
+                <option value="Телефон">Телефон</option>
+                <option value="Telegram">Telegram</option>
+                <option value="Whatsapp">Whatsapp</option>
+                <option value="Email">Email</option>
+              </select>
+
+              <div class="dropdown form__dropdown">
+                <div class="dropdown__header">
+                  <div class="dropdown__label">Удобный формат связи</div>
+                  <div class="dropdown__capture">Удобный формат связи</div>
+                  <div class="dropdown__btn">
+                    <svg class="">
+                      <use xlink:href="img/sprite.svg#arr-down"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="dropdown__body">
+                  <div class="dropdown__content">
+                    <div class="dropdown__item"></div>
+                    <div class="dropdown__item">Телефон</div>
+                    <div class="dropdown__item">Telegram</div>
+                    <div class="dropdown__item">Whatsapp</div>
+                    <div class="dropdown__item">Email</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form__field form__field--long">
+              <div class="form__field-wrapper">
+                <input id="modal-tel" type="text" class="form__input input-tel" name="Телефон" style="display: block" />
+                <input id="modal-email" type="email" class="form__input input-email" name="Почта" style="display: none" />
+                <label for="modal-tel" class="form__label">телефон/почта</label>
+              </div>
+            </div>
+
+            <span class="cta-extra">*Обязательные поля</span>
+            <button class="btn btn-reset btn--accent form__btn" disabled>
+              Получить расчет
+            </button>
+          </form>
+        </div>
+
+        <div class="cta__decor">
+          <img src="./img/car.webp" aria-hidden="true" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Модальное окно успешной отправки -->
+<div class="modal modal--success" id="modal-success">
+  <div class="modal__overlay"></div>
+  <div class="modal__container">
+    <div class="modal__content">
+      <button
+        class="modal__close"
+        type="button"
+        aria-label="Закрыть модальное окно"
+      >
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 30 30"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M1 1L29 29M29 1L1 29" stroke="#050220" stroke-width="2" />
+        </svg>
+      </button>
+
+      <div class="modal__success">
+        <div class="modal__success-icon" aria-hidden="true">
+          <svg
+            width="124"
+            height="90"
+            viewBox="0 0 124 90"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M42.4097 70.3563L110.361 2.40535C111.964 0.801783 113.835 0 115.973 0C118.111 0 119.982 0.801783 121.586 2.40535C123.189 4.00891 123.991 5.91448 123.991 8.12205C123.991 10.3296 123.189 12.2325 121.586 13.8307L48.0222 87.5947C46.4186 89.1982 44.5478 90 42.4097 90C40.2716 90 38.4008 89.1982 36.7973 87.5947L2.32065 53.118C0.717082 51.5145 -0.0526295 49.6116 0.011513 47.4094C0.0756556 45.2071 0.912179 43.3016 2.52109 41.6926C4.13 40.0837 6.03557 39.282 8.23779 39.2873C10.44 39.2926 12.3429 40.0944 13.9465 41.6926L42.4097 70.3563Z"
+              fill="#75EA75"
+            />
+          </svg>
+        </div>
+        <div class="modal__text">
+          <h3 class="modal__success-title">Заявка успешно отправлена!</h3>
+          <p class="modal__success-text desc1">
+            Наш менеджер свяжется с вами в ближайшее время
+          </p>
+        </div>
+        <button class="btn btn-reset modal__ok btn_grey">Отлично</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Модальное окно успешной отправки -->
+<div class="modal modal--error" id="modal-error">
+  <div class="modal__overlay"></div>
+  <div class="modal__container">
+    <div class="modal__content">
+      <button class="modal__close" type="button" aria-label="Закрыть модальное окно">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L29 29M29 1L1 29" stroke="#050220" stroke-width="2" />
+        </svg>
+      </button>
+
+      <div class="modal__error">
+        <div class="modal__error-icon" aria-hidden="true">
+          <svg width="91" height="90" viewBox="0 0 91 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M78.5 12L12.5 78M12.5 12L78.5 78" stroke="#D80B42" stroke-width="15" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="modal__text">
+          <h3 class="modal__error-title">Ошибка при отправке</h3>
+          <p class="modal__error-text desc1">
+            Пожалуйста, попробуйте ещё раз или свяжитесь с нами по телефону
+            <a href="tel:+7 908-444-84-64">+7 908-444-84-64</a>
+          </p>
+        </div>
+
+        <div class="modal__row">
+          <button class="btn btn-reset modal__ok btn_grey">Закрыть</button>
+          <button class="btn btn-reset modal__ok modal__retry btn_grey">
+            Повторить отправку
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Cookie notice -->
+  <div class="cookie-notice" id="cookie-notice">
+  <div class="cookie-notice__container">
+    <div class="cookie-notice__content">
+      <div class="cookie-notice__text">
+        <p>Мы&nbsp;используем файлы cookie для улучшения работы сайта и&nbsp;анализа трафика.<br>
+          Продолжая использовать сайт, вы&nbsp;соглашаетесь с&nbsp;нашей <a href="#">политикой использования cookie.</a></p>
+      </div>
+      <button class="cookie-notice__btn" type="button" id="cookie-accept">
+        Хорошо
+      </button>
+    </div>
+    <div class="cookie-notice__icon">
+      <img src="./img/cookies.png" alt="Cookies" width="100" height="100">
+    </div>
+  </div>
+</div>
+
+<style>
+.cookie-notice {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: #fff;
+  border-top: 0.1rem solid #e0e0e0;
+  box-shadow: 0 -0.4rem 2rem rgba(0, 0, 0, 0.1);
+  transform: translateY(200%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cookie-notice.show {
+  transform: translateY(0);
+}
+
+.cookie-notice__container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  position: relative;
+}
+
+.cookie-notice__content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
+}
+
+.cookie-notice__text {
+  flex: 1;
+}
+
+.cookie-notice__text p {
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1.4;
+  color: #333;
+}
+.cookie-notice__text a {
+  color: #0056b3;
+  text-decoration: underline;
+}
+.cookie-notice__btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 1.2rem 4rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cookie-notice__btn:hover {
+  background: #0056b3;
+}
+
+.cookie-notice__icon {
+  position: absolute;
+  top: 0rem;
+  transform: translateY(-50%);
+  right: -5rem;
+  width: 8rem;
+  height: 8rem;
+  flex-shrink: 0;
+}
+
+.cookie-notice__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Адаптивность */
+@media (max-width: 76.8rem) {
+  .cookie-notice__container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .cookie-notice__content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .cookie-notice__btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cookie-notice__icon {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .cookie-notice__text p {
+    font-size: 2.2rem;
+  }
+
+  .cookie-notice__btn {
+    padding: 1.2rem 2rem;
+    font-size: 2rem;
+  }
+}
+@media (max-width: 76.8rem){
+
+  .cookie-notice__icon {
+    width: 8rem;
+    height: 8rem;
+    right: 2rem;
+  }
+}
+
+</style>
+
+<script>
+(function() {
+  'use strict';
+
+  // Проверяем, согласился ли пользователь с куки
+  function hasCookieConsent() {
+    return localStorage.getItem('cookie-consent') === 'accepted';
+  }
+
+  // Сохраняем согласие пользователя
+  function setCookieConsent() {
+    localStorage.setItem('cookie-consent', 'accepted');
+  }
+
+  // Показываем плашку о куки
+  function showCookieNotice() {
+    const notice = document.getElementById('cookie-notice');
+    if (notice) {
+      notice.classList.add('show');
+    }
+  }
+
+  // Скрываем плашку о куки
+  function hideCookieNotice() {
+    const notice = document.getElementById('cookie-notice');
+    if (notice) {
+      notice.classList.remove('show');
+      // Удаляем элемент из DOM через некоторое время после анимации
+      setTimeout(() => {
+        if (notice.parentNode) {
+          notice.parentNode.removeChild(notice);
+        }
+      }, 300);
+    }
+  }
+
+  // Обработчик клика по кнопке "Хорошо"
+  function handleCookieAccept() {
+    setCookieConsent();
+    hideCookieNotice();
+  }
+
+  // Инициализация
+  function init() {
+    // Если пользователь уже согласился, не показываем плашку
+    if (hasCookieConsent()) {
+      return;
+    }
+
+    // Показываем плашку через небольшую задержку для плавности
+    setTimeout(showCookieNotice, 500);
+
+    // Добавляем обработчик клика
+    const acceptBtn = document.getElementById('cookie-accept');
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', handleCookieAccept);
+    }
+  }
+
+  // Запускаем инициализацию когда DOM готов
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+
+</html>

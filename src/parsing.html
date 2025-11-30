@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+@include('partials/head.html')
+
+<body class="page__body">
+  <div class="site-container">
+    @include('partials/header.html')
+    <main class="main">
+      <section class="hero-b2b">
+        <div class="container hero-b2b__container">
+          <div class="hero-b2b__content">
+            <h1 class="title1 hero-b2b__title">
+              Импорт автомобилей из&nbsp;Китая
+              в&nbsp;разбор
+            </h1>
+            <div class="hero-b2b__text">
+              <p>
+                Поставки морем<br>
+                в&nbsp;виде комплектующих
+              </p>
+            </div>
+            <button class="btn-reset hero-b2b__btn btn" data-target="modal-cta">
+              Оставить заявку
+            </button>
+          </div>
+
+          <div class="hero-b2b__img">
+            <picture>
+              <source srcset="./img/parsing-hero.webp" type="image/webp">
+              <img loading="lazy" src="./img/parsing-hero.jpg" class="image" width="1193" height="880" alt="">
+            </picture>
+          </div>
+        </div>
+      </section>
+
+      @include('partials/selection.html')
+      @include('partials/declare.html')
+      @include('partials/guarantee.html')
+      @include('partials/poss.html')
+      @include('partials/cta.html')
+      @include('partials/cta-bottom.html')
+    </main>
+    @include('partials/footer.html')
+  </div>
+
+  <!-- Модальные окна -->
+  @include('partials/modal-cta.html') @include('partials/modal-success.html')
+  @include('partials/modal-error.html')
+
+  <!-- Cookie notice -->
+  @include('partials/cookie.html')
+</body>
+
+</html>

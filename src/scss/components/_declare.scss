@@ -1,0 +1,85 @@
+.declare {
+  padding: 10rem 0;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+    min-height: 67rem;
+
+    @include mobile {
+      min-height: auto;
+      grid-template-columns: 1fr;
+    }
+  }
+  &__title {
+    font-size: 5rem;
+
+    @include mobile {
+      font-size: 4.2rem;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 6rem;
+
+      @include mobile {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+  &__desc {
+    @include mobile {
+      font-weight: 400;
+      font-size: 2.2rem;
+      line-height: 150%;
+    }
+    &:not(:last-child) {
+      margin-bottom: 6rem;
+      @include mobile {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+  &__img {
+    position: relative;
+    grid-column: 7 span;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    @include mobile {
+      height: 35rem;
+      grid-column: 1 span;
+    }
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    grid-column: 5 span;
+    padding: 7rem;
+    background-color: var(--ac-white);
+    border-radius: 1rem;
+    @include mobile {
+      grid-column: 1 span;
+      padding: 5.5rem 4rem;
+    }
+  }
+
+  &__btn {
+    margin-top: auto;
+    padding: 2.2rem 10rem;
+
+    @include mobile {
+      padding: 1.7rem 3rem;
+      width: 100%;
+      font-size: 2.2rem;
+    }
+  }
+}

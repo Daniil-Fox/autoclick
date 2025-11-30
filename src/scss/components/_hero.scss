@@ -171,7 +171,7 @@
 
     @include mobile {
       padding: 6rem 4rem;
-      padding-bottom: 18rem;
+      // padding-bottom: 18rem;
       gap: 4rem;
     }
   }
@@ -203,6 +203,7 @@
   }
 
   &__btn {
+    margin-top: auto;
     width: 100%;
     padding: 2.2rem 2rem 2.6rem;
 
